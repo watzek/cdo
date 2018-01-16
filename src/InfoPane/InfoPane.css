@@ -1,0 +1,21 @@
+.InfoPane {
+  width: 25rem;
+  height: 40rem;
+  z-index: 1020;
+}
+
+.card-img-top {
+  border-radius: 0;
+}
+
+.card-subtitle {
+  margin-bottom: 0.75rem;
+}
+
+.btn-group {
+  width: 100%;
+}
+
+.btn-group .btn {
+  width: 50%;
+}
