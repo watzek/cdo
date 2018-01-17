@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TopBar from './TopBar/TopBar';
-import InfoPane from './InfoPane/InfoPane';
 import MapPane from './MapPane/MapPane';
 import './App.css';
 
