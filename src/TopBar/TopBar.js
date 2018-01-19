@@ -6,7 +6,7 @@ class TopBar extends Component {
   render() {
     return (
       <Navbar light expand="sm" className="bg-light rounded d-none d-sm-flex mt-5 mb-5">
-        <NavbarBrand href="/">the lewis & clark expedition online</NavbarBrand>
+        <NavbarBrand href="/">the corps of discovery online</NavbarBrand>
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink href="#">map</NavLink>
