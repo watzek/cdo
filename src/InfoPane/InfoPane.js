@@ -1,17 +1,37 @@
-import React, { Component } from 'react';
-import {CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+// @flow
+import * as React from 'react';
+import { CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 
-class InfoPane extends Component {
+// collection of info that will be displayed
+type InfoCard = {
+  title: string,
+  subtitle: string,
+  text: string
+}
+
+class InfoPane extends React.Component<{}, InfoCard> {
+  state = {
+    title: "",
+    subtitle: "Click on the map to view more information. \u00bb",
+    text: ""
+  }
+
+  onInfoChange(info: InfoCard) {
+    this.setState({
+      title: info.title,
+      subtitle: info.subtitle,
+      text: info.text
+    })
+  }
+
   render() {
-    return ([
-        <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />,
-        <CardBody>
-          <CardTitle>Card title</CardTitle>
-          <CardSubtitle>Card subtitle</CardSubtitle>
-          <CardText>"Some quick example text to build on the card title and make up the bulk of the card's content."</CardText>
-          <Button>Button</Button>
-        </CardBody>
-    ])
+    return (
+      <CardBody>
+        <CardTitle>{this.state.title}</CardTitle>
+        <CardSubtitle>{this.state.subtitle}</CardSubtitle>
+        <CardText>{this.state.text}</CardText>
+      </CardBody>
+    )
   }
 }
 

@@ -1,0 +1,15 @@
+[ignore]
+; Ignore libraries with broken flow
+.*/node_modules/react-leaflet/.*
+.*/node_modules/config-chain/.*
+
+[include]
+
+[libs]
+./libdefs.js
+
+[lints]
+
+[options]
+
+[strict]
