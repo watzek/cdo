@@ -1,49 +1,80 @@
-import React, { Component } from 'react';
-import { Map, ZoomControl, LayersControl, TileLayer, GeoJSON } from 'react-leaflet';
-import Sidebar from '../Sidebar/Sidebar';
-import 'whatwg-fetch';
-import './MapPane.css';
+// @flow
+import * as React from 'react'
+import { Map as LMap, ZoomControl, TileLayer, GeoJSON } from 'react-leaflet'
+import './MapPane.css'
 
-class MapPane extends Component {
-  constructor() {
-    super()
-    this.state = {'layers' : {}};
-    fetch('/layers/biomes.geojson').then(data => data.json()).then(json => this.loadLayer('biomes', json))
-    fetch('/layers/trail.geojson').then(data => data.json()).then(json => this.loadLayer('trail', json))
+type Layer = {
+  name: string,
+  data: any,
+  hidden: boolean
+}
+
+type State = {
+  layers: Map<string, Layer>
+}
+
+class MapPane extends React.Component<{}, State> {
+  state = {
+    layers: new Map()
   }
-  loadLayer(name, data) {
-    let state = this.state
-    state.layers[name] = data
-    this.setState(state)
+
+  componentDidMount() {
+    this.loadJSONLayer('biomes', { hidden: false })
+    this.loadJSONLayer('trail', { hidden: false })
+    this.loadJSONLayer('poi', { hidden: false })
   }
+
+  loadJSONLayer(name: string, options: any) {
+    fetch(`/layers/${name}.geojson`).then(data => data.json()).then(json => {
+      this.setState({
+        layers: this.state.layers.set(name, {
+          data: json,
+          hidden: options.hidden
+        })
+      })
+    })
+  }
+
+  renderLayers() {
+    let layers = []
+    this.state.layers.forEach((layer, name) => {
+      layers.push({
+        name: name,
+        data: layer.data,
+        hidden: layer.hidden
+      })
+    })
+    return layers
+      .filter(layer => !layer.hidden)
+      .map(layer => <GeoJSON data={layer.data} key={layer.name}/>)
+  }
+
+  toggleLayer(name: string) {
+    this.setState((prevState: State) => {
+      let prevLayer = prevState.get(name)
+      return {
+        layers: prevState.layers.set(name, {
+          ...prevLayer,
+          hidden: !prevLayer.hidden
+        })
+      }
+    })
+  }
+
   render() {
     return (
       <div>
-        <Sidebar />
-        <Map className="MapPane rounded mt-3" center={[40,-120]} zoom={5} zoomControl={false}>
+        <LMap className="MapPane rounded mt-3" center={[40,-120]} zoom={5} zoomControl={false}>
           <ZoomControl position="topright" />
-          <LayersControl position="bottomright">
-            <LayersControl.BaseLayer name="basemap">
-              <TileLayer
-                attribution="Map tiles by <a href=&quot;http://stamen.com&quot;>Stamen Design</a>"
-                url="https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.png"
-              />
-            </LayersControl.BaseLayer>
-            { this.state.layers.biomes &&
-            <LayersControl.Overlay name="biomes">
-              <GeoJSON data={this.state.layers.biomes} />
-            </LayersControl.Overlay>
-            }
-            { this.state.layers.trail &&
-            <LayersControl.Overlay name="trail">
-              <GeoJSON data={this.state.layers.trail} />
-            </LayersControl.Overlay>
-            }
-          </LayersControl>
-        </Map>
+            <TileLayer
+              attribution="Map tiles by <a href=&quot;http://stamen.com&quot;>Stamen Design</a>"
+              url="https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.png"
+            />
+            { this.renderLayers() }
+        </LMap>
       </div>
     );
   }
 }
 
-export default MapPane;
+export default MapPane
