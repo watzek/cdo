@@ -1,9 +1,9 @@
 // @flow
 import * as React from 'react'
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap'
-import './Topbar.css'
+import './TopBar.css'
 
-class Topbar extends React.Component<{}> {
+class TopBar extends React.Component<{}> {
   render() {
     return (
       <Navbar light expand="sm" className="bg-light rounded d-none d-sm-flex mt-5 mb-5">
@@ -21,4 +21,4 @@ class Topbar extends React.Component<{}> {
   }
 }
 
-export default Topbar
+export default TopBar

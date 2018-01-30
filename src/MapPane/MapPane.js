@@ -2,29 +2,18 @@
 import * as React from 'react'
 import { Map as LMap, ZoomControl, TileLayer, GeoJSON } from 'react-leaflet'
 import './MapPane.css'
+import { LayerStyle, OnEachFeature } from './LayerCustomize.js'
 
-type Layer = {
-  name: string,
-  data: any,
-  hidden: boolean
-}
 
-type State = {
-  layers: Map<string, Layer>
-}
-
-class MapPane extends React.Component<{}, State> {
-  state = {
-    layers: new Map()
-  }
+export default class MapPane extends React.Component {
+  state = { layers: new Map() }
 
   componentDidMount() {
-    this.loadJSONLayer('biomes', { hidden: false })
-    this.loadJSONLayer('trail', { hidden: false })
-    this.loadJSONLayer('poi', { hidden: false })
+    this.loadJSONLayer('biomes', { hidden: true })
+    this.loadJSONLayer('trail', { hidden: true })
+    this.loadJSONLayer('poi', { hidden: true })
   }
-
-  loadJSONLayer(name: string, options: any) {
+  loadJSONLayer(name, options) {
     fetch(`/layers/${name}.geojson`).then(data => data.json()).then(json => {
       this.setState({
         layers: this.state.layers.set(name, {
@@ -41,24 +30,15 @@ class MapPane extends React.Component<{}, State> {
       layers.push({
         name: name,
         data: layer.data,
-        hidden: layer.hidden
+        hidden: !this.props.activeLayers.includes(name),
+        style: LayerStyle(name),                // stylizing for layers found in LayerCustomize.js
+        onEachFeature: OnEachFeature(name,this) // functionalizing layers in LayerCustomize.js
       })
     })
     return layers
       .filter(layer => !layer.hidden)
-      .map(layer => <GeoJSON data={layer.data} key={layer.name}/>)
-  }
-
-  toggleLayer(name: string) {
-    this.setState((prevState: State) => {
-      let prevLayer = prevState.get(name)
-      return {
-        layers: prevState.layers.set(name, {
-          ...prevLayer,
-          hidden: !prevLayer.hidden
-        })
-      }
-    })
+      .map(layer => <GeoJSON data={layer.data} key={layer.name}
+        style={layer.style} onEachFeature={layer.onEachFeature} />)
   }
 
   render() {
@@ -76,5 +56,3 @@ class MapPane extends React.Component<{}, State> {
     );
   }
 }
-
-export default MapPane

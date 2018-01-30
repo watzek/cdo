@@ -5,20 +5,14 @@ import InfoPane from '../InfoPane/InfoPane'
 import LayersPane from '../LayersPane/LayersPane'
 import './Sidebar.css'
 
-type State = {
-  activePane: string,
-}
+export default class Sidebar extends React.Component<{}, State> {
+  state = { activePane: 'layers' }
 
-class Sidebar extends React.Component<{}, State> {
-  state = {
-    activePane: 'info',
-  }
-
-  onPaneSwitch(pane: string) {
+  onPaneSwitch(pane) {
     this.setState({ activePane: pane })
   }
 
-  renderPaneButton(pane: string): React$Element<*> {
+  renderPaneButton(pane){
     return (
       <Button
         color={this.state.activePane === pane ? 'primary' : 'secondary'}
@@ -28,10 +22,10 @@ class Sidebar extends React.Component<{}, State> {
     )
   }
 
-  renderPane(pane: string): ?React$Element<*> {
+  renderPane(pane){
     switch (pane) {
       case 'info': return (<InfoPane />)
-      case 'layers': return (<LayersPane />)
+      case 'layers': return (<LayersPane changeLayer={this.props.changeLayer} activeLayers={this.props.activeLayers}/>)
       default: return null
     }
   }
@@ -41,8 +35,8 @@ class Sidebar extends React.Component<{}, State> {
       <Card className="Sidebar position-absolute">
         <CardHeader>
           <ButtonGroup>
-            {this.renderPaneButton('info')}
             {this.renderPaneButton('layers')}
+            {this.renderPaneButton('info')}
           </ButtonGroup>
         </CardHeader>
         {this.renderPane(this.state.activePane)}
@@ -50,5 +44,3 @@ class Sidebar extends React.Component<{}, State> {
     )
   }
 }
-
-export default Sidebar
