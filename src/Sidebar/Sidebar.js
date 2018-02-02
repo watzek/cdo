@@ -6,17 +6,12 @@ import LayersPane from '../LayersPane/LayersPane'
 import './Sidebar.css'
 
 export default class Sidebar extends React.Component<{}, State> {
-  state = { activePane: 'layers' }
-
-  onPaneSwitch(pane) {
-    this.setState({ activePane: pane })
-  }
 
   renderPaneButton(pane){
     return (
       <Button
-        color={this.state.activePane === pane ? 'primary' : 'secondary'}
-        onClick={() => this.onPaneSwitch(pane)}>
+        color={this.props.activePane === pane ? 'primary' : 'secondary'}
+        onClick={() => this.props.changePane(pane)}>
         {pane}
       </Button>
     )
@@ -24,8 +19,9 @@ export default class Sidebar extends React.Component<{}, State> {
 
   renderPane(pane){
     switch (pane) {
-      case 'info': return (<InfoPane />)
-      case 'layers': return (<LayersPane changeLayer={this.props.changeLayer} activeLayers={this.props.activeLayers}/>)
+      case 'info': return (<InfoPane paneInfo={this.props.paneInfo}/>)
+      case 'layers': return (<LayersPane changeLayer={this.props.changeLayer}
+        activeLayers={this.props.activeLayers} switchTrail={this.props.switchTrail}/>)
       default: return null
     }
   }
@@ -39,7 +35,7 @@ export default class Sidebar extends React.Component<{}, State> {
             {this.renderPaneButton('info')}
           </ButtonGroup>
         </CardHeader>
-        {this.renderPane(this.state.activePane)}
+        {this.renderPane(this.props.activePane)}
       </Card>
     )
   }
