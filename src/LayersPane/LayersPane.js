@@ -50,6 +50,7 @@ return (<ListGroupItem >
             {this.renderLayerButton('trail','Trails')}
             {this.renderLayerButton('biomes','Biomes')}
             {this.renderLayerButton('poi','Points of Interest')}
+            {this.renderLayerButton('usa_cities','Cities')}
         </ListGroup>
       </CardBody>
     )

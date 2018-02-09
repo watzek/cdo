@@ -22,7 +22,49 @@ export function OnEachFeature(name,cntxt){
   }
 }
 
+export function PointToLayer(name, cntxt){
+  context = cntxt
+  switch(name){
+    case 'poi': return pointToPOI
+    case 'usa_cities': return pointToCities
+    default: return null
+  }
+}
+
+function pointToPOI(feature, latlng){
+  var op = 1
+  // if(context.props.activeTrail==='outbound'){
+  //   op = parseInt(feature.properties.Date.split('/')[2])>1805 ? 0 : 1
+  // }else if(context.props.activeTrail==='return'){
+  //   op = parseInt(feature.properties.Date.split('/')[2])<=1805 ? 0 : 0
+  // }
+  var geojsonMarkerOptions = {
+      radius: 8,
+      fillColor: "#00ff00",
+      weight: 1,
+      fillOpacity: op,
+      opacity: op
+
+  }
+  return Leaflet.circleMarker(latlng, geojsonMarkerOptions)
+}
+
+function pointToCities(feature, latlng){
+  return new Leaflet.Marker(latlng, {
+    icon: new Leaflet.DivIcon({
+        className: 'my-div-icon',
+        html:  '<span>'+feature.properties.CITY_NAME+'</span>'
+    })
+});
+}
+
 function POIStyle(feature){
+  if(parseInt(feature.properties.Date.split('/')[2])>1805){
+    return {/*opacity: context.props.activeTrail==='outbound'? 1 : 0*/ show: false }
+  }else{
+    return { opacity: context.props.activeTrail==='outbound'? 0 : 1 }
+  }
+  console.log(feature)
 }
 
 function trailStyle(feature){
@@ -60,7 +102,7 @@ function onEachPOI(feature,layer){
   //layer.bindPopup(feature.properties.Name)
   layer.on({click: ()=>(context.props.changePane('info',feature.properties))})
 
-  //console.log(feature)
+
 }
 
 function onEachTrail(feature,layer){

@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { Map as LMap, ZoomControl, TileLayer, GeoJSON } from 'react-leaflet'
 import './MapPane.css'
-import { LayerStyle, OnEachFeature } from './LayerCustomize.js'
+import { LayerStyle, OnEachFeature, PointToLayer } from './LayerCustomize.js'
 
 
 export default class MapPane extends React.Component {
@@ -12,6 +12,7 @@ export default class MapPane extends React.Component {
     this.loadJSONLayer('biomes', { hidden: true })
     this.loadJSONLayer('trail', { hidden: true })
     this.loadJSONLayer('poi', { hidden: true })
+    this.loadJSONLayer('usa_cities', { hidden: true })
   }
   loadJSONLayer(name, options) {
     fetch(`/layers/${name}.geojson`).then(data => data.json()).then(json => {
@@ -24,6 +25,7 @@ export default class MapPane extends React.Component {
     })
   }
 
+
   renderLayers() {
     let layers = []
     this.state.layers.forEach((layer, name) => {
@@ -32,13 +34,15 @@ export default class MapPane extends React.Component {
         data: layer.data,
         hidden: !this.props.activeLayers.includes(name),
         style: LayerStyle(name),                // stylizing for layers found in LayerCustomize.js
-        onEachFeature: OnEachFeature(name,this) // functionalizing layers in LayerCustomize.js
+        pointToLayer: PointToLayer(name),
+        onEachFeature: OnEachFeature(name,this)
+
       })
     })
     return layers
       .filter(layer => !layer.hidden)
       .map(layer => <GeoJSON data={layer.data} key={layer.name}
-        style={layer.style} onEachFeature={layer.onEachFeature} />)
+        style={layer.style} onEachFeature={layer.onEachFeature} pointToLayer={layer.pointToLayer}/>)
   }
 
   render() {
