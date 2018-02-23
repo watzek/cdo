@@ -1,1 +1,12 @@
-
+#app{
+  height:50%!important;
+  background-color: blue;
+  padding-top: 0px!important;
+  margin: 0px!important;
+}
+body{
+  background-color: green;
+  height: 75vh!important;
+  padding: 0px!important;
+  margin-top: 0px!important;
+}

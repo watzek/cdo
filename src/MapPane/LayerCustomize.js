@@ -32,21 +32,20 @@ export function PointToLayer(name, cntxt){
 }
 
 function pointToPOI(feature, latlng){
-  var op = 1
-  // if(context.props.activeTrail==='outbound'){
-  //   op = parseInt(feature.properties.Date.split('/')[2])>1805 ? 0 : 1
-  // }else if(context.props.activeTrail==='return'){
-  //   op = parseInt(feature.properties.Date.split('/')[2])<=1805 ? 0 : 0
-  // }
+  if(context.props.activeTrail==='outbound'&&parseInt(feature.properties.Date.split('/')[2],10)>1805){
+    return null
+  }else if(context.props.activeTrail==='return'&&parseInt(feature.properties.Date.split('/')[2],10)<=1805){
+    return null
+  }
   var geojsonMarkerOptions = {
-      radius: 8,
+      radius: 7,
+      stroke: false,
       fillColor: "#00ff00",
       weight: 1,
-      fillOpacity: op,
-      opacity: op
-
+      fillOpacity: 1,
+      title:feature.properties.Name
   }
-  return Leaflet.circleMarker(latlng, geojsonMarkerOptions)
+  return Leaflet.circleMarker(latlng, geojsonMarkerOptions).bindTooltip(feature.properties.Name)
 }
 
 function pointToCities(feature, latlng){
@@ -59,12 +58,7 @@ function pointToCities(feature, latlng){
 }
 
 function POIStyle(feature){
-  if(parseInt(feature.properties.Date.split('/')[2])>1805){
-    return {/*opacity: context.props.activeTrail==='outbound'? 1 : 0*/ show: false }
-  }else{
-    return { opacity: context.props.activeTrail==='outbound'? 0 : 1 }
-  }
-  console.log(feature)
+  return {opacity: 0}
 }
 
 function trailStyle(feature){
@@ -100,6 +94,7 @@ function onEachBiome(feature,layer){
 
 function onEachPOI(feature,layer){
   //layer.bindPopup(feature.properties.Name)
+
   layer.on({click: ()=>(context.props.changePane('info',feature.properties))})
 
 

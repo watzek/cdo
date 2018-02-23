@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import { Map as LMap, ZoomControl, TileLayer, GeoJSON } from 'react-leaflet'
 import './MapPane.css'
@@ -14,6 +13,7 @@ export default class MapPane extends React.Component {
     this.loadJSONLayer('poi', { hidden: true })
     this.loadJSONLayer('usa_cities', { hidden: true })
   }
+
   loadJSONLayer(name, options) {
     fetch(`/layers/${name}.geojson`).then(data => data.json()).then(json => {
       this.setState({
@@ -45,18 +45,22 @@ export default class MapPane extends React.Component {
         style={layer.style} onEachFeature={layer.onEachFeature} pointToLayer={layer.pointToLayer}/>)
   }
 
+
+
   render() {
     return (
       <div>
-        <LMap className="MapPane rounded mt-3" center={[40,-120]} zoom={5} zoomControl={false}>
+        <LMap className="MapPane" center={[43.00195216,-104.48263139]} zoom={5} zoomControl={false}
+        minZoom={5} maxBounds={[[52.02447537,-140.18417959],[36.07730658, -80.14678921]]}>
           <ZoomControl position="topright" />
             <TileLayer
               attribution="Map tiles by <a href=&quot;http://stamen.com&quot;>Stamen Design</a>"
-              url="https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.png"
-            />
+              url="https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.png"/>
+
             { this.renderLayers() }
         </LMap>
       </div>
     );
   }
+
 }

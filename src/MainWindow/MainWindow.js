@@ -1,9 +1,9 @@
-// @flow
+import './MainWindow.css'
 import * as React from 'react'
 import Sidebar from '../Sidebar/Sidebar'
 import MapPane from '../MapPane/MapPane'
 
-export default class MainWindow extends React.Component<{}, State> {
+export default class MainWindow extends React.Component{
   state = {
     showSidebar: true,
     activeLayers: ['trail'],
@@ -18,10 +18,12 @@ export default class MainWindow extends React.Component<{}, State> {
     this.switchTrail = this.switchTrail.bind(this)
   }
 
+
   changePane(pane,info){
     switch(pane){
       case 'info':
         this.setState({activePane: pane, paneInfo: info})
+        if(!this.props.showSidebar) this.props.toggleLayers()
         break
       case 'layers':
         this.setState({activePane: pane, paneInfo: null})
@@ -31,8 +33,10 @@ export default class MainWindow extends React.Component<{}, State> {
     }
   }
 
+
   switchTrail(trailId){
     this.setState({activeTrail: trailId})
+    //TODO refresh the POI layer so that it changes as well, call _onresize()?
   }
 
   changeLayer(layer){
@@ -47,10 +51,12 @@ export default class MainWindow extends React.Component<{}, State> {
   render() {
     return (
       <div>
-        {this.state.showSidebar && <Sidebar  changeLayer={this.changeLayer}
+        {this.state.showSidebar && <Sidebar  showSidebar={this.props.showSidebar}
+        changeLayer={this.changeLayer}
         activeLayers={this.state.activeLayers} changePane={this.changePane}
         activePane={this.state.activePane} paneInfo={this.state.paneInfo}
         switchTrail={this.switchTrail}/>}
+
         <MapPane activeLayers={this.state.activeLayers} changePane={this.changePane}
         activeTrail={this.state.activeTrail}/>
       </div>
