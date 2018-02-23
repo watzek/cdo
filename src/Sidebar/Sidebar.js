@@ -1,11 +1,10 @@
-// @flow
 import * as React from 'react'
 import { Card, CardHeader, Button, ButtonGroup } from 'reactstrap'
 import InfoPane from '../InfoPane/InfoPane'
 import LayersPane from '../LayersPane/LayersPane'
 import './Sidebar.css'
 
-export default class Sidebar extends React.Component<{}, State> {
+export default class Sidebar extends React.Component{
 
   renderPaneButton(pane){
     return (
@@ -26,17 +25,21 @@ export default class Sidebar extends React.Component<{}, State> {
     }
   }
 
+  renderSidebar(){
+    return (<Card className="Sidebar position-absolute">
+      <CardHeader>
+        <ButtonGroup>
+          {this.renderPaneButton('layers')}
+          {this.renderPaneButton('info')}
+        </ButtonGroup>
+      </CardHeader>
+      {this.renderPane(this.props.activePane)}
+    </Card>)
+  }
+
+
   render() {
     return (
-      <Card className="Sidebar position-absolute">
-        <CardHeader>
-          <ButtonGroup>
-            {this.renderPaneButton('layers')}
-            {this.renderPaneButton('info')}
-          </ButtonGroup>
-        </CardHeader>
-        {this.renderPane(this.props.activePane)}
-      </Card>
-    )
-  }
+      this.props.showSidebar ? this.renderSidebar() : null
+  )}
 }
