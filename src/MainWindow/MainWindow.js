@@ -55,7 +55,8 @@ export default class MainWindow extends React.Component{
         changeLayer={this.changeLayer}
         activeLayers={this.state.activeLayers} changePane={this.changePane}
         activePane={this.state.activePane} paneInfo={this.state.paneInfo}
-        switchTrail={this.switchTrail}/>}
+        switchTrail={this.switchTrail}
+        toggleLayers={this.props.toggleLayers}/>}
 
         <MapPane activeLayers={this.state.activeLayers} changePane={this.changePane}
         activeTrail={this.state.activeTrail}/>

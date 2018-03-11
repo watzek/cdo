@@ -1,10 +1,13 @@
 import Leaflet from 'leaflet'
 
 
-export function LayerStyle(name){
+export function LayerStyle(name, cntxt){
+  context = cntxt
     switch(name){
       case 'biomes': return biomeStyle
-      case 'poi': return POIStyle
+      case 'retpoi':
+      case 'outpoi':
+      return POIStyle
       case 'trail': return trailStyle
       default: return null
     }
@@ -16,7 +19,8 @@ export function OnEachFeature(name,cntxt){
   context = cntxt
   switch(name){
     case 'biomes': return onEachBiome
-    case 'poi': return onEachPOI
+    case 'retpoi':
+    case 'outpoi': return onEachPOI
     case 'trail': return onEachTrail
     default: return null
   }
@@ -25,27 +29,32 @@ export function OnEachFeature(name,cntxt){
 export function PointToLayer(name, cntxt){
   context = cntxt
   switch(name){
-    case 'poi': return pointToPOI
+    case 'retpoi': return pointToPOI
+    case 'outpoi': return pointToPOI
     case 'usa_cities': return pointToCities
     default: return null
   }
 }
 
 function pointToPOI(feature, latlng){
-  if(context.props.activeTrail==='outbound'&&parseInt(feature.properties.Date.split('/')[2],10)>1805){
-    return null
-  }else if(context.props.activeTrail==='return'&&parseInt(feature.properties.Date.split('/')[2],10)<=1805){
-    return null
-  }
+  let teardrop = Leaflet.icon({
+      iconUrl: 'map-marker-icon.png',
+      iconSize:     [38, 38], // size of the icon
+      iconAnchor:   [19, 30], // point of the icon which will correspond to marker's location
+  });
+
+
   var geojsonMarkerOptions = {
-      radius: 7,
-      stroke: false,
-      fillColor: "#00ff00",
-      weight: 1,
-      fillOpacity: 1,
+      icon: teardrop,
+      // radius: 7,
+      // stroke: false,
+      // fillColor: "#00ff00",
+      // weight: 1,
+      // fillOpacity: 1,
+      zIndexOffset: 10000,
       title:feature.properties.Name
   }
-  return Leaflet.circleMarker(latlng, geojsonMarkerOptions).bindTooltip(feature.properties.Name)
+  return Leaflet.marker(latlng, geojsonMarkerOptions)//.bindTooltip(feature.properties.Name)
 }
 
 function pointToCities(feature, latlng){

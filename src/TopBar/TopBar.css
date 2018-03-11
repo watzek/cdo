@@ -1,30 +1,15 @@
 
-.button{
-  padding: 1px!important;
-  margin: 1px;
-  height: 75%!important;
-  width:10%!important;
-  font-size: 10px;
-}
-
-#layers{
-width:10em;
-}
-#settings{
-  width:10em;
-}
 
 #topbar{
   height:7.5vh !important;
   background-color: #f7f8f9;
+  padding:0;
 }
 
 #text{
    font-family: "Times New Roman", Times, serif;
-   font-size: 1em;
-   float:right;
-   position:relative;
-   margin-right: 1em;
+   font-size: 2.5vh;
+   margin: auto;
    max-width: 50%;
    max-height:7.5vh;
    text-align: center;
@@ -33,40 +18,21 @@ width:10em;
 @media only screen and (min-width: 600px) {
   #text{
      font-family: "Times New Roman", Times, serif;
-     font-size: 2em;
-     float:right;
-     position:relative;
-     margin-right: 1em;
-     max-width: 75%;
+     font-size: 5vh;
+     margin: auto;
+     max-width: 50%;
      max-height:7.5vh;
      text-align: center;
-  }
-
-  .button{
-    padding: 5px!important;
-    margin: 5px;
-    height: 75%!important;
-    font-size: 15px;
   }
 }
 
 @media only screen and (min-width: 900px) {
   #text{
      font-family: "Times New Roman", Times, serif;
-     font-size: 2em;
-     float:right;
-     position:relative;
-     margin-right: 1em;
-     z-index: 1;
+     font-size: 5vh;
+     margin: auto;
      max-width: 50%;
      max-height:7.5vh;
      text-align: center;
-  }
-
-  .button{
-    padding: 5px!important;
-    margin: 5px;
-    height: 75%!important;
-    font-size: 20px;
   }
 }
