@@ -1,3 +1,23 @@
+#scroll{
+  height: 90%;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  outline: 1px solid lightgrey;
+}
+#img{
+  /* height:30%; */
+  margin: auto;
+  width:100%;
+
+}
+#header{
+  height:10%;
+  text-align: center;
+  padding: 5px;
+}
+#contain{
+  height:100%;
+}
 
 
 .Sidebar {
@@ -6,6 +26,9 @@
   z-index: 1020;
 }
 
+#exit{
+  width:10%;
+}
 
 
 @media only screen and (min-width: 600px) {
