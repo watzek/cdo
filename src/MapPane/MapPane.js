@@ -6,7 +6,7 @@ import { LayerStyle, OnEachFeature, PointToLayer } from './LayerCustomize.js'
 
 
 export default class MapPane extends React.Component {
-  state = { overlays: new Map(), out: new Map(), ret: new Map() }
+  state = { overlays: new Map(), out: new Map(), ret: new Map(), map: null }
 
   componentDidMount() {
     this.loadJSONLayer('biomes', { alias: 'Biomes' })
@@ -14,6 +14,7 @@ export default class MapPane extends React.Component {
     this.loadJSONLayer('outtrail', { alias: 'Outbound', journey: 'out'})
     this.loadJSONLayer('outpoi',   { alias: 'Outbound', journey: 'out'})
     this.loadJSONLayer('retpoi',   { alias: 'Return',   journey: 'ret'})
+    this.setState({ map : this.refs.map.leafletElement })
   }
 
   loadJSONLayer(name, options) {
@@ -80,10 +81,10 @@ renderRet(){
   render() {
     return (
       <div>
-        <LMap className="MapPane" center={[43.00195216,-104.48263139]} zoom={5} zoomControl={false}
+        <LMap ref="map" className="MapPane" center={[43.00195216,-104.48263139]} zoom={5} zoomControl={false}
         minZoom={5} maxBounds={[[52.02447537,-140.18417959],[30.07730658, -80.14678921]]}>
           <ZoomControl position="topright" />
-          <LayersControl position="topleft">
+          <LayersControl position="topright">
             <LayersControl.BaseLayer name="Outbound" checked={true}>
               <LayerGroup>
                 { this.renderOut() }
@@ -95,6 +96,15 @@ renderRet(){
               </LayerGroup>
             </LayersControl.BaseLayer>
             { this.renderOverlays() }
+            <LayersControl.Overlay name="opentopomap" key="opentopomap">
+            <TileLayer
+              url="https://c.tile.opentopomap.org/{z}/{x}/{y}.png"/>
+            </LayersControl.Overlay>
+            <LayersControl.Overlay name="USA Rivers, Streams" key="usars">
+            <TileLayer
+              url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"/>
+            </LayersControl.Overlay>
+
           </LayersControl>
           <MapLegend/>
 

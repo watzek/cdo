@@ -2,37 +2,57 @@
 
 #topbar{
   height:7.5vh !important;
-  background-color: #f7f8f9;
   padding:0;
+  /* display: flex; */
+  background: url(../background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-#text{
-   font-family: "Times New Roman", Times, serif;
-   font-size: 2.5vh;
-   margin: auto;
-   max-width: 50%;
-   max-height:7.5vh;
-   text-align: center;
+#title{
+  height: 40%;
+}
+#lc, #watzek{
+  height:100%;
+}
+#lc{
+  padding-left: .2rem;
+  padding-right: .2rem;
 }
 
-@media only screen and (min-width: 600px) {
-  #text{
-     font-family: "Times New Roman", Times, serif;
-     font-size: 5vh;
-     margin: auto;
-     max-width: 50%;
-     max-height:7.5vh;
-     text-align: center;
-  }
-}
 
-@media only screen and (min-width: 900px) {
-  #text{
-     font-family: "Times New Roman", Times, serif;
-     font-size: 5vh;
-     margin: auto;
-     max-width: 50%;
-     max-height:7.5vh;
-     text-align: center;
-  }
+ @media only screen and (min-width: 400px) {
+
+   #title{
+     height: 50%;
+     /* float:right; */
+   }
+   #lc, #watzek{
+     height:100%;
+   }
+   #lc{
+     padding-left: .2rem;
+     padding-right: .2rem;
+   }
+
+ }
+
+
+ @media only screen and (min-width: 850px) {
+   #lc, #watzek{
+     height: 100%;
+     margin-right: 1rem;
+   }
+   #title{
+     height:100%;
+     /* float: right; */
+     padding-left: .2rem;
+     padding-right: .2rem;
+   }
+   #lc{
+     padding-left: .2rem;
+     padding-right: .2rem;
+   }
 }

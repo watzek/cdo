@@ -20,6 +20,7 @@ export default class App extends Component{
 
   render() {
     return (
+
       <div id="app">
         <TopBar toggleLayers={this.toggleLayers}/>
         <MainWindow showSidebar={this.state.showSidebar} toggleLayers={this.toggleLayers}/>

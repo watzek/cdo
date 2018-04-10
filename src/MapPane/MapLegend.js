@@ -4,13 +4,40 @@ import L from 'leaflet';
 import './MapLegend.css'
 import { MapControl } from 'react-leaflet';
 
-export default class MapLegend extends MapControl {  // note we're extending MapControl from react-leaflet, not Component from react
+const categories = ['Geographic Feature', 'Corps Relations', 'Native American Encounter'
+                    , 'Important Campsite','Natural History']
+
+const marker_colors = ['icon_yellow.svg','icon_gray.svg','icon_pink.svg',
+                    'icon_green.svg','icon_blue.svg', 'map-marker-icon.png']
+
+
+
+export default class MapLegend extends MapControl {
+
+  renderCategories(){
+    var js = []
+
+    for(var i=0;i<5;i++){
+
+      js.push(
+        <div>  <img id="icons" alt="icon" src={marker_colors[i]}/> {categories[i]} </div>
+      )
+
+    }
+    return js
+  }
 
   componentWillMount() {
-    const centerControl = L.control({position: 'bottomright'});  // see http://leafletjs.com/reference.html#control-positions for other positions
+    const centerControl = L.control({position: 'bottomright'});
+    //TODO:
+    //make a minimize button for the legend, and a corresponding reopen button
+    //for when it's closed.
+    //maybe make legend background same papyrus ?
+
     const jsx = (
       <div id="legend">
-      The custom legend will go right here!
+
+        {this.renderCategories()}
       </div>
     );
 
@@ -22,4 +49,9 @@ export default class MapLegend extends MapControl {  // note we're extending Map
 
     this.leafletElement = centerControl;
   }
+
+
+
+
+
 }

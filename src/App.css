@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/css?family=Sorts+Mill+Goudy);
+
 #app{
   height:50%!important;
   background-color: blue;
@@ -8,4 +10,9 @@ body{
   height: 75vh!important;
   padding: 0px!important;
   margin-top: 0px!important;
+}
+
+*{
+  font-family: "Sorts Mill Goudy";
+
 }

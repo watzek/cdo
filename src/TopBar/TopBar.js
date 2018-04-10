@@ -5,8 +5,13 @@ export default class TopBar extends React.Component{
   render() {
     return (
       <div id="topbar" color="light">
-
-        <div id="text">the corps of discovery online </div>
+      <a href="https://library.lclark.edu/" target="_blank">
+        <img id="watzek" alt="watzek" src="watzek_logo.jpg"/>
+      </a>
+        <a href="http://lclark.edu" target="_blank">
+          <img id="lc" alt="lclark" src="lclark_logo.png"/>
+        </a>
+        <img id="title" alt="expedtiton maps" src="title.png"/>
       </div>
     )
   }
@@ -14,3 +19,4 @@ export default class TopBar extends React.Component{
 // <Button className="Button" color="primary" id="layers"
 // onClick={this.props.toggleLayers}>Layers</Button>
 // <Button className="Button" color="primary" id="settings">Settings</Button>
+//        <span id="text">Lewis & Clark Expedition Map</span>

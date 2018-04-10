@@ -1,5 +1,11 @@
 import Leaflet from 'leaflet'
 
+const categories = ['Geographic Feature', 'Corps Relations', 'Native American Encounter'
+                    , 'Important Campsite','Natural History', '']
+
+const marker_colors = ['icon_yellow.svg','icon_gray.svg','icon_pink.svg',
+                    'icon_green.svg','icon_blue.svg', 'map-marker-icon.png']
+
 
 export function LayerStyle(name, cntxt){
   context = cntxt
@@ -37,22 +43,22 @@ export function PointToLayer(name, cntxt){
 }
 
 function pointToPOI(feature, latlng){
-  let teardrop = Leaflet.icon({
-      iconUrl: 'map-marker-icon.png',
+    var color = marker_colors[categories.indexOf(feature.properties.Category)]
+    if(!color) color = 'map-marker-icon.png'
+
+
+
+
+  const teardrop = Leaflet.icon({
+      iconUrl: color,
       iconSize:     [38, 38], // size of the icon
-      iconAnchor:   [19, 30], // point of the icon which will correspond to marker's location
+      iconAnchor:   [19, 35], // point of the icon which will correspond to marker's location
   });
 
-
-  var geojsonMarkerOptions = {
+  const geojsonMarkerOptions = {
       icon: teardrop,
-      // radius: 7,
-      // stroke: false,
-      // fillColor: "#00ff00",
-      // weight: 1,
-      // fillOpacity: 1,
       zIndexOffset: 10000,
-      title:feature.properties.Name
+      //title:feature.properties.Name
   }
   return Leaflet.marker(latlng, geojsonMarkerOptions)//.bindTooltip(feature.properties.Name)
 }
@@ -102,14 +108,19 @@ function onEachBiome(feature,layer){
 }
 
 function onEachPOI(feature,layer){
-  //layer.bindPopup(feature.properties.Name)
+  layer.bindTooltip(feature.properties.Name)
+  layer.on({click: ()=>{
+    const latOffset = -1.4
+    context.props.changePane('info',feature.properties)
+    const ll = Leaflet.GeoJSON.coordsToLatLng([feature.geometry.coordinates[0] + latOffset,
+    feature.geometry.coordinates[1]])
+    context.state.map.setView(ll, 7)
 
-  layer.on({click: ()=>(context.props.changePane('info',feature.properties))})
+  }})
 
 
 }
 
 function onEachTrail(feature,layer){
-  layer.on({click: ()=>(console.log(feature.properties))})
-
+  //layer.on({click: ()=>(console.log(feature.properties))})
 }
