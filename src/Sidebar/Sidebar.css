@@ -11,17 +11,22 @@
   width:100%;
 }
 #header{
-  height:10%;
+  height:15%;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  line-height: 100%;
+  display: flex;
+  justify-content:center;
+  align-content:center;
+  flex-direction:column;
 }
 
 #contain{
-  height:90%;
+  height:85%;
 }
 
 #txt{
-  padding:1rem;
+  padding:.5rem;
 }
 
 .Sidebar {
@@ -33,6 +38,8 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  /* border: 4px dashed blue; */
+
 }
 
 #exit{
