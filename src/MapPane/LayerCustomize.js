@@ -12,7 +12,7 @@ file could almost function independently from React because we need to
 expose a great deal of the underlying leaflet code to be able to customize
 things.
 React-leaflet is a very surface level framework with which you can't accomplish
-many things without working under the hood a bit. 
+many things without working under the hood a bit.
 */
 
 import Leaflet from 'leaflet';
@@ -74,12 +74,14 @@ export function PointToLayer(name, cntxt) {
 			return pointToPOI;
 		case 'outpoi':
 			return pointToPOI;
-		case 'usa_cities':
-			return pointToCities;
+		case 'tribes':
+			return pointToTribes;
 		default:
 			return null;
 	}
 }
+
+function pointToTribes(feature, latlng) {}
 
 function pointToPOI(feature, latlng) {
 	var color = marker_colors[categories.indexOf(feature.properties.Category)];
