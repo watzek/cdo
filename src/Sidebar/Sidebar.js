@@ -51,18 +51,24 @@ export default class Sidebar extends React.Component {
 
 		return (
 			<div className="Sidebar position-absolute">
+				<Button
+					color="danger"
+					className="close"
+					aria-label="Close"
+					onClick={this.props.toggleLayers}
+					id="exit">
+					<span aria-hidden="true">&times;</span>
+				</Button>
+
 				<div id="header">
 					<div>
 						{this.props.paneInfo ? this.props.paneInfo.Name : null}
 
-						<Button
-							color="danger"
-							className="close"
-							aria-label="Close"
-							onClick={this.props.toggleLayers}
-							id="exit">
-							<span aria-hidden="true">&times;</span>
-						</Button>
+						<div id="prettyDate">
+							{this.props.paneInfo
+								? this.reformatDate(this.props.paneInfo.Date)
+								: null}
+						</div>
 					</div>
 				</div>
 
@@ -71,9 +77,6 @@ export default class Sidebar extends React.Component {
 						<Scroll>
 							<img id="img" alt="l&c test" src="lclark.jpeg" />
 							<div id="txt">
-								{this.props.paneInfo
-									? this.reformatDate(this.props.paneInfo.Date)
-									: null}
 								{this.props.paneInfo ? this.props.paneInfo.Synopsis : null}
 							</div>
 							<div id="link">

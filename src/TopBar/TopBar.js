@@ -8,9 +8,7 @@ export default class TopBar extends React.Component{
       <a href="https://library.lclark.edu/" target="_blank">
         <img id="watzek" alt="watzek" src="watzek_logo.jpg"/>
       </a>
-        <a href="http://lclark.edu" target="_blank">
-          <img id="lc" alt="lclark" src="lclark_logo.png"/>
-        </a>
+
         <img id="title" alt="expedtiton maps" src="title.png"/>
       </div>
     )
