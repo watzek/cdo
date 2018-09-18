@@ -175,7 +175,7 @@ function onEachPOI(feature, layer) {
 				feature.geometry.coordinates[0] + latOffset,
 				feature.geometry.coordinates[1]
 			]);
-			context.state.map.setView(ll, 7);
+			//context.state.map.setView(ll, 7);
 		}
 	});
 }

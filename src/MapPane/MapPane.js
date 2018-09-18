@@ -1,8 +1,8 @@
 /*
 This js file is the centerpiece of the code. It contains the code for the
-actual map pane, which holds a leaflet map and imports all of the layers and 
+actual map pane, which holds a leaflet map and imports all of the layers and
 also interacts with the other components of the application via props that it
-has been passed. 
+has been passed.
 */
 
 import * as React from 'react';
@@ -106,13 +106,13 @@ export default class MapPane extends React.Component {
 				<LMap
 					ref="map"
 					className="MapPane"
-					center={[43.00195216, -104.48263139]}
+					center={[43.00195216, -150]}
 					zoom={5}
 					zoomControl={false}
-					minZoom={5}
+					minZoom={4}
 					maxBounds={[
-						[52.02447537, -140.18417959],
-						[30.07730658, -80.14678921]
+						[52.02447537, -142],
+						[20.07730658, -50.14678921]
 					]}>
 					<ZoomControl position="topright" />
 					<LayersControl position="topright">
@@ -139,5 +139,6 @@ export default class MapPane extends React.Component {
 				</LMap>
 			</div>
 		);
+
 	}
 }
