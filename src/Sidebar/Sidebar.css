@@ -7,8 +7,8 @@
 }
 #img{
   /* height:30%; */
-  margin: auto;
-  width:100%;
+  margin-left: 0.3em; /*fix this for real */
+  width: 100%;
 }
 
 #header{
