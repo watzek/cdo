@@ -133,7 +133,6 @@ export default class MapPane extends React.Component {
 					<MapLegend />
 
 					<TileLayer
-						attribution="Map tiles by <a href=&quot;http://stamen.com&quot;>Stamen Design</a>"
 						url="https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.png"
 					/>
 				</LMap>
