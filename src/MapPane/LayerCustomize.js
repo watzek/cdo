@@ -16,6 +16,7 @@ many things without working under the hood a bit.
 */
 
 import Leaflet from 'leaflet';
+import { renderJSON } from './MapPane.js';
 
 const categories = [
 	'Geographic Feature',
@@ -93,6 +94,10 @@ function pointToPOI(feature, latlng) {
 		iconAnchor: [19, 35] // point of the icon which will correspond to marker's location
 	});
 
+	if(feature.properties.selected === true){
+		teardrop.iconSize = [50,50];
+	}
+
 	const geojsonMarkerOptions = {
 		icon: teardrop,
 		zIndexOffset: 10000
@@ -165,6 +170,7 @@ function onEachBiome(feature, layer) {
 	layer.bindPopup(feature.properties.ECO_NAME);
 }
 
+//stuff to change will be in here
 function onEachPOI(feature, layer) {
 	layer.bindTooltip(feature.properties.Name);
 	layer.on({
@@ -175,7 +181,14 @@ function onEachPOI(feature, layer) {
 				feature.geometry.coordinates[0] + latOffset,
 				feature.geometry.coordinates[1]
 			]);
-			//context.state.map.setView(ll, 7);
+			//below line does't change anything lol
+			//pointToPOI(feature, ll).options.icon.options.iconSize = [50,50];
+			//console.log(pointToPOI(feature, ll).options.icon.options.iconSize)
+			feature.properties.selected = true;
+			console.log(feature.properties.selected);
+			pointToPOI(feature, ll);
+			//will need to turn off grow!
+			//will need to render it...
 		}
 	});
 }
