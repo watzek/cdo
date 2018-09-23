@@ -6,9 +6,6 @@ like any React component and there is a hefty amount of CSS associated with
 this component.
 
 The scroll functionality comes from an npm library called 'react-awesome-scroll'
-
-
-
 */
 
 import * as React from 'react';
@@ -43,11 +40,6 @@ export default class Sidebar extends React.Component {
 	}
 
 	renderSidebar() {
-		//TODO
-		//reformat Sidebar
-		//add date next to title, if there's an end date add that too
-		//make secondary source visible
-		//make link to journal prettier
 
 		return (
 			<div className="Sidebar position-absolute">
@@ -75,7 +67,10 @@ export default class Sidebar extends React.Component {
 				<div id="contain">
 					<div id="scroll">
 						<Scroll>
-							<img id="img" alt="l&c test" src="lclark.jpeg" />
+							<div id="imgBox">
+								<img id="img" alt="l&c test" src="lclark.jpeg" />
+								<div id="infoText">Insert context of picture here </div>
+							</div>
 							<div id="txt">
 								{this.props.paneInfo ? this.props.paneInfo.Synopsis : null}
 							</div>
@@ -86,7 +81,7 @@ export default class Sidebar extends React.Component {
 									}
 									href="#">
 									{this.props.paneInfo['Journal Entries']
-										? 'Link to Journal'
+										? 'Source Document'
 										: null}
 								</a>
 							</div>

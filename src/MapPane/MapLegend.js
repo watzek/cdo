@@ -1,14 +1,14 @@
 /*
 MapLegend is the js file that represents the code for the legend on the Map
 that houses information about the waypoints' color association.
-It is an extension of MapControl which is an object found in the react-leaflet 
-library. 
-Because it extends mapcontorl, it can behave like any ordinary react component 
-but leaflet will do all the work to natively nest it inside the map. 
+It is an extension of MapControl which is an object found in the react-leaflet
+library.
+Because it extends mapcontorl, it can behave like any ordinary react component
+but leaflet will do all the work to natively nest it inside the map.
 
-It's a little different from a regular react component, because isntead of 
-having its own render() method, we're setting its this.leafletElement to some JSX 
-that will then be rendered during runtime. 
+It's a little different from a regular react component, because isntead of
+having its own render() method, we're setting its this.leafletElement to some JSX
+that will then be rendered during runtime.
 
 The element is also associated with a CSS file that stylizes it.
 */
@@ -58,7 +58,15 @@ export default class MapLegend extends MapControl {
 		//for when it's closed.
 		//maybe make legend background same papyrus ?
 
-		const jsx = <div id="legend">{this.renderCategories()}</div>;
+		const jsx = (
+				<div id="legend">
+					{this.renderCategories()}
+					<div id="line"></div>
+					<a href="google.com">
+						<span id="info">about this map</span>
+					</a>
+				</div>
+			);
 
 		centerControl.onAdd = function(map) {
 			let div = L.DomUtil.create('div', '');

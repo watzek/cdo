@@ -2,12 +2,9 @@
   height: 100%;
   padding-bottom: 1vh;
   padding-top: 1vh;
-
-  /* outline: 1px solid lightgrey; */
 }
+
 #img{
-  /* height:30%; */
-  margin-left: 0.3em; /*fix this for real */
   width: 100%;
 }
 
@@ -35,13 +32,14 @@
 
 .Sidebar {
   width: 100%;
-  height: 92.5vh !important;
+  padding: 0.5rem 0.2rem 0.5rem 0.5rem;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  height: 90.5vh !important;
   z-index: 1020;
-  background: url(../background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  color: #0a100d;
+  background-color: #F0FFF0;
+  opacity: 0.95;
   /* border: 4px dashed blue; */
 }
 
@@ -58,34 +56,39 @@
   right: 0;
 }
 
+#imgBox{
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+#infoText{
+  font-size: 0.9em;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+#link{
+  text-align: right;
+  color: inherit;
+}
+
 
 @media only screen and (min-width: 600px) {
   .Sidebar {
     width: 50%;
-    height: 92.5vh;
+    height: 90.5vh;
     z-index: 1020;
-    background: url(../background.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
   }
 }
 
 @media only screen and (min-width: 900px) {
   .Sidebar {
     width: 30%;
-    height: 92.5vh;
+    height: 90.5vh;
     z-index: 1020;
-    background: url(../background.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
   }
 }
-
-
 
 
 .card-img-top {

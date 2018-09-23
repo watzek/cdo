@@ -1,5 +1,6 @@
 #legend{
-  background-color: white;
+  color: #0a100d;
+  background-color: #F0FFF0;
   border: 3px solid gray;
   border-radius: 3px;
   padding:5px;
@@ -8,4 +9,15 @@
 #icons{
   height: 1.5rem;
   width:  1.5rem;
+}
+
+#line{
+  border-top: 1px solid gray;
+  margin: 5px;
+}
+
+#info{
+  text-align: right;
+  margin-left: 1.5rem;
+  color:inherit;
 }
