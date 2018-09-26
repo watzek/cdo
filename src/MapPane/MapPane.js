@@ -123,7 +123,7 @@ export default class MapPane extends React.Component {
 							<LayerGroup>{this.renderRet()}</LayerGroup>
 						</LayersControl.BaseLayer>
 						{this.renderOverlays()}
-						<LayersControl.Overlay name="opentopomap" key="opentopomap">
+						<LayersControl.Overlay name="Topo Map" key="opentopomap">
 							<TileLayer url="https://c.tile.opentopomap.org/{z}/{x}/{y}.png" />
 						</LayersControl.Overlay>
 						<LayersControl.Overlay name="USA Rivers, Streams" key="usars">

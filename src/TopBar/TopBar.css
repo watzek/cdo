@@ -3,28 +3,39 @@
 #topbar{
   height:7.5vh !important;
   padding:0;
-  /* display: flex; */
-  background: url(../background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  color: #0a100d;
+  background-color: #BCD8B7;
   text-align: center;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
+  line-height: 7.5vh;
 }
 
 #title{
-  height: 60%;
-}
-#lc, #watzek{
-  height:100%;
-}
-#lc{
-  padding-left: .2rem;
-  padding-right: .2rem;
+  font-size: 2.5em;
+  vertical-align: bottom;
+  z-index: 10;
+  position: relative;
+  background-color: inherit;
 }
 
+#sideText{
+  font-size: 0.8em;
+  line-height: 7.5vh;
+  padding-left: 1em;
+  padding-right: 1em;
+  vertical-align: bottom;
+  z-index: 10;
+  position: relative;
+  background-color: inherit;
+}
+
+#strike{
+  width: 100%;
+  height: 3.75vh;
+  position: absolute;
+  border-bottom: 1px solid gray;
+}
 
  @media only screen and (min-width: 400px) {
 

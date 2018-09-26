@@ -53,16 +53,12 @@ export default class MapLegend extends MapControl {
 
 	componentWillMount() {
 		const centerControl = L.control({ position: 'bottomright' });
-		//TODO:
-		//make a minimize button for the legend, and a corresponding reopen button
-		//for when it's closed.
-		//maybe make legend background same papyrus ?
 
 		const jsx = (
 				<div id="legend">
 					{this.renderCategories()}
 					<div id="line"></div>
-					<a href="google.com">
+					<a href = "#">
 						<span id="info">about this map</span>
 					</a>
 				</div>

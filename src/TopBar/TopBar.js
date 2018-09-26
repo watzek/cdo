@@ -5,11 +5,10 @@ export default class TopBar extends React.Component{
   render() {
     return (
       <div id="topbar" color="light">
-      <a href="https://library.lclark.edu/" target="_blank">
-        <img id="watzek" alt="watzek" src="watzek_logo.jpg"/>
-      </a>
-
-        <img id="title" alt="expedtiton maps" src="title.png"/>
+        <div id="strike"></div>
+        <span id="sideText">A project by the Watzek Library</span>
+        <span id="title">Lewis & Clark Expedition Maps</span>
+        <span id="sideText">At Lewis & Clark College</span>
       </div>
     )
   }
