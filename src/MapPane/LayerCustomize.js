@@ -45,6 +45,8 @@ export function LayerStyle(name, cntxt) {
 			return POIStyle;
 		case 'trail':
 			return trailStyle;
+		case'non_native_claims':
+			return nncStyle;
 		default:
 			return null;
 	}
@@ -160,6 +162,9 @@ function biomeStyle(feature) {
 		color = '#f2f4c8';
 	return { fillColor: color, fillOpacity: 0.3, stroke: false };
 }
+
+function nncStyle(feature, layer){}
+
 
 function onEachBiome(feature, layer) {
 	layer.bindPopup(feature.properties.ECO_NAME);
