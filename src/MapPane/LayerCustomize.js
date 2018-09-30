@@ -45,8 +45,8 @@ export function LayerStyle(name, cntxt) {
 			return POIStyle;
 		case 'trail':
 			return trailStyle;
-		case'non_native_claims':
-			return nncStyle;
+//		case'non_native_claims':
+//			return nncStyle;
 		default:
 			return null;
 	}
@@ -83,7 +83,20 @@ export function PointToLayer(name, cntxt) {
 	}
 }
 
-function pointToTribes(feature, latlng) {}
+function pointToTribes(feature, latlng) {
+	const teardrop = Leaflet.icon({
+		iconUrl: color,
+		iconSize: [38, 38], 
+		iconAnchor: [19, 35] 
+	});
+
+	const geojsonMarkerOptions = {
+		icon: teardrop,
+		zIndexOffset: 10000
+		
+	};
+	return Leaflet.marker(latlng, geojsonMarkerOptions);
+}
 
 function pointToPOI(feature, latlng) {
 	var color = marker_colors[categories.indexOf(feature.properties.Category)];
@@ -163,7 +176,7 @@ function biomeStyle(feature) {
 	return { fillColor: color, fillOpacity: 0.3, stroke: false };
 }
 
-function nncStyle(feature, layer){}
+//function nncStyle(feature, layer){}
 
 
 function onEachBiome(feature, layer) {
