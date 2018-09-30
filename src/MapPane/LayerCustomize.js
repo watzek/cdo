@@ -205,12 +205,7 @@ function onEachPOI(feature, layer) {
 
 
 function onEachTribe(feature, layer){
-	layer.on({
-		click: () => {
-			const latOffset = -1.4;
-			context.props.changePane(feature.properties);
-		}
-	});
+	function onClick(e) {alert(this.getLatLng());}
 }
 
 function onEachTrail(feature, layer) {
