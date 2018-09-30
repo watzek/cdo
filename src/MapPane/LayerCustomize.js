@@ -64,6 +64,8 @@ export function OnEachFeature(name, cntxt) {
 			return onEachPOI;
 		case 'trail':
 			return onEachTrail;
+		case 'tribes':
+			return onEachTribe;
 		default:
 			return null;
 	}
@@ -187,6 +189,22 @@ function onEachBiome(feature, layer) {
 }
 
 function onEachPOI(feature, layer) {
+	layer.bindTooltip(feature.properties.Name);
+	layer.on({
+		click: () => {
+			context.props.changePane('info', feature.properties);
+			const ll = Leaflet.GeoJSON.coordsToLatLng([
+				const latOffset = -1.4;
+				feature.geometry.coordinates[0] + latOffset,
+				feature.geometry.coordinates[1]
+			]);
+			context.state.map.setView(ll, 7);
+		}
+	});
+}
+
+
+function onEachTribe(feature, layer){
 	layer.bindTooltip(feature.properties.Name);
 	layer.on({
 		click: () => {
