@@ -192,6 +192,7 @@ function onEachPOI(feature, layer) {
 		click: () => {
 			context.props.changePane('info', feature.properties);
 			const ll = Leaflet.GeoJSON.coordsToLatLng([
+				const latOffset = -1.4;
 				feature.geometry.coordinates[0] + latOffset,
 				feature.geometry.coordinates[1]
 			]);
