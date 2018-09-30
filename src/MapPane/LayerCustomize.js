@@ -192,9 +192,9 @@ function onEachPOI(feature, layer) {
 	layer.bindTooltip(feature.properties.Name);
 	layer.on({
 		click: () => {
+			const latOffset = -1.4;
 			context.props.changePane('info', feature.properties);
 			const ll = Leaflet.GeoJSON.coordsToLatLng([
-				const latOffset = -1.4;
 				feature.geometry.coordinates[0] + latOffset,
 				feature.geometry.coordinates[1]
 			]);
@@ -208,9 +208,9 @@ function onEachTribe(feature, layer){
 	layer.bindTooltip(feature.properties.Name);
 	layer.on({
 		click: () => {
+			const latOffset = -1.4;
 			context.props.changePane('info', feature.properties);
 			const ll = Leaflet.GeoJSON.coordsToLatLng([
-				const latOffset = -1.4;
 				feature.geometry.coordinates[0] + latOffset,
 				feature.geometry.coordinates[1]
 			]);
