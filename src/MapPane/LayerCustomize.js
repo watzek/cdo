@@ -204,9 +204,13 @@ function onEachPOI(feature, layer) {
 }
 
 
-function onEachTribe(feature, layer){
-	function onClick(e) {alert(this.getLatLng());}
-}
+var tribes = L.geoJson(data.tribes, {
+    onEachFeature: function(feature, featureLayer) {
+        featureLayer.bindPopup(feature.properties.name);
+    })
+)}
+tribes.on('click', function(e) { console.log(e.layer) };
+	
 
 function onEachTrail(feature, layer) {
 	//layer.on({click: ()=>(console.log(feature.properties))})
