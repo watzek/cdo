@@ -34,9 +34,16 @@ export default class Sidebar extends React.Component {
 		this.reformatDate = this.reformatDate.bind(this);
 	}
 
+	/*
 	reformatDate(date) {
 		let date2 = date.split('/');
 		return `${months[date2[0] - 1]} ${date2[1]}, ${date2[2]} \n`;
+	}
+	*/
+
+	reformatDate(date) {
+		let date2 = date.split('-');
+		return `${months[date2[1] - 1]} ${date2[2]}, ${date2[0]} \n`;
 	}
 
 	renderSidebar() {

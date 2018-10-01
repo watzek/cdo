@@ -32,9 +32,63 @@ export default class MapPane extends React.Component {
 		this.loadJSONLayer('tribes', { alias: 'Tribes' });
 		this.loadJSONLayer('rettrail', { alias: 'Return', journey: 'ret' });
 		this.loadJSONLayer('outtrail', { alias: 'Outbound', journey: 'out' });
-		this.loadJSONLayer('outpoi', { alias: 'Outbound', journey: 'out' });
-		this.loadJSONLayer('retpoi', { alias: 'Return', journey: 'ret' });
+		this.loadAirLayer('FIND("outbound", {Trip%20Portion})', 'outpoi', { alias: 'Outbound', journey: 'out' });
+		this.loadAirLayer('FIND("return", {Trip%20Portion})', 'retpoi', { alias: 'Return', journey: 'ret' });
 		this.setState({ map: this.refs.map.leafletElement });
+	}
+
+	loadAirLayer(query, name, options){
+		const url = 'https://api.airtable.com/v0/appNr9GTJe3BAOfph/Table%201?view=Grid%20view&' + query;
+		const key = 'keyfN8VFBQ25v07Pv';
+
+		var geo = {};
+		geo.type = "FeatureCollection";
+		geo.crs = {"type" : "name", "properties" : {"name": "urn:ogc:def:crs:OGC:1.3:CRS84" }};
+		geo.features = [];
+
+		const resp = fetch(url, {
+			headers: {
+        Authorization: `Bearer ${key}`
+			}
+		}).then(resp => {
+			resp.json().then(json => {
+				for(var i = 0; i < json.records.length; i++){
+					var geoPoint = {};
+					var obj = json.records[i];
+
+					geoPoint.type = "Feature";
+					geoPoint.properties = obj.fields;
+					geoPoint.geometry = {
+						"type": "Point",
+						"coordinates": [ obj.fields.longitude, obj.fields.latitude ]
+					};
+
+					if(obj.fields.latitude != undefined && obj.fields.longitude != undefined){
+						geo.features.push(geoPoint);
+					}
+				}
+
+				let params = {
+					data: geo,
+					alias: options.alias,
+					type: options.type,
+					journey: options.journey
+				};
+
+				switch (options.journey) {
+					case 'ret':
+						this.setState({ ret: this.state.ret.set(name, params) });
+						break;
+					case 'out':
+						this.setState({ out: this.state.out.set(name, params) });
+						break;
+					default:
+						this.setState({ overlays: this.state.overlays.set(name, params) });
+						break;
+				}
+
+			});
+		});
 	}
 
 	loadJSONLayer(name, options) {
@@ -47,6 +101,7 @@ export default class MapPane extends React.Component {
 					type: options.type,
 					journey: options.journey
 				};
+				
 				switch (options.journey) {
 					case 'ret':
 						this.setState({ ret: this.state.ret.set(name, params) });

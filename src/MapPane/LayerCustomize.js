@@ -85,7 +85,8 @@ export function PointToLayer(name, cntxt) {
 function pointToTribes(feature, latlng) {}
 
 function pointToPOI(feature, latlng) {
-	var color = marker_colors[categories.indexOf(feature.properties.Category)];
+	var color = marker_colors[categories.indexOf(feature.properties.Category[0])];
+	console.log(feature.properties.Category[0]);
 	if (!color) color = 'map-marker-icon.png';
 
 	const teardrop = Leaflet.icon({
@@ -184,9 +185,9 @@ function onEachPOI(feature, layer) {
 			//below line does't change anything lol
 			//pointToPOI(feature, ll).options.icon.options.iconSize = [50,50];
 			//console.log(pointToPOI(feature, ll).options.icon.options.iconSize)
-			feature.properties.selected = true;
-			console.log(feature.properties.selected);
-			pointToPOI(feature, ll);
+			//feature.properties.selected = true;
+		  //console.log(feature.properties.selected);
+			//pointToPOI(feature, ll);
 			//will need to turn off grow!
 			//will need to render it...
 		}
