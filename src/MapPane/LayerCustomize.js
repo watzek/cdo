@@ -208,7 +208,7 @@ var tribes = L.geoJson(data.tribes, {
     onEachFeature: function(feature, featureLayer) {
         featureLayer.bindPopup(feature.properties.name);
     }
-)}
+}
 tribes.on('click', function(e) { console.log(e.layer) };
 	
 
