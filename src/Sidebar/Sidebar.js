@@ -74,13 +74,20 @@ export default class Sidebar extends React.Component {
 				<div id="contain">
 					<div id="scroll">
 						<Scroll>
-							<div id="imgBox">
-								<img id="img" alt="l&c test" src="lclark.jpeg" />
-								<div id="infoText">Insert context of picture here </div>
-							</div>
+							{this.props.paneInfo.hasOwnProperty("Picture") &&
+								<div id="imgBox">
+									<img id="img" alt={this.props.paneInfo ? this.props.paneInfo.Name : null} src={this.props.paneInfo.Picture[0].thumbnails.large.url} />
+									<div id="infoText">Insert context of picture here </div>
+								</div>
+							}
 							<div id="txt">
 								{this.props.paneInfo ? this.props.paneInfo.Synopsis : null}
 							</div>
+							{this.props.paneInfo.hasOwnProperty("Secondary Source") &&
+								<div id="sec">
+									<div><strong>Further Reading:</strong></div> {this.props.paneInfo['Secondary Source']}
+								</div>
+							}
 							<div id="link">
 								<a
 									onClick={() =>

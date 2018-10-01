@@ -32,8 +32,8 @@ export default class MapPane extends React.Component {
 		this.loadJSONLayer('tribes', { alias: 'Tribes' });
 		this.loadJSONLayer('rettrail', { alias: 'Return', journey: 'ret' });
 		this.loadJSONLayer('outtrail', { alias: 'Outbound', journey: 'out' });
-		this.loadAirLayer('FIND("outbound", {Trip%20Portion})', 'outpoi', { alias: 'Outbound', journey: 'out' });
-		this.loadAirLayer('FIND("return", {Trip%20Portion})', 'retpoi', { alias: 'Return', journey: 'ret' });
+		this.loadAirLayer('filterByFormula=FIND("inbound", {Trip%20Portion})', 'outpoi', { alias: 'Outbound', journey: 'out' });
+		this.loadAirLayer('filterByFormula=FIND("outbound", {Trip%20Portion})', 'retpoi', { alias: 'Return', journey: 'ret' });
 		this.setState({ map: this.refs.map.leafletElement });
 	}
 
@@ -75,6 +75,8 @@ export default class MapPane extends React.Component {
 					journey: options.journey
 				};
 
+				console.log(params);
+
 				switch (options.journey) {
 					case 'ret':
 						this.setState({ ret: this.state.ret.set(name, params) });
@@ -86,7 +88,6 @@ export default class MapPane extends React.Component {
 						this.setState({ overlays: this.state.overlays.set(name, params) });
 						break;
 				}
-
 			});
 		});
 	}
@@ -101,7 +102,7 @@ export default class MapPane extends React.Component {
 					type: options.type,
 					journey: options.journey
 				};
-				
+
 				switch (options.journey) {
 					case 'ret':
 						this.setState({ ret: this.state.ret.set(name, params) });
