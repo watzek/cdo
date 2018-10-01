@@ -204,13 +204,15 @@ function onEachPOI(feature, layer) {
 }
 
 
-var tribes = L.geoJson(data.tribes, {
-    onEachFeature: function(feature, featureLayer) {
-        featureLayer.bindPopup(feature.properties.name);
-    }
+function onEachTribe(featuer, layer){
+	layer.bindTooltip(feature.properties.Name);
+	layer.on({
+		click: () => {
+			const latOffset = -1.4;
+			context.props.changePane('info', feature.properties);
+		}
+	});
 }
-tribes.on('click', function(e) { console.log(e.layer) };
-	
 
 function onEachTrail(feature, layer) {
 	//layer.on({click: ()=>(console.log(feature.properties))})
