@@ -199,6 +199,7 @@ function onEachPOI(feature, layer) {
 				feature.geometry.coordinates[1]
 			]);
 			context.state.map.setView(ll, 7);
+			L.circle(LatLng, 200).addTo(map);
 		}
 	});
 }
