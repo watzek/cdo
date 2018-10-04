@@ -1,3 +1,4 @@
+import {slide as menu} from 'react-burger-menu';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'leaflet/dist/leaflet.css';
 import './index.css';
