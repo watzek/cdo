@@ -77,17 +77,14 @@ export default class Sidebar extends React.Component {
 							{this.props.paneInfo.hasOwnProperty("Picture") &&
 								<div id="imgBox">
 									<img id="img" alt={this.props.paneInfo ? this.props.paneInfo.Name : null} src={this.props.paneInfo.Picture[0].thumbnails.large.url} />
-									<div id="infoText">Insert context of picture here </div>
+									{this.props.paneInfo.hasOwnProperty('Image description') &&
+										<div id="infoText">{this.props.paneInfo['Image description']}</div>
+									}
 								</div>
 							}
 							<div id="txt">
 								{this.props.paneInfo ? this.props.paneInfo.Synopsis : null}
 							</div>
-							{this.props.paneInfo.hasOwnProperty("Secondary Source") &&
-								<div id="sec">
-									<div><strong>Further Reading:</strong></div> {this.props.paneInfo['Secondary Source']}
-								</div>
-							}
 							<div id="link">
 								<a
 									onClick={() =>
@@ -99,6 +96,17 @@ export default class Sidebar extends React.Component {
 										: null}
 								</a>
 							</div>
+							{this.props.paneInfo.hasOwnProperty("Secondary Source") &&
+								<div id="sec">
+									<div><strong>Further Reading:</strong></div> {this.props.paneInfo['Secondary Source']}
+								</div>
+							}
+
+							{this.props.paneInfo.hasOwnProperty('Image citation') &&
+								<div id="sec">
+									<div><strong>Image source:</strong></div> {this.props.paneInfo['Image citation']}
+								</div>
+							}
 						</Scroll>
 					</div>
 				</div>

@@ -65,8 +65,11 @@
 
 #infoText{
   font-size: 0.9em;
-  margin-top: 0.1em;
-  margin-bottom: 0.1em;
+  margin-top: 8px;
+}
+
+#imageCite{
+  font-size: 0.75em;
 }
 
 #link{

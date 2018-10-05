@@ -75,8 +75,6 @@ export default class MapPane extends React.Component {
 					journey: options.journey
 				};
 
-				console.log(params);
-
 				switch (options.journey) {
 					case 'ret':
 						this.setState({ ret: this.state.ret.set(name, params) });
