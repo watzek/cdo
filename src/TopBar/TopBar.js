@@ -7,7 +7,7 @@ export default class TopBar extends React.Component{
       <div id="topbar" color="light">
         <div id="strike"></div>
         <span id="sideText">A project by the Watzek Library</span>
-        <span id="title">Lewis & Clark Expedition Maps</span>
+        <span id="title">Corps of Discovery Online Atlas</span>
         <span id="sideText">At Lewis & Clark College</span>
       </div>
     )
