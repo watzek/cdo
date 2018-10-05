@@ -1,11 +1,13 @@
-import * as React from 'react'
-import './TopBar.css'
+import * as React from 'react';
+import './TopBar.css';
+import CreditMenu from './CreditMenu.js';
 
 export default class TopBar extends React.Component{
   render() {
     return (
       <div id="topbar" color="light">
         <div id="strike"></div>
+        <CreditMenu />
         <span id="sideText">A project by the Watzek Library</span>
         <span id="title">Lewis & Clark Expedition Maps</span>
         <span id="sideText">At Lewis & Clark College</span>
