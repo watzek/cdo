@@ -67,7 +67,7 @@ export function OnEachFeature(name, cntxt) {
 		case 'tribes':
 			return onEachTribe;
 		case'1803':
-			retrun onPolitical;
+			return onPolitical;
 		default:
 			return null;
 	}
