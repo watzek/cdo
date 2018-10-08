@@ -66,6 +66,8 @@ export function OnEachFeature(name, cntxt) {
 			return onEachTrail;
 		case 'tribes':
 			return onEachTribe;
+		case'1803':
+			retrun onPolitical;
 		default:
 			return null;
 	}
@@ -80,9 +82,17 @@ export function PointToLayer(name, cntxt) {
 			return pointToPOI;
 		case 'tribes':
 			return pointToTribes;
+		case '1803':
+			retrun pointPolitical;
 		default:
 			return null;
 	}
+}
+
+function pointPolitical{
+}
+
+function onPolitical{
 }
 
 function pointToTribes(feature, latlng) {
