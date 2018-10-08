@@ -205,7 +205,7 @@ function onEachPOI(feature, layer) {
 }
 
 function onEachTribe(feature, layer) {
-	layer.bindTooltip(feature.properties.Name);
+	layer.bindTooltip(feature.properties.Tribe);
 	layer.on({
 		click: () => {
 			const latOffset = -1.4;
