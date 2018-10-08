@@ -82,17 +82,15 @@ export function PointToLayer(name, cntxt) {
 			return pointToPOI;
 		case 'tribes':
 			return pointToTribes;
-		case '1803':
-			retrun pointPolitical;
 		default:
 			return null;
 	}
 }
 
-function pointPolitical{
-}
 
-function onPolitical{
+
+function onPolitical(){
+	layer.bindPopup(feature.properties.NAME);
 }
 
 function pointToTribes(feature, latlng) {
