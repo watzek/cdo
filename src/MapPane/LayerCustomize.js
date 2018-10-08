@@ -89,7 +89,7 @@ export function PointToLayer(name, cntxt) {
 
 function style1803(feature){
 	var color = '#000000';
-	if (feature.properties.id.('1') >=0)
+	if (feature.properties.id == 1)
 		color = '#0000FF';
 	
 	return { fillColor: color, fillOpacity: 0.3, stroke: false };	
