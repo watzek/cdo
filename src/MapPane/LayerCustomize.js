@@ -45,8 +45,8 @@ export function LayerStyle(name, cntxt) {
 			return POIStyle;
 		case 'trail':
 			return trailStyle;
-//		case'non_native_claims':
-//			return nncStyle;
+		case '1803':
+			return style1803;
 		default:
 			return null;
 	}
@@ -87,7 +87,16 @@ export function PointToLayer(name, cntxt) {
 	}
 }
 
-
+function style1803(feature){
+	var color = '#000000';
+	if (
+		feature.properties.id.indexOf('1') >=0
+		
+	)
+		color = '#0000FF';
+	
+	return { fillColor: color, fillOpacity: 0.3, stroke: false };	
+}
 
 function onPolitical(feature, layer){
 	layer.bindPopup(feature.properties.NAME);
