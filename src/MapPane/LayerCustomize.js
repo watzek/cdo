@@ -89,7 +89,7 @@ export function PointToLayer(name, cntxt) {
 
 
 
-function onPolitical(){
+function onPolitical(feature, layer){
 	layer.bindPopup(feature.properties.NAME);
 }
 
