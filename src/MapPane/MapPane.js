@@ -1,8 +1,8 @@
 /*
 This js file is the centerpiece of the code. It contains the code for the
-actual map pane, which holds a leaflet map and imports all of the layers and
+actual map pane, which holds a leaflet map and imports all of the layers and 
 also interacts with the other components of the application via props that it
-has been passed.
+has been passed. 
 */
 
 import * as React from 'react';
@@ -74,7 +74,6 @@ export default class MapPane extends React.Component {
 					type: options.type,
 					journey: options.journey
 				};
-
 				switch (options.journey) {
 					case 'ret':
 						this.setState({ ret: this.state.ret.set(name, params) });
@@ -177,7 +176,7 @@ export default class MapPane extends React.Component {
 							<LayerGroup>{this.renderRet()}</LayerGroup>
 						</LayersControl.BaseLayer>
 						{this.renderOverlays()}
-						<LayersControl.Overlay name="Topo Map" key="opentopomap">
+						<LayersControl.Overlay name="opentopomap" key="opentopomap">
 							<TileLayer url="https://c.tile.opentopomap.org/{z}/{x}/{y}.png" />
 						</LayersControl.Overlay>
 						<LayersControl.Overlay name="USA Rivers, Streams" key="usars">
@@ -187,11 +186,11 @@ export default class MapPane extends React.Component {
 					<MapLegend />
 
 					<TileLayer
+						attribution="Map tiles by <a href=&quot;http://stamen.com&quot;>Stamen Design</a>"
 						url="https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.png"
 					/>
 				</LMap>
 			</div>
 		);
-
 	}
 }

@@ -16,7 +16,6 @@ many things without working under the hood a bit.
 */
 
 import Leaflet from 'leaflet';
-import { renderJSON } from './MapPane.js';
 
 const categories = [
 	'Geographic Feature',
@@ -46,6 +45,8 @@ export function LayerStyle(name, cntxt) {
 			return POIStyle;
 		case 'trail':
 			return trailStyle;
+//		case'non_native_claims':
+//			return nncStyle;
 		default:
 			return null;
 	}
@@ -63,6 +64,10 @@ export function OnEachFeature(name, cntxt) {
 			return onEachPOI;
 		case 'trail':
 			return onEachTrail;
+		case 'tribes':
+			return onEachTribe;
+		case'1803':
+			return onPolitical;
 		default:
 			return null;
 	}
@@ -82,7 +87,29 @@ export function PointToLayer(name, cntxt) {
 	}
 }
 
-function pointToTribes(feature, latlng) {}
+
+
+function onPolitical(feature, layer){
+	layer.bindPopup(feature.properties.NAME);
+}
+
+function pointToTribes(feature, latlng) {
+	var color = marker_colors[categories.indexOf(feature.properties.Category)];
+	if (!color) color = 'map-marker-icon.png';
+
+	const teardrop = Leaflet.icon({
+		iconUrl: color,
+		iconSize: [40, 40],
+		iconAnchor: [19, 35]
+	});
+
+	const geojsonMarkerOptions = {
+		icon: teardrop,
+		zIndexOffset: 10000
+
+	};
+	return Leaflet.marker(latlng, geojsonMarkerOptions);
+}
 
 function pointToPOI(feature, latlng) {
 	var color = marker_colors[categories.indexOf(feature.properties.Category[0])];
@@ -93,10 +120,6 @@ function pointToPOI(feature, latlng) {
 		iconSize: [38, 38], // size of the icon
 		iconAnchor: [19, 35] // point of the icon which will correspond to marker's location
 	});
-
-	if(feature.properties.selected === true){
-		teardrop.iconSize = [50,50];
-	}
 
 	const geojsonMarkerOptions = {
 		icon: teardrop,
@@ -166,11 +189,13 @@ function biomeStyle(feature) {
 	return { fillColor: color, fillOpacity: 0.3, stroke: false };
 }
 
+//function nncStyle(feature, layer){}
+
+
 function onEachBiome(feature, layer) {
 	layer.bindPopup(feature.properties.ECO_NAME);
 }
 
-//stuff to change will be in here
 function onEachPOI(feature, layer) {
 	layer.bindTooltip(feature.properties.Name);
 	layer.on({
@@ -181,16 +206,15 @@ function onEachPOI(feature, layer) {
 				feature.geometry.coordinates[0] + latOffset,
 				feature.geometry.coordinates[1]
 			]);
-			//below line does't change anything lol
-			//pointToPOI(feature, ll).options.icon.options.iconSize = [50,50];
-			//console.log(pointToPOI(feature, ll).options.icon.options.iconSize)
-			//feature.properties.selected = true;
-		  //console.log(feature.properties.selected);
-			//pointToPOI(feature, ll);
-			//will need to turn off grow!
-			//will need to render it...
+			context.state.map.setView(ll, 7);
+			//L.circle(LatLng, 200).addTo(map);
 		}
 	});
+}
+
+function onEachTribe(feature, layer) {
+	layer.bindTooltip(feature.properties.Tribe);
+
 }
 
 function onEachTrail(feature, layer) {
