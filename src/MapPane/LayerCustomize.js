@@ -99,7 +99,7 @@ function style1803(feature){
 		color = '#FF0000';
 	if (feature.properties.id == 5)
 		color = '#4682B4';
-	return { fillColor: color, fillOpacity: 0.3, stroke: false };	
+	return { fillColor: color, fillOpacity: 0.8, stroke: false };	
 }
 
 function onPolitical(feature, layer){
