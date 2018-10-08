@@ -90,8 +90,15 @@ export function PointToLayer(name, cntxt) {
 function style1803(feature){
 	var color = '#000000';
 	if (feature.properties.id == 1)
+		color = '#00FFFF';
+	if (feature.properties.id == 2)
+		color = '#FFFF00';
+	if (feature.properties.id == 3)
+		color = '#FFFF00';
+	if (feature.properties.id == 4)
+		color = '#FF0000';
+	if (feature.properties.id == 5)
 		color = '#0000FF';
-	
 	return { fillColor: color, fillOpacity: 0.3, stroke: false };	
 }
 
