@@ -9,7 +9,7 @@ export default class CreditMenu extends React.Component {
 
   render () {
     return (
-      <Menu styles = {styles}>
+      <Menu styles = {styles} width={ '30%' }>
         <a id="cited" className="menu-item" href="/">Works Cited</a>
         <a id="reading" className="menu-item" href="/about">Further Reading</a>
         <a id="about" className="menu-item" href="/contact">About This Map...</a>
@@ -37,7 +37,7 @@ var styles = {
     background: '#0a100d'
   },
   bmMenu: {
-    background: '#F0FFF0',
+    background: '#BCD8B7',
     padding: '2.5em 1.5em 0',
     fontSize: '1.15em'
   },
@@ -49,7 +49,8 @@ var styles = {
     padding: '0.8em'
   },
   bmItem: {
-    display: 'inline-block'
+    display: 'inline-block',
+    width: '100%',
   },
   bmOverlay: {
     background: 'rgba(0, 0, 0, 0.5)'
