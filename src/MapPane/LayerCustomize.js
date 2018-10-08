@@ -98,7 +98,7 @@ function style1803(feature){
 	if (feature.properties.id == 4)
 		color = '#FF0000';
 	if (feature.properties.id == 5)
-		color = '#0000FF';
+		color = '#4682B4';
 	return { fillColor: color, fillOpacity: 0.3, stroke: false };	
 }
 
