@@ -1,0 +1,9 @@
+a {
+  color: #0a100d;
+  text-decoration: underline;
+}
+
+a:hover{
+  font-style: italic;
+  color: #0a100d;
+}

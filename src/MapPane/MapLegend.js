@@ -57,10 +57,6 @@ export default class MapLegend extends MapControl {
 		const jsx = (
 				<div id="legend">
 					{this.renderCategories()}
-					<div id="line"></div>
-					<a href = "#">
-						<span id="info">about this map</span>
-					</a>
 				</div>
 			);
 

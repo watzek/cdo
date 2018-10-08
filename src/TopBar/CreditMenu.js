@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { slide as Menu } from 'react-burger-menu'
+import './CreditMenu.css';
 
 export default class CreditMenu extends React.Component {
   showSettings (event) {
@@ -9,10 +10,9 @@ export default class CreditMenu extends React.Component {
   render () {
     return (
       <Menu styles = {styles}>
-        <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/about">About</a>
-        <a id="contact" className="menu-item" href="/contact">Contact</a>
-        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+        <a id="cited" className="menu-item" href="/">Works Cited</a>
+        <a id="reading" className="menu-item" href="/about">Further Reading</a>
+        <a id="about" className="menu-item" href="/contact">About This Map...</a>
       </Menu>
     );
   }
