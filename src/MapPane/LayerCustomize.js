@@ -86,7 +86,7 @@ export function PointToLayer(name, cntxt) {
 }
 
 function pointToTribes(feature, latlng) {
-	var color = marker_colors[categories.indexOf(feature.properties.Category)];
+	var color = marker_colors[categories.indexOf(feature.properties.Tribe)];
 	if (!color) color = feature.properties.Tribe;
 	
 	const teardrop = Leaflet.icon({
