@@ -48,7 +48,7 @@ export default class MapLegend extends MapControl {
 	renderCategories() {
 		var js = [];
 
-		for (var i = 0; i < 5; i++) {
+		for (var i = 0; i < 9; i++) {
 			js.push(
 				<div>
 					{' '}
