@@ -37,7 +37,11 @@ const marker_colors = [
 	'icon_pink.svg',
 	'icon_green.svg',
 	'icon_blue.svg',
-	'map-marker-icon.png'
+	'map-marker-icon.png',
+	'icon_pink.svg',
+	'icon_green.svg',
+	'icon_blue.svg',
+	'icon_yellow.svg'
 ];
 
 export default class MapLegend extends MapControl {
