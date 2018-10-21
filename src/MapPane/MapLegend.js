@@ -48,7 +48,13 @@ export default class MapLegend extends MapControl {
 	renderCategories() {
 		var js = [];
 		var x = 5;
-		if case '1803': x = 9;
+		var context = null;
+		export function OnEachFeature(name, cntxt) {
+		context = cntxt;
+		switch (name) {
+			case '1803': x = 9;		
+			}
+		}
 		for (var i = 0; i < x; i++) {
 			js.push(
 				<div>
