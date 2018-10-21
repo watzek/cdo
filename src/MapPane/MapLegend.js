@@ -49,8 +49,7 @@ const marker_colors = [
 export default class MapLegend extends MapControl {
 	renderCategories() {
 		var js = [];
-		var x = 9;
-		for (var i = 0; i < x; i++) {
+		for (var i = 0; i < 9; i++) {
 			js.push(
 				<div>
 					{' '}
