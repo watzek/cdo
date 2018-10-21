@@ -24,10 +24,10 @@ const categories = [
 	'Corps Relations',
 	'Native American Encounter',
 	'Important Campsite',
-	'Natural History'
-	'United State Pre Louisiana Purchase'
-	'Louisiana Purchase'
-	'British North America'
+	'Natural History',
+	'United State Pre Louisiana Purchase',
+	'Louisiana Purchase',
+	'British North America',
 	'Spanish Territory'
 ];
 
