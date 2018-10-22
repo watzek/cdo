@@ -1,6 +1,63 @@
 import * as React from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import './CreditMenu.css';
+import {about} from './credits.js';
+
+const dropStyle = {
+  border: '1px solid gray',
+  borderRadius: '4px',
+  color: '#0a100d',
+  lineHeight: 'normal',
+  paddingTop: '0.5em',
+  paddingBottom: '0.5em',
+  fontSize: '0.9em',
+  textAlign: 'left'
+};
+
+const dropTitle = {
+  fontSize: '1.3em',
+  textAlign: 'center'
+}
+
+const dropBody = {
+  margin: '0.5em'
+}
+
+class DMenuItem extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      open: false,
+      info: this.props.info,
+      stuff: about,
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(){
+    this.setState({open: !this.state.open});
+  }
+
+  render () {
+    var fill = (<div style={dropTitle}> {this.state.info} </div>);
+    const isClicked = this.state.open;
+
+    if(isClicked){
+      fill = (
+        <div>
+          <div style={dropTitle}> {this.state.info} </div>
+          <div style={dropBody}> {this.state.stuff} </div>
+        </div>
+      );
+    }
+
+    return(
+      <div style={dropStyle} onClick={this.handleClick}>
+        {fill}
+      </div>
+    );
+  }
+}
 
 export default class CreditMenu extends React.Component {
   showSettings (event) {
@@ -12,7 +69,8 @@ export default class CreditMenu extends React.Component {
       <Menu styles = {styles} width={ '30%' }>
         <a id="cited" className="menu-item" href="/">Works Cited</a>
         <a id="reading" className="menu-item" href="/about">Further Reading</a>
-        <a id="about" className="menu-item" href="/contact">About This Map</a>
+
+        <DMenuItem info={"about this map"} subtext={"nothing"} />
 
         <div></div>
 
@@ -44,7 +102,7 @@ var styles = {
   },
   bmMenu: {
     background: '#BCD8B7',
-    padding: '2.5em 1.5em 0',
+    padding: '0.6em 0.2em 0',
     fontSize: '1.15em'
   },
   bmMorphShape: {
