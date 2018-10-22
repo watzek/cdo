@@ -122,7 +122,7 @@ export default class Sidebar extends React.Component {
 									}
 									href="#">
 									{this.props.paneInfo['Journal Entries']
-										? 'Source Document'
+										? 'Journal Entry'
 										: null}
 								</a>
 							</div>
