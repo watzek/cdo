@@ -7,9 +7,7 @@ export default class TopBar extends React.Component{
     return (
       <div id="topbar" color="light">
         <div><CreditMenu /></div>
-        <span id="sideText">A project by the Watzek Library</span>
         <span id="title">Corps of Discovery Online Atlas</span>
-        <span id="sideText">At Lewis & Clark College</span>
       </div>
     )
   }

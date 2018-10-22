@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { slide as Menu } from 'react-burger-menu'
+import { slide as Menu } from 'react-burger-menu';
 import './CreditMenu.css';
 
 export default class CreditMenu extends React.Component {
@@ -12,7 +12,13 @@ export default class CreditMenu extends React.Component {
       <Menu styles = {styles} width={ '30%' }>
         <a id="cited" className="menu-item" href="/">Works Cited</a>
         <a id="reading" className="menu-item" href="/about">Further Reading</a>
-        <a id="about" className="menu-item" href="/contact">About This Map...</a>
+        <a id="about" className="menu-item" href="/contact">About This Map</a>
+
+        <div></div>
+
+        <div id="menuinfo">
+          A project by the <a href="http://library.lclark.edu">Watzek Library</a> at <a href="https://www.lclark.edu">Lewis & Clark College</a>
+        </div>
       </Menu>
     );
   }

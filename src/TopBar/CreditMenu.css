@@ -9,3 +9,8 @@ menu a:hover{
   text-decoration: underline;
   color: #0a100d;
 }
+
+#menuinfo{
+  line-height: normal;
+  color: gray;
+}
