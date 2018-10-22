@@ -11,7 +11,7 @@ const dropStyle = {
   paddingTop: '0.5em',
   paddingBottom: '0.5em',
   fontSize: '0.9em',
-  textAlign: 'left'
+  textAlign: 'left',
 };
 
 const dropTitle = {
@@ -20,7 +20,7 @@ const dropTitle = {
 }
 
 const dropBody = {
-  margin: '0.5em'
+  margin: '0.5em',
 }
 
 class DMenuItem extends React.Component {
