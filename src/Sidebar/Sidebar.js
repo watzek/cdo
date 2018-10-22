@@ -46,6 +46,36 @@ export default class Sidebar extends React.Component {
 		return `${months[date2[1] - 1]} ${date2[2]}, ${date2[0]} \n`;
 	}
 
+	reformatCitation(parse, type){
+		var result = []
+		var ita = " ";
+		if(type == "mla"){ //stil broken
+			const reg = /(.*?)\./gm;
+			let m;
+			var i = 0;
+			while (m = reg.exec(parse)) {
+				if(i == 2 && m[1] != null) ita = m[1];
+				i++;
+			}
+		}
+
+		if(type == "chi"){
+		 	const reg = /,(.*?)\./gm;
+			result = reg.exec(parse);
+			ita = result[1];
+		}
+
+		var start = parse.indexOf(ita);
+		var end = start + ita.length;
+		ita = "<em>" + ita + "</em>";
+
+		var final = parse.substring(0, start) + ita + parse.substring(end);
+
+		return (
+			<span dangerouslySetInnerHTML={{ __html: final }}></span>
+		);
+	}
+
 	renderSidebar() {
 
 		return (
@@ -98,13 +128,13 @@ export default class Sidebar extends React.Component {
 							</div>
 							{this.props.paneInfo.hasOwnProperty("Secondary Source") &&
 								<div id="sec">
-									<div><strong>Further Reading:</strong></div> {this.props.paneInfo['Secondary Source']}
+									<div><strong>Further Reading:</strong></div> {this.reformatCitation(this.props.paneInfo['Secondary Source'], "chi")}
 								</div>
 							}
 
 							{this.props.paneInfo.hasOwnProperty('Image citation') &&
 								<div id="sec">
-									<div><strong>Image source:</strong></div> {this.props.paneInfo['Image citation']}
+									<div><strong>Image source:</strong></div> {this.reformatCitation(this.props.paneInfo['Image citation'], "mla")}
 								</div>
 							}
 						</Scroll>
