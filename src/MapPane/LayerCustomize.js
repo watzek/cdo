@@ -45,8 +45,8 @@ export function LayerStyle(name, cntxt) {
 			return POIStyle;
 		case 'trail':
 			return trailStyle;
-//		case'non_native_claims':
-//			return nncStyle;
+		case '1803':
+			return style1803;
 		default:
 			return null;
 	}
@@ -87,6 +87,43 @@ export function PointToLayer(name, cntxt) {
 	}
 }
 
+function style1803(feature){
+	var color = '#000000';
+	if (feature.properties.id == 1)
+		color = '#00008B';
+	if (feature.properties.id == 2)
+		color = '#FFFF00';
+	if (feature.properties.id == 3)
+		color = '#FFFF00';
+	if (feature.properties.id == 4)
+		color = '#FF0000';
+	if (feature.properties.id == 5)
+		color = '#4682B4';
+	return { fillColor: color, fillOpacity: 0.8, stroke: false };
+}
+
+function onPolitical(feature, layer){
+	layer.bindPopup(feature.properties.NAME);
+	var pol = true;
+}
+
+function pointToTribes(feature, latlng) {
+	var color = marker_colors[categories.indexOf(feature.properties.Category)];
+	if (!color) color = 'map-marker-icon.png';
+
+	const teardrop = Leaflet.icon({
+		iconUrl: color,
+		iconSize: [40, 40],
+		iconAnchor: [19, 35]
+	});
+
+	const geojsonMarkerOptions = {
+		icon: teardrop,
+		zIndexOffset: 10000
+
+	};
+	return Leaflet.marker(latlng, geojsonMarkerOptions);
+}
 
 
 function onPolitical(feature, layer){

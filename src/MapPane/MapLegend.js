@@ -24,7 +24,11 @@ const categories = [
 	'Corps Relations',
 	'Native American Encounter',
 	'Important Campsite',
-	'Natural History'
+	'Natural History',
+	'United State Pre Louisiana Purchase',
+	'Louisiana Purchase',
+	'British North America',
+	'Spanish Territory'
 ];
 
 const marker_colors = [
@@ -33,14 +37,19 @@ const marker_colors = [
 	'icon_pink.svg',
 	'icon_green.svg',
 	'icon_blue.svg',
-	'map-marker-icon.png'
+	'map-marker-icon.png',
+	'icon_pink.svg',
+	'icon_green.svg',
+	'icon_blue.svg',
+	'icon_yellow.svg'
 ];
+
+
 
 export default class MapLegend extends MapControl {
 	renderCategories() {
 		var js = [];
-
-		for (var i = 0; i < 5; i++) {
+		for (var i = 0; i < 9; i++) {
 			js.push(
 				<div>
 					{' '}
