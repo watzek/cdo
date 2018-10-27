@@ -35,6 +35,7 @@ export default class MapPane extends React.Component {
 		this.loadJSONLayer('outtrail', { alias: 'Outbound', journey: 'out' });
 		this.loadJSONLayer('outpoi', { alias: 'Outbound', journey: 'out' });
 		this.loadJSONLayer('retpoi', { alias: 'Return', journey: 'ret' });
+		this.loadJSONLayer('Labels', { alias: 'Labels'});
 		this.setState({ map: this.refs.map.leafletElement });
 	}
 
