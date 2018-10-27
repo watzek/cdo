@@ -126,7 +126,7 @@ function pointToTribes(feature, latlng) {
 }
 
 function pointToPOI(feature, latlng) {
-	var color = marker_colors[categories.indexOf(feature.properties.Category)];
+	var color = marker_colors[categories.indexOf(feature.properties.Tribe)];
 	if (!color) color = 'map-marker-icon.png';
 
 	const teardrop = Leaflet.icon({
