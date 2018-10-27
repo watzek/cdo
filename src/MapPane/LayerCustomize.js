@@ -61,6 +61,8 @@ export function OnEachFeature(name, cntxt) {
 			return onEachBiome;
 		case 'retpoi':
 		case 'outpoi':
+			return nothing;
+		case 'Lables':
 			return onEachPOI;
 		case 'trail':
 			return onEachTrail;
@@ -71,6 +73,10 @@ export function OnEachFeature(name, cntxt) {
 		default:
 			return null;
 	}
+}
+
+
+function nothing(){
 }
 
 export function PointToLayer(name, cntxt) {
