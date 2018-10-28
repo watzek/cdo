@@ -108,8 +108,7 @@ function style1803(feature){
 }
 
 function onPolitical(feature, layer){
-	layer.bindPopup(feature.properties.NAME);
-	var pol = true;
+	layer.bindTooltip(feature.properties.NAME);
 }
 
 function pointToTribes(feature, latlng) {
