@@ -47,6 +47,8 @@ export function LayerStyle(name, cntxt) {
 			return trailStyle;
 		case '1803':
 			return style1803;
+		case 'trail':
+			return onEachTrail;
 		default:
 			return null;
 	}
