@@ -66,6 +66,8 @@ export function OnEachFeature(name, cntxt) {
 			return onEachTrail;
 		case 'tribes':
 			return onEachTribe;
+		case 'Labels' :
+			return pointToPOI;
 		case'1803':
 			return onPolitical;
 		default:
@@ -84,8 +86,6 @@ export function PointToLayer(name, cntxt) {
 			return nothing;
 		case 'outpoi':
 			return nothing;
-		case 'Labels' :
-			return pointToPOI;
 		case 'tribes':
 			return pointToTribes;
 		default:
