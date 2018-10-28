@@ -47,8 +47,6 @@ export function LayerStyle(name, cntxt) {
 			return trailStyle;
 		case '1803':
 			return style1803;
-		case 'Labels' :
-			return pointToPOI;
 		default:
 			return null;
 	}
@@ -68,8 +66,6 @@ export function OnEachFeature(name, cntxt) {
 			return onEachTrail;
 		case 'tribes':
 			return onEachTribe;
-		case 'Labels' :
-			return pointToPOI;
 		case'1803':
 			return onPolitical;
 		default:
@@ -78,16 +74,13 @@ export function OnEachFeature(name, cntxt) {
 }
 
 
-function nothing(){
-}
-
 export function PointToLayer(name, cntxt) {
 	context = cntxt;
 	switch (name) {
-		case 'retpoi':
-			return nothing;
-		case 'outpoi':
-			return nothing;
+		case 'rettrail':
+			return pointToPOI;
+		case 'outtrail':
+			return pointToPOI;
 		case 'tribes':
 			return pointToTribes;
 		default:
