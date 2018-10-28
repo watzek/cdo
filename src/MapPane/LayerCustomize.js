@@ -61,8 +61,6 @@ export function OnEachFeature(name, cntxt) {
 			return onEachBiome;
 		case 'retpoi':
 		case 'outpoi':
-			return nothing;
-		case 'Lables':
 			return onEachPOI;
 		case 'trail':
 			return onEachTrail;
@@ -83,14 +81,20 @@ export function PointToLayer(name, cntxt) {
 	context = cntxt;
 	switch (name) {
 		case 'retpoi':
-			return pointToPOI;
+			return nothing;
 		case 'outpoi':
+			return nothing;
+		case 'Labels; :
 			return pointToPOI;
 		case 'tribes':
 			return pointToTribes;
 		default:
 			return null;
 	}
+}
+
+function nothing(){
+	return null;
 }
 
 function style1803(feature){
