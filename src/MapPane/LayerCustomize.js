@@ -47,8 +47,8 @@ export function LayerStyle(name, cntxt) {
 			return trailStyle;
 		case '1803':
 			return style1803;
-		case 'trail':
-			return onEachTrail;
+		case 'Labels' :
+			return pointToPOI;
 		default:
 			return null;
 	}
