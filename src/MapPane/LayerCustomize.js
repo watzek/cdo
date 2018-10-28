@@ -84,7 +84,7 @@ export function PointToLayer(name, cntxt) {
 			return nothing;
 		case 'outpoi':
 			return nothing;
-		case 'Labels; :
+		case 'Labels' :
 			return pointToPOI;
 		case 'tribes':
 			return pointToTribes;
