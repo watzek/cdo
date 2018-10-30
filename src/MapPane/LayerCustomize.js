@@ -231,7 +231,7 @@ function onEachPOI(feature, layer) {
 }
 
 function onEachTribe(feature, layer) {
-	layer.bindTooltip(feature.properties.Tribe);
+	layer.bindPopup(feature.properties.Tribe).openPopup();
 	
 }
 
