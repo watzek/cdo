@@ -116,11 +116,11 @@ function onPolitical(feature, layer){
 
 function pointToTribes(feature, latlng) {
 	var color = marker_colors[categories.indexOf(feature.properties.Category)];
-	if (!color) color = '';
+	if (!color) color = 'map-marker-icon.png';
 	
 	const teardrop = Leaflet.icon({
 		iconUrl: color,
-		iconSize: [40, 40], 
+		iconSize: [4, 4], 
 		iconAnchor: [19, 35] 
 	});
 
