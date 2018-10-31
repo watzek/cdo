@@ -43,6 +43,9 @@ export function LayerStyle(name, cntxt) {
 		case 'retpoi':
 		case 'outpoi':
 			return POIStyle;
+		case 'retpoi':
+		case 'outpoi':
+			return POIStyle;
 		case 'trail':
 			return trailStyle;
 		case '1803':
