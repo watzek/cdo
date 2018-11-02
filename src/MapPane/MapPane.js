@@ -130,6 +130,9 @@ export default class MapPane extends React.Component {
 						<LayersControl.Overlay name="USA Rivers, Streams" key="usars">
 							<TileLayer url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}" />
 						</LayersControl.Overlay>
+						<LayersControl.Overlay name="1803 Political Map" key="1803">
+							<TileLayer url="https://github.com/PatrickVin/cdo-1/blob/will-owen/public/layers/1803.geojson" />
+						</LayersControl.Overlay>
 					</LayersControl>
 					<MapLegend />
 
