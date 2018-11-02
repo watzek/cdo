@@ -30,7 +30,7 @@ export default class MapPane extends React.Component {
 	componentDidMount() {
 		this.loadJSONLayer('biomes', { alias: 'Biomes' });
 		this.loadJSONLayer('tribes', { alias: 'Tribes' });
-		this.loadJSONLayer('1803', {alais: '1803'});
+		this.loadJSONLayer('1803', {alais: 'Political Map 1803'});
 		this.loadJSONLayer('rettrail', { alias: 'Return', journey: 'ret' });
 		this.loadJSONLayer('outtrail', { alias: 'Outbound', journey: 'out' });
 		this.loadJSONLayer('outpoi', { alias: 'Outbound', journey: 'out' });
@@ -129,9 +129,6 @@ export default class MapPane extends React.Component {
 						</LayersControl.Overlay>
 						<LayersControl.Overlay name="USA Rivers, Streams" key="usars">
 							<TileLayer url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}" />
-						</LayersControl.Overlay>
-						<LayersControl.Overlay name="1803 Political Map" key="1803">
-							<TileLayer url="https://github.com/PatrickVin/cdo-1/blob/will-owen/public/layers/1803.geojson" />
 						</LayersControl.Overlay>
 					</LayersControl>
 					<MapLegend />
