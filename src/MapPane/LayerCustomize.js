@@ -113,7 +113,7 @@ function style1803(feature){
 function onPolitical(feature, layer){
 	layer.bindPopup(feature.properties.NAME);
 	var newMarker = new L.marker([49.979488, -106.424834]).addTo(layer);
-	var marker = L.marker([49.979488, -106.424834]).bindTooltip("British North America",});
+	var marker = L.marker([49.979488, -106.424834]).bindTooltip("British North America");
 }
 
 function pointToTribes(feature, latlng) {
