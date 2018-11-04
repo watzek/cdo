@@ -114,9 +114,9 @@ function style1803(feature){
 function onPolitical(feature, layer){
 	layer.bindPopup(feature.properties.NAME);
 	var BNA = L.marker([39.61, -105.02]).bindPopup('British North America'),
-    	var LP    = L.marker([42.269181,-101.941685]).bindPopup('Louisiana Purchase'),
-    	var USA    = L.marker([38.315803,-85.601336]).bindPopup('United State Pre Louisiana Purchase'),
-   	var SPN    = L.marker([30.086209,-108.495398]).bindPopup('Spanish Territory');
+    	    LP  = L.marker([42.269181,-101.941685]).bindPopup('Louisiana Purchase'),
+    	    USA = L.marker([38.315803,-85.601336]).bindPopup('United State Pre Louisiana Purchase'),
+   	    SPN = L.marker([30.086209,-108.495398]).bindPopup('Spanish Territory');
 	
 	BNA.bindPopup("<b>British North America</b>").openPopup();
 	LP.bindPopup("<b>Louisiana Purchase</b>").openPopup();
