@@ -16,7 +16,15 @@ many things without working under the hood a bit.
 */
 
 import Leaflet from 'leaflet';
-import Map as LMap;
+import * as React from 'react';
+import {
+	Map as LMap,
+	ZoomControl,
+	TileLayer,
+	GeoJSON,
+	LayersControl,
+	LayerGroup
+} from 'react-leaflet';
 
 const categories = [
 	'Geographic Feature',
