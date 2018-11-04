@@ -16,7 +16,7 @@ many things without working under the hood a bit.
 */
 
 import Leaflet from 'leaflet';
-import Map from './Map';
+import Map as LMap;
 
 const categories = [
 	'Geographic Feature',
