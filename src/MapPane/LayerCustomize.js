@@ -120,7 +120,7 @@ function style1803(feature){
 }
 
 function onPolitical(feature, layer){
-	layer.bindPopup(feature.properties.NAME).openPopup();
+	layer.bindPopup(feature.properties.NAME);
 	layer.bindPopup("<b>British North America</b>").openPopup();
 	layer.bindPopup("<b>Louisiana Purchase</b>").openPopup();
 	layer.bindPopup("<b>United State Pre Louisiana Purchase</b>").openPopup();
