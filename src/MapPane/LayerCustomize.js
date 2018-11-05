@@ -120,16 +120,11 @@ function style1803(feature){
 }
 
 function onPolitical(feature, layer){
-	layer.bindPopup(feature.properties.NAME);
-	var BNA = L.marker([39.61, -105.02]).bindPopup('British North America'),
-    	    LP  = L.marker([42.269181,-101.941685]).bindPopup('Louisiana Purchase'),
-    	    USA = L.marker([38.315803,-85.601336]).bindPopup('United State Pre Louisiana Purchase'),
-   	    SPN = L.marker([30.086209,-108.495398]).bindPopup('Spanish Territory');
-	
-	BNA.bindPopup("<b>British North America</b>").openPopup();
-	LP.bindPopup("<b>Louisiana Purchase</b>").openPopup();
-	USA.bindPopup("<b>United State Pre Louisiana Purchase</b>").openPopup();
-	SPN.bindPopup("<b>Spanish Territory</b>").openPopup();
+	layer.bindPopup(feature.properties.NAME).openPopup();
+	layer.bindPopup("<b>British North America</b>").openPopup();
+	layer.bindPopup("<b>Louisiana Purchase</b>").openPopup();
+	layer.bindPopup("<b>United State Pre Louisiana Purchase</b>").openPopup();
+	layer.bindPopup("<b>Spanish Territory</b>").openPopup();
 }
 
 function pointToTribes(feature, latlng) {
