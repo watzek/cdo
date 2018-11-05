@@ -117,7 +117,7 @@ function style1803(feature, layer){
 }
 
 function onPolitical(feature, layer){
-	var marker = marker([51.5, -0.09]).addTo(layer);
+	var marker = marker.addTo(layer);
 	marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
 }
