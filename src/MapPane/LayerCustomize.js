@@ -16,6 +16,15 @@ many things without working under the hood a bit.
 */
 
 import Leaflet from 'leaflet';
+import marker from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet/dist/leaflet';
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+	
+
 
 const categories = [
 	'Geographic Feature',
@@ -40,6 +49,9 @@ export function LayerStyle(name, cntxt) {
 	switch (name) {
 		case 'biomes':
 			return biomeStyle;
+		case 'retpoi':
+		case 'outpoi':
+			return POIStyle;
 		case 'retpoi':
 		case 'outpoi':
 			return POIStyle;
@@ -73,6 +85,7 @@ export function OnEachFeature(name, cntxt) {
 	}
 }
 
+
 export function PointToLayer(name, cntxt) {
 	context = cntxt;
 	switch (name) {
@@ -87,7 +100,11 @@ export function PointToLayer(name, cntxt) {
 	}
 }
 
-function style1803(feature){
+function nothing(){
+	return null;
+}
+
+function style1803(feature, layer){
 	var color = '#000000';
 	if (feature.properties.id == 1)
 		color = '#00008B';
@@ -97,14 +114,21 @@ function style1803(feature){
 		color = '#FFFF00';
 	if (feature.properties.id == 4)
 		color = '#FF0000';
+		
 	if (feature.properties.id == 5)
 		color = '#4682B4';
+<<<<<<< HEAD
 	return { fillColor: color, fillOpacity: 0.8, stroke: false };
+=======
+		
+	return { fillColor: color, fillOpacity: 0.8, stroke: false };	
+>>>>>>> pvin/will-owen
 }
 
 function onPolitical(feature, layer){
-	layer.bindPopup(feature.properties.NAME);
-	var pol = true;
+	marker.addTo(layer);
+	marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
 }
 
 function pointToTribes(feature, latlng) {
@@ -113,8 +137,13 @@ function pointToTribes(feature, latlng) {
 
 	const teardrop = Leaflet.icon({
 		iconUrl: color,
+<<<<<<< HEAD
 		iconSize: [40, 40],
 		iconAnchor: [19, 35]
+=======
+		iconSize: [4, 4], 
+		iconAnchor: [19, 35] 
+>>>>>>> pvin/will-owen
 	});
 
 	const geojsonMarkerOptions = {
@@ -249,8 +278,14 @@ function onEachPOI(feature, layer) {
 }
 
 function onEachTribe(feature, layer) {
+<<<<<<< HEAD
 	layer.bindTooltip(feature.properties.Tribe);
 
+=======
+	//marker.addTo(layer).bindPopup(feature.properties.Tribe, {autoClose:false}).openPopup();
+	layer.bindPopup(feature.properties.Tribe, {autoClose:false}).openPopup();
+	
+>>>>>>> pvin/will-owen
 }
 
 function onEachTrail(feature, layer) {
