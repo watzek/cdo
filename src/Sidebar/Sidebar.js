@@ -77,7 +77,6 @@ export default class Sidebar extends React.Component {
 	}
 
 	renderSidebar() {
-
 		return (
 			<div className="Sidebar position-absolute">
 				<Button
@@ -97,6 +96,10 @@ export default class Sidebar extends React.Component {
 							{this.props.paneInfo
 								? this.reformatDate(this.props.paneInfo.Date)
 								: null}
+						</div>
+
+						<div id="coords">
+							{this.props.paneInfo.latitude + "°N " + this.props.paneInfo.longitude + "°W"}
 						</div>
 					</div>
 				</div>

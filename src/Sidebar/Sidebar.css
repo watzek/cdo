@@ -45,6 +45,12 @@
   font-size: 0.7em;
 }
 
+#coords{
+  font-style: normal;
+  font-size: 0.6em;
+  color: gray;
+}
+
 #exit{
   font-size: 2rem;
   text-align: right;
