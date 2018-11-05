@@ -1,8 +1,8 @@
 /*
 This js file is the centerpiece of the code. It contains the code for the
-actual map pane, which holds a leaflet map and imports all of the layers and 
+actual map pane, which holds a leaflet map and imports all of the layers and
 also interacts with the other components of the application via props that it
-has been passed. 
+has been passed.
 */
 
 import * as React from 'react';
@@ -132,6 +132,7 @@ export default class MapPane extends React.Component {
 		this.state.out.forEach((layer, name) => {
 			list.push(this.renderJSON(layer, name));
 		});
+		//console.log(JSON.parse(this.state.out));
 		return list;
 	}
 	renderRet() {
@@ -153,6 +154,8 @@ export default class MapPane extends React.Component {
 		});
 		return layers;
 	}
+
+
 
 	render() {
 		return (

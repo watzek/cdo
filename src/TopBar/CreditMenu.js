@@ -3,6 +3,7 @@ import { slide as Menu } from 'react-burger-menu';
 import './CreditMenu.css';
 import {about} from './credits.js';
 
+
 const dropStyle = {
   border: '1px solid gray',
   borderRadius: '4px',
@@ -21,6 +22,7 @@ const dropTitle = {
 
 const dropBody = {
   margin: '0.5em',
+  width: '500px'
 }
 
 class DMenuItem extends React.Component {
@@ -49,6 +51,7 @@ class DMenuItem extends React.Component {
           <div style={dropBody}> {this.state.stuff} </div>
         </div>
       );
+      //fuck with width
     }
 
     return(
@@ -67,10 +70,10 @@ export default class CreditMenu extends React.Component {
   render () {
     return (
       <Menu styles = {styles} width={ '30%' }>
-        <a id="cited" className="menu-item" href="/">Works Cited</a>
-        <a id="reading" className="menu-item" href="/about">Further Reading</a>
-
         <DMenuItem info={"about this map"} subtext={"nothing"} />
+        <a id="reading" className="menu-item" href="/about">Further Reading</a>
+        <a id="cited" className="menu-item" href="/">Works Cited</a>
+
 
         <div></div>
 
