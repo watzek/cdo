@@ -42,6 +42,7 @@ const marker_colors = [
 	'icon_pink.svg',
 	'icon_green.svg',
 	'icon_blue.svg',
+  'icon_none.svg',
 	'map-marker-icon.png'
 ];
 
@@ -95,7 +96,7 @@ export function PointToLayer(name, cntxt) {
 		case 'outpoi':
 			return pointToPOI;
 		case 'tribes':
-			return pointToTribes;
+		  return pointToTribes;
 		default:
 			return null;
 	}
@@ -124,32 +125,12 @@ function onPolitical(feature, layer){
 	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
 }
 
-function pointToTribes(feature, latlng) {
-	var color = marker_colors[categories.indexOf(feature.properties.Category)];
-	if (!color) color = 'map-marker-icon.png';
-
-	const teardrop = Leaflet.icon({
-		iconUrl: color,
-		iconSize: [4, 4],
-		iconAnchor: [19, 35]
-	});
-
-	const geojsonMarkerOptions = {
-		icon: teardrop,
-		zIndexOffset: 10000
-
-	};
-	return Leaflet.marker(latlng, geojsonMarkerOptions);
-}
-
-
 function onPolitical(feature, layer){
-	layer.bindPopup(feature.properties.NAME);
+	layer.bindTooltip(feature.properties.NAME, {permanent: true});
 }
 
 function pointToTribes(feature, latlng) {
-	var color = marker_colors[categories.indexOf(feature.properties.Category)];
-	if (!color) color = 'map-marker-icon.png';
+	var color = 'icon_none.svg';
 
 	const teardrop = Leaflet.icon({
 		iconUrl: color,
@@ -247,7 +228,7 @@ function biomeStyle(feature) {
 
 
 function onEachBiome(feature, layer) {
-	layer.bindPopup(feature.properties.ECO_NAME);
+	layer.bindPopup(feature.properties.ECO_NAME, {permanent: true});
 }
 
 function onEachPOI(feature, layer) {
@@ -278,7 +259,8 @@ function onEachPOI(feature, layer) {
 
 function onEachTribe(feature, layer) {
 	//marker.addTo(layer).bindPopup(feature.properties.Tribe, {autoClose:false}).openPopup();
-	layer.bindPopup(feature.properties.Tribe, {autoClose:false}).openPopup();
+	//layer.bindPopup(feature.properties.Tribe, {autoClose:false}).openPopup();
+  layer.bindTooltip(feature.properties.Tribe, {permanent: true, className: 'tribeMarker'})
 
 }
 
