@@ -104,27 +104,28 @@ function nothing(){
 	return null;
 }
 
-function style1803(feature){
+function style1803(feature, layer){
 	var color = '#000000';
 	if (feature.properties.id == 1)
 		color = '#00008B';
+		layer.bindPopup("<b>United State Pre Louisiana Purchase</b>").openPopup();
 	if (feature.properties.id == 2)
 		color = '#FFFF00';
+		layer.bindPopup("<b>Spanish Territory</b>").openPopup();
 	if (feature.properties.id == 3)
 		color = '#FFFF00';
+		layer.bindPopup("<b>Spanish Territory</b>").openPopup();
 	if (feature.properties.id == 4)
 		color = '#FF0000';
+		layer.bindPopup("<b>British North America</b>").openPopup();
 	if (feature.properties.id == 5)
 		color = '#4682B4';
+		layer.bindPopup("<b>Louisiana Purchase</b>").openPopup();
 	return { fillColor: color, fillOpacity: 0.8, stroke: false };	
 }
 
 function onPolitical(feature, layer){
 	layer.bindPopup(feature.properties.NAME);
-	layer.bindPopup("<b>British North America</b>");
-	layer.bindPopup("<b>Louisiana Purchase</b>");
-	layer.bindPopup("<b>United State Pre Louisiana Purchase</b>");
-	layer.bindPopup("<b>Spanish Territory</b>");
 }
 
 function pointToTribes(feature, latlng) {
