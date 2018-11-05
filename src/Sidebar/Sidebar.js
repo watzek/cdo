@@ -9,7 +9,7 @@ The scroll functionality comes from an npm library called 'react-awesome-scroll'
 */
 
 import * as React from 'react';
-import { Card, CardHeader, Button } from 'reactstrap';
+import {Button } from 'reactstrap';
 import Scroll from 'react-awesome-scroll';
 import './Sidebar.css';
 
@@ -49,17 +49,17 @@ export default class Sidebar extends React.Component {
 	reformatCitation(parse, type){
 		var result = []
 		var ita = " ";
-		if(type == "mla"){ //stil broken
+		if(type === "mla"){ //stil broken
 			const reg = /(.*?)\./gm;
 			let m;
 			var i = 0;
 			while (m = reg.exec(parse)) {
-				if(i == 2 && m[1] != null) ita = m[1];
+				if(i === 2 && m[1] != null) ita = m[1];
 				i++;
 			}
 		}
 
-		if(type == "chi"){
+		if(type === "chi"){
 		 	const reg = /,(.*?)\./gm;
 			result = reg.exec(parse);
 			ita = result[1];
@@ -123,7 +123,7 @@ export default class Sidebar extends React.Component {
 									onClick={() =>
 										window.open(this.props.paneInfo['Journal Entries'], '')
 									}
-									href="#">
+									>
 									{this.props.paneInfo['Journal Entries']
 										? 'Journal Entry'
 										: null}

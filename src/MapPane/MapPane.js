@@ -64,7 +64,7 @@ export default class MapPane extends React.Component {
 						"coordinates": [ obj.fields.longitude, obj.fields.latitude ]
 					};
 
-					if(obj.fields.latitude != undefined && obj.fields.longitude != undefined){
+					if(obj.fields.latitude !== undefined && obj.fields.longitude !== undefined){
 						geo.features.push(geoPoint);
 					}
 				}

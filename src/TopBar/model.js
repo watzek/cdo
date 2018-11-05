@@ -1,7 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import {about} from './credits.js'
-import Scroll from 'react-awesome-scroll';
 
 /*
 margin: 0;

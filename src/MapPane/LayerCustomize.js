@@ -101,22 +101,18 @@ export function PointToLayer(name, cntxt) {
 	}
 }
 
-function nothing(){
-	return null;
-}
-
 function style1803(feature, layer){
 	var color = '#000000';
-	if (feature.properties.id == 1)
+	if (feature.properties.id === 1)
 		color = '#00008B';
-	if (feature.properties.id == 2)
+	if (feature.properties.id === 2)
 		color = '#FFFF00';
-	if (feature.properties.id == 3)
+	if (feature.properties.id === 3)
 		color = '#FFFF00';
-	if (feature.properties.id == 4)
+	if (feature.properties.id === 4)
 		color = '#FF0000';
 
-	if (feature.properties.id == 5)
+	if (feature.properties.id === 5)
 		color = '#4682B4';
 
 	return { fillColor: color, fillOpacity: 0.8, stroke: false };
@@ -255,7 +251,7 @@ function onEachBiome(feature, layer) {
 }
 
 function onEachPOI(feature, layer) {
-	layer.bindTooltip(feature.properties.Name);
+  layer.bindTooltip(feature.properties.Name);
 	layer.on({
 		click: () => {
 			const latOffset = -1.4;
@@ -264,7 +260,18 @@ function onEachPOI(feature, layer) {
 				feature.geometry.coordinates[0] + latOffset,
 				feature.geometry.coordinates[1]
 			]);
-			//L.circle(LatLng, 200).addTo(map);
+
+      console.log(layer.getTooltip().options.permanent);
+
+      if(!layer.getTooltip().options.permanent){
+        layer.unbindTooltip();
+        layer.bindTooltip(feature.properties.Name, {permanent: true});
+      }
+			else {
+        layer.unbindTooltip();
+        //unbind all
+        layer.bindTooltip(feature.properties.Name, {permanent: false});
+      }
 		}
 	});
 }

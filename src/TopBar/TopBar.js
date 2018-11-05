@@ -1,6 +1,5 @@
 import * as React from 'react';
 import './TopBar.css';
-import ReactDOM from 'react-dom';
 import CreditModal from './model.js';
 
 
