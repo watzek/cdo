@@ -120,7 +120,7 @@ function style1803(feature, layer){
 }
 
 function onPolitical(feature, layer){
-	var map = new L.Map('map').setView([51.505, -0.09], 13);
+	marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
 }
 
