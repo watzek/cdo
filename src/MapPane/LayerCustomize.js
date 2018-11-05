@@ -15,6 +15,7 @@ React-leaflet is a very surface level framework with which you can't accomplish
 many things without working under the hood a bit.
 */
 
+import * as React from 'react';
 import Leaflet from 'leaflet';
 import marker from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -23,7 +24,7 @@ import 'leaflet/dist/leaflet';
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
-	
+
 
 
 const categories = [
@@ -114,15 +115,11 @@ function style1803(feature, layer){
 		color = '#FFFF00';
 	if (feature.properties.id == 4)
 		color = '#FF0000';
-		
+
 	if (feature.properties.id == 5)
 		color = '#4682B4';
-<<<<<<< HEAD
+
 	return { fillColor: color, fillOpacity: 0.8, stroke: false };
-=======
-		
-	return { fillColor: color, fillOpacity: 0.8, stroke: false };	
->>>>>>> pvin/will-owen
 }
 
 function onPolitical(feature, layer){
@@ -137,13 +134,8 @@ function pointToTribes(feature, latlng) {
 
 	const teardrop = Leaflet.icon({
 		iconUrl: color,
-<<<<<<< HEAD
-		iconSize: [40, 40],
+		iconSize: [4, 4],
 		iconAnchor: [19, 35]
-=======
-		iconSize: [4, 4], 
-		iconAnchor: [19, 35] 
->>>>>>> pvin/will-owen
 	});
 
 	const geojsonMarkerOptions = {
@@ -278,14 +270,9 @@ function onEachPOI(feature, layer) {
 }
 
 function onEachTribe(feature, layer) {
-<<<<<<< HEAD
-	layer.bindTooltip(feature.properties.Tribe);
-
-=======
 	//marker.addTo(layer).bindPopup(feature.properties.Tribe, {autoClose:false}).openPopup();
 	layer.bindPopup(feature.properties.Tribe, {autoClose:false}).openPopup();
-	
->>>>>>> pvin/will-owen
+
 }
 
 function onEachTrail(feature, layer) {
