@@ -18,8 +18,7 @@ many things without working under the hood a bit.
 import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet/dist/leaflet';
-import 'leaflet.markercluster';
-import 'leaflet.markercluster/dist/MarkerCluster.css';
+
 
 
 const categories = [
