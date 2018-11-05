@@ -30,7 +30,7 @@ export default class MapPane extends React.Component {
 	componentDidMount() {
 		this.loadJSONLayer('biomes', { alias: 'Biomes' });
 		this.loadJSONLayer('tribes', { alias: 'Tribes' });
-		this.loadJSONLayer('1803', {alais: 'Political Map 1803'});
+		this.loadJSONLayer('1803', {alias: '1803 Political Map'});
 		this.loadJSONLayer('rettrail', { alias: 'Return', journey: 'ret' });
 		this.loadJSONLayer('outtrail', { alias: 'Outbound', journey: 'out' });
 		this.loadAirLayer('filterByFormula=FIND("inbound", {Trip%20Portion})', 'outpoi', { alias: 'Outbound', journey: 'out' });
@@ -180,7 +180,7 @@ export default class MapPane extends React.Component {
 							<LayerGroup>{this.renderRet()}</LayerGroup>
 						</LayersControl.BaseLayer>
 						{this.renderOverlays()}
-						<LayersControl.Overlay name="opentopomap" key="opentopomap">
+						<LayersControl.Overlay name="Topo Map" key="opentopomap">
 							<TileLayer url="https://c.tile.opentopomap.org/{z}/{x}/{y}.png" />
 						</LayersControl.Overlay>
 						<LayersControl.Overlay name="USA Rivers, Streams" key="usars">
