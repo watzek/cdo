@@ -16,6 +16,7 @@ many things without working under the hood a bit.
 */
 
 import Leaflet from 'leaflet';
+import marker from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet/dist/leaflet';
 
@@ -117,7 +118,7 @@ function style1803(feature, layer){
 }
 
 function onPolitical(feature, layer){
-	var marker = marker.addTo(layer);
+	marker.addTo(layer);
 	marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
 }
