@@ -122,7 +122,7 @@ function style1803(feature, layer){
 }
 
 function onPolitical(feature, layer){
-	layer.bindPopup({ closeOnClick: false },feature.properties.NAME);
+	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
 }
 
 function pointToTribes(feature, latlng) {
