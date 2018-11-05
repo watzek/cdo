@@ -121,10 +121,10 @@ function style1803(feature){
 
 function onPolitical(feature, layer){
 	layer.bindPopup(feature.properties.NAME);
-	layer.bindPopup("<b>British North America</b>").openPopup();
-	layer.bindPopup("<b>Louisiana Purchase</b>").openPopup();
-	layer.bindPopup("<b>United State Pre Louisiana Purchase</b>").openPopup();
-	layer.bindPopup("<b>Spanish Territory</b>").openPopup();
+	layer.bindPopup("<b>British North America</b>");
+	layer.bindPopup("<b>Louisiana Purchase</b>");
+	layer.bindPopup("<b>United State Pre Louisiana Purchase</b>");
+	layer.bindPopup("<b>Spanish Territory</b>");
 }
 
 function pointToTribes(feature, latlng) {
