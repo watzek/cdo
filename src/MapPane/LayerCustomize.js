@@ -20,6 +20,8 @@ import Leaflet from 'leaflet';
 import marker from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet/dist/leaflet';
+import React, { Component}  from 'react';
+
 
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -61,6 +63,8 @@ export function LayerStyle(name, cntxt) {
 			return trailStyle;
 		case '1803':
 			return style1803;
+		case 'Histrivers':
+			return styleRiv;
 		default:
 			return null;
 	}
@@ -82,6 +86,8 @@ export function OnEachFeature(name, cntxt) {
 			return onEachTribe;
 		case'1803':
 			return onPolitical;
+		case'Histrivers':
+			return onRiv;
 		default:
 			return null;
 	}
@@ -102,6 +108,18 @@ export function PointToLayer(name, cntxt) {
 	}
 }
 
+<<<<<<< HEAD
+=======
+function styleRiv(feature, layer){
+	var color = '#FFFFFF';
+	return { fillColor: color, fillOpacity: 0.8, stroke: false };	
+}
+
+function onRiv(feature, layer){
+	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
+}
+
+>>>>>>> pvin/will-owen
 function style1803(feature, layer){
 	var color = '#000000';
 	if (feature.properties.id === 1)
@@ -120,8 +138,6 @@ function style1803(feature, layer){
 }
 
 function onPolitical(feature, layer){
-	marker.addTo(layer);
-	marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
 }
 
