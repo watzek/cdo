@@ -114,12 +114,12 @@ export function PointToLayer(name, cntxt) {
 }
 
 function styleRiv(feature, layer){
-	var color = '#FFFFFF';
+	var color = '#000000';
 	return { fillColor: color, fillOpacity: 0.8, stroke: false };
 }
 
 function onRiv(feature, layer){
-	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
+	layer.bindPopup(feature.properties.NAME);
 }
 
 

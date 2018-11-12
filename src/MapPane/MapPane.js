@@ -144,7 +144,7 @@ export default class MapPane extends React.Component {
 		return list;
 	}
 
-	//bring on the awful hacks! (may be making everything slower )
+	//bring on the awful hacks! (may be making everything slower)
 	zoomBind(){
 		var u = document.getElementsByClassName("tribeMarker");
 		var lvl = (this["_zoom"] - 3) * 0.4;
