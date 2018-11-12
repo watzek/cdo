@@ -20,8 +20,6 @@ import Leaflet from 'leaflet';
 import marker from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet/dist/leaflet';
-import React, { Component}  from 'react';
-
 
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -107,6 +105,16 @@ export function PointToLayer(name, cntxt) {
 			return null;
 	}
 }
+
+function styleRiv(feature, layer){
+	var color = '#FFFFFF';
+	return { fillColor: color, fillOpacity: 0.8, stroke: false };
+}
+
+function onRiv(feature, layer){
+	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
+}
+
 
 function style1803(feature, layer){
 	var color = '#000000';
