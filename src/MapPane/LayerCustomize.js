@@ -84,7 +84,7 @@ export function OnEachFeature(name, cntxt) {
 			return onEachTribe;
 		case'1803':
 			return onPolitical;
-		case'Histrivers:
+		case'Histrivers':
 			return onRiv;
 		default:
 			return null;
