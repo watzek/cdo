@@ -128,18 +128,20 @@ export default class MapPane extends React.Component {
 		);
 	}
 
-	renderOut() {
+	renderPath(path) {
 		let list = [];
-		this.state.out.forEach((layer, name) => {
+		path.forEach((layer, name) => {
 			list.push(this.renderJSON(layer, name));
 		});
-		//console.log(JSON.parse(this.state.out));
 		return list;
 	}
-	renderRet() {
+	renderClean(path) {
 		let list = [];
-		this.state.ret.forEach((layer, name) => {
-			list.push(this.renderJSON(layer, name));
+		path.forEach((layer, name) => {
+			console.log(name);
+			if(name == 'rettrail' || name == 'outtrail'){
+				list.push(this.renderJSON(layer, name));
+			}
 		});
 		return list;
 	}
@@ -186,10 +188,16 @@ export default class MapPane extends React.Component {
 					<ZoomControl position="topright" />
 					<LayersControl position="topright">
 						<LayersControl.BaseLayer name="Outbound" checked={true}>
-							<LayerGroup>{this.renderOut()}</LayerGroup>
+							<LayerGroup>{this.renderPath(this.state.out)}</LayerGroup>
 						</LayersControl.BaseLayer>
 						<LayersControl.BaseLayer name="Return">
-							<LayerGroup>{this.renderRet()}</LayerGroup>
+							<LayerGroup>{this.renderPath(this.state.ret)}</LayerGroup>
+						</LayersControl.BaseLayer>
+						<LayersControl.BaseLayer name="Outbound Trail">
+							<LayerGroup>{this.renderClean(this.state.out)}</LayerGroup>
+						</LayersControl.BaseLayer>
+						<LayersControl.BaseLayer name="Return Trail">
+							<LayerGroup>{this.renderClean(this.state.ret)}</LayerGroup>
 						</LayersControl.BaseLayer>
 						{this.renderOverlays()}
 						<LayersControl.Overlay name="USA Rivers, Streams" key="usars">
