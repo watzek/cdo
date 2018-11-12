@@ -19,8 +19,7 @@ const hoverStyle = {
   zIndex: '1',
   width: '800px',
   height: '500px',
-  padding: '0.5rem 0.2rem 0.5rem 0.5rem',
-  overflow: 'scroll'
+
 }
 
 const coverStyle = {
@@ -50,18 +49,79 @@ const closeStyle = {
   marginLeft: '100%'
 }
 
-const ModalContent = ({onClose}) => {
-return ReactDOM.createPortal(
-  <div style={coverStyle}>
-    <div style={hoverStyle}>
-      <button class = "close btn" style={closeStyle} onClick={onClose}>
-        <span aria-hidden="true">×</span>
-      </button>
-        {about}
-    </div>
-  </div>,
-  document.body
-);
+const tabBar = {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  width: '100%',
+  fontWeight: 'bold',
+  textAlign: 'center'
+}
+
+const tabStyle = {
+  width: '33.33%',
+  borderTop: '1px solid #0a100d',
+  borderLeft: '1px solid #0a100d',
+  borderRight: '1px solid #0a100d',
+  borderRadius: '2px 2px 0 0'
+}
+
+const closedTabStyle = {
+  width: '33.333%',
+  borderBottom: '1px solid #0a100d',
+}
+
+const textBody = {
+  width: '100%',
+  height: '440px',
+  padding: '0.5rem 0.2rem 0.5rem 0.5rem',
+  overflow: 'scroll'
+}
+
+class ModalContent extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      selected: 0
+    };
+    this.state.myBody = "hello";
+  }
+//do tab magic here
+  changeBody = (changeTo) => {
+    this.setState({selected: changeTo});
+  };
+
+  //the tab system is kind of a hack, but it makes some amount of sense...
+  render() {
+    var body = about;
+    const tabStyles = [closedTabStyle, closedTabStyle, closedTabStyle];
+    tabStyles[this.state.selected] = tabStyle;
+
+    const finalBody = about[this.state.selected];
+
+    return ReactDOM.createPortal(
+      <div style={coverStyle}>
+        <div style={hoverStyle}>
+          <button class = "close btn" style={closeStyle} onClick={this.props.onClose}>
+            <span aria-hidden="true">×</span>
+          </button>
+
+          <div style={tabBar}>
+            <span style={closedTabStyle}></span>
+            <span style={tabStyles[0]} onClick={() => this.changeBody(0)}>About this map</span>
+            <span style={tabStyles[1]} onClick={() => this.changeBody(1)}>Works Cited</span>
+            <span style={tabStyles[2]} onClick={() => this.changeBody(2)}>Further Reading</span>
+            <span style={closedTabStyle}></span>
+          </div>
+
+          <div style={textBody}>
+            {finalBody}
+          </div>
+        </div>
+      </div>,
+      document.body
+    );
+  }
 }
 
 
