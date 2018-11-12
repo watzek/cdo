@@ -61,6 +61,8 @@ export function LayerStyle(name, cntxt) {
 			return trailStyle;
 		case '1803':
 			return style1803;
+		case 'Histrivers'
+			return styleRiv;
 		default:
 			return null;
 	}
@@ -82,6 +84,8 @@ export function OnEachFeature(name, cntxt) {
 			return onEachTribe;
 		case'1803':
 			return onPolitical;
+		case'Histrivers;
+			return onRiv;
 		default:
 			return null;
 	}
@@ -102,8 +106,13 @@ export function PointToLayer(name, cntxt) {
 	}
 }
 
-function nothing(){
-	return null;
+function styleRiv(feature, layer){
+	var color = #FFFFFF;
+	return { fillColor: color, fillOpacity: 0.8, stroke: false };	
+}
+
+function onRiv(feature, layer){
+	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
 }
 
 function style1803(feature, layer){
@@ -124,8 +133,6 @@ function style1803(feature, layer){
 }
 
 function onPolitical(feature, layer){
-	marker.addTo(layer);
-	marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
 }
 
