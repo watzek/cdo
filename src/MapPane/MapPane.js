@@ -16,7 +16,7 @@ import {
 } from 'react-leaflet';
 import './MapPane.css';
 import MapLegend from './MapLegend';
-import { LayerStyle, OnEachFeature, PointToLayer } from './LayerCustomize.js';
+import { LayerStyle, OnEachFeature, PointToLayer} from './LayerCustomize.js';
 
 export default class MapPane extends React.Component {
 	state = {
@@ -144,6 +144,17 @@ export default class MapPane extends React.Component {
 		return list;
 	}
 
+	//bring on the awful hacks! (may be making everything slower )
+	zoomBind(){
+		var u = document.getElementsByClassName("tribeMarker");
+		var lvl = (this["_zoom"] - 3) * 0.4;
+		lvl += "em";
+
+		for(var i = 0; i < u.length; i++){
+			u[i].style.fontSize = lvl;
+		}
+	}
+
 	renderOverlays() {
 		let layers = [];
 		this.state.overlays.forEach((layer, name) => {
@@ -154,10 +165,6 @@ export default class MapPane extends React.Component {
 			);
 		});
 		return layers;
-	}
-
-	zoomBind(){
-		console.log(this["_zoom"]); //works now
 	}
 
 	render() {
@@ -171,6 +178,7 @@ export default class MapPane extends React.Component {
 					zoomControl={false}
 					minZoom={4}
 					onZoomEnd={this.zoomBind}
+					onOverlayAdd={this.zoomBind}
 					maxBounds={[
 						[52.02447537, -142],
 						[20.07730658, -50.14678921]
