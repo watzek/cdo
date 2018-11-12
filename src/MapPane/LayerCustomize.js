@@ -108,18 +108,6 @@ export function PointToLayer(name, cntxt) {
 	}
 }
 
-<<<<<<< HEAD
-=======
-function styleRiv(feature, layer){
-	var color = '#FFFFFF';
-	return { fillColor: color, fillOpacity: 0.8, stroke: false };	
-}
-
-function onRiv(feature, layer){
-	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
-}
-
->>>>>>> pvin/will-owen
 function style1803(feature, layer){
 	var color = '#000000';
 	if (feature.properties.id === 1)
