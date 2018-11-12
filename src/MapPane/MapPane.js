@@ -156,7 +156,9 @@ export default class MapPane extends React.Component {
 		return layers;
 	}
 
-
+	zoomBind(){
+		console.log(this["_zoom"]); //works now
+	}
 
 	render() {
 		return (
@@ -168,6 +170,7 @@ export default class MapPane extends React.Component {
 					zoom={5}
 					zoomControl={false}
 					minZoom={4}
+					onZoomEnd={this.zoomBind}
 					maxBounds={[
 						[52.02447537, -142],
 						[20.07730658, -50.14678921]

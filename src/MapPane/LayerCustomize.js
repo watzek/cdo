@@ -25,8 +25,6 @@ import 'leaflet/dist/leaflet';
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
 
-
-
 const categories = [
 	'Geographic Feature',
 	'Corps Relations',
@@ -72,6 +70,15 @@ var context = null; // augment scope of context
 
 export function OnEachFeature(name, cntxt) {
 	context = cntxt;
+
+  /*
+  cntxt.refs.map.on({
+		zoomstart: () => {
+      console.log('yo')
+    }
+  });
+  */
+
 	switch (name) {
 		case 'biomes':
 			return onEachBiome;
@@ -270,10 +277,12 @@ function onEachPOI(feature, layer) {
 }
 
 function onEachTribe(feature, layer) {
-	//marker.addTo(layer).bindPopup(feature.properties.Tribe, {autoClose:false}).openPopup();
-	//layer.bindPopup(feature.properties.Tribe, {autoClose:false}).openPopup();
-  layer.bindTooltip(feature.properties.Tribe, {permanent: true, className: 'tribeMarker'})
+  var tribeName = "" + feature.properties.Tribe;
+  if(feature.properties.major == 1){
+    tribeName = tribeName.toUpperCase();
+  }
 
+  layer.bindTooltip(tribeName, {permanent: true, className: 'tribeMarker'})
 }
 
 function onEachTrail(feature, layer) {
