@@ -40,7 +40,7 @@ export default class MapPane extends React.Component {
 	}
 
 	loadJSONLayer(name, options) {
-		fetch(`/layers/${name}.geojson`)
+		fetch(`/layers/${name}`)
 			.then(data => data.json())
 			.then(json => {
 				let params = {
