@@ -10,17 +10,16 @@ const ctrlStyle = {
   boxSizing: 'border-box'
 };
 
-export default class MinZoom extends MapControl {  // note we're extending MapControl from react-leaflet, not Component from react
+export default class MinZoom extends MapControl {
 
   far = (e) => {
     e.preventDefault();
     const map = this.context.map;
-    console.log(map);
     map.setZoom(4);
   };
 
   componentWillMount() {
-    const centerControl = L.control({position: 'topright'});  // see http://leafletjs.com/reference.html#control-positions for other positions
+    const centerControl = L.control({position: 'topright'});
     const jsx = (
       // PUT YOUR JSX FOR THE COMPONENT HERE:
       <div className="leaflet-bar">

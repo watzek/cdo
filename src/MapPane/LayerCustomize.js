@@ -15,6 +15,8 @@ React-leaflet is a very surface level framework with which you can't accomplish
 many things without working under the hood a bit.
 */
 
+//new icons are on branch newicos 
+
 import * as React from 'react';
 import Leaflet from 'leaflet';
 import marker from 'leaflet';
@@ -35,11 +37,11 @@ const categories = [
 ];
 
 const marker_colors = [
-	'icon_yellow.svg',
-	'icon_gray.svg',
-	'icon_pink.svg',
-	'icon_green.svg',
-	'icon_blue.svg',
+	'icon_lblue.png',
+	'icon_purple.png',
+	'icon_tan.png',
+	'icon_teal.png',
+	'icon_lred.png',
   'icon_none.svg',
 	'map-marker-icon.png'
 ];
@@ -171,8 +173,8 @@ function pointToPOI(feature, latlng) {
 
 	const teardrop = Leaflet.icon({
 		iconUrl: color,
-		iconSize: [38, 38], // size of the icon
-		iconAnchor: [19, 35] // point of the icon which will correspond to marker's location
+		iconSize: [26, 39], // size of the icon
+		iconAnchor: [13, 39] // point of the icon which will correspond to marker's location
 	});
 
 	const geojsonMarkerOptions = {
