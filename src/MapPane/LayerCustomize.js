@@ -174,7 +174,8 @@ function pointToPOI(feature, latlng) {
 	const teardrop = Leaflet.icon({
 		iconUrl: color,
 		iconSize: [26, 39], // size of the icon
-		iconAnchor: [13, 39] // point of the icon which will correspond to marker's location
+		iconAnchor: [13, 39], // point of the icon which will correspond to marker's location
+    tooltipAnchor: [7, -15]
 	});
 
 	const geojsonMarkerOptions = {
