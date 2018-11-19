@@ -40,6 +40,18 @@ export default class MapPane extends React.Component {
 		this.loadAirLayer('filterByFormula=FIND("inbound", {Trip%20Portion})', 'outpoi', { alias: 'Outbound', journey: 'out' });
 		this.loadAirLayer('filterByFormula=FIND("outbound", {Trip%20Portion})', 'retpoi', { alias: 'Return', journey: 'ret' });
 		this.setState({ map: this.refs.map.leafletElement });
+
+		//warning: this may cause unintended troubles with popups randomly closing
+		//I tried to make it only close waypoints
+		this.refs.map.leafletElement.on('preclick', function(e){
+			var mapCopy = this;
+			this.eachLayer(function(layer) {
+    		if(layer.options.pane === "tooltipPane" && ("Category" in layer['_source'].feature.properties)){
+					layer.removeFrom(mapCopy);
+				}
+			});
+		});
+
 	}
 
 	loadAirLayer(query, name, options){

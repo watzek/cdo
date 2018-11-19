@@ -15,7 +15,7 @@ React-leaflet is a very surface level framework with which you can't accomplish
 many things without working under the hood a bit.
 */
 
-//new icons are on branch newicos 
+//new icons are on branch newicos
 
 import * as React from 'react';
 import Leaflet from 'leaflet';
@@ -255,10 +255,6 @@ function onEachPOI(feature, layer) {
   //find event that fires when something else is clicked
   //or pass/look at/fire when state of component is changed
 	layer.on({
-    preclick: () => {
-      layer.unbindTooltip();
-      //layer.bindTooltip(feature.properties.Name, {permanent: false});
-    },
 		click: () => {
 			const latOffset = -1.4;
 			context.props.changePane('info', feature.properties);

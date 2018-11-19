@@ -28,16 +28,12 @@ const categories = [
 ];
 
 const marker_colors = [
-	'icon_yellow.svg',
-	'icon_gray.svg',
-	'icon_pink.svg',
-	'icon_green.svg',
-	'icon_blue.svg',
-	'map-marker-icon.png',
-	'icon_pink.svg',
-	'icon_green.svg',
-	'icon_blue.svg',
-	'icon_yellow.svg'
+	'icon_lblue.png',
+	'icon_purple.png',
+	'icon_tan.png',
+	'icon_teal.png',
+	'icon_lred.png',
+	'map-marker-icon.png'
 ];
 
 

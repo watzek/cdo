@@ -4,16 +4,18 @@
   border: 3px solid gray;
   border-radius: 3px;
   padding:5px;
+  line-height: 1.6rem;
 }
 
 #icons{
   height: 1.5rem;
-  width:  1.5rem;
+  width:  1.0rem;
 }
 
 #line{
   border-top: 1px solid gray;
   margin: 5px;
+  height: 5rem;
 }
 
 #info{
