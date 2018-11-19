@@ -94,7 +94,7 @@ class ModalContent extends React.Component {
   //the tab system is kind of a hack, but it makes some amount of sense...
   render() {
     var body = about;
-    const tabStyles = [closedTabStyle, closedTabStyle, closedTabStyle];
+    const tabStyles = [closedTabStyle, closedTabStyle];
     tabStyles[this.state.selected] = tabStyle;
 
     const finalBody = about[this.state.selected];
@@ -110,7 +110,6 @@ class ModalContent extends React.Component {
             <span style={closedTabStyle}></span>
             <span style={tabStyles[0]} onClick={() => this.changeBody(0)}>About this map</span>
             <span style={tabStyles[1]} onClick={() => this.changeBody(1)}>Works Cited</span>
-            <span style={tabStyles[2]} onClick={() => this.changeBody(2)}>Further Reading</span>
             <span style={closedTabStyle}></span>
           </div>
 

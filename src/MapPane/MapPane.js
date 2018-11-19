@@ -6,17 +6,19 @@ has been passed.
 */
 
 import * as React from 'react';
+//import Control from 'react-leaflet-control';
 import {
 	Map as LMap,
 	ZoomControl,
 	TileLayer,
 	GeoJSON,
 	LayersControl,
-	LayerGroup
+	LayerGroup,
 } from 'react-leaflet';
 import './MapPane.css';
 import MapLegend from './MapLegend';
 import { LayerStyle, OnEachFeature, PointToLayer} from './LayerCustomize.js';
+import MinZoom from './MinZoom.js';
 
 export default class MapPane extends React.Component {
 	state = {
@@ -24,7 +26,8 @@ export default class MapPane extends React.Component {
 		out: new Map(),
 		ret: new Map(),
 		map: null,
-		activeWaypoint: -1
+		activeWaypoint: -1,
+		popIsOpen: false
 	};
 
 	componentDidMount() {
@@ -138,8 +141,7 @@ export default class MapPane extends React.Component {
 	renderClean(path) {
 		let list = [];
 		path.forEach((layer, name) => {
-			console.log(name);
-			if(name == 'rettrail' || name == 'outtrail'){
+			if(name === 'rettrail' || name === 'outtrail'){
 				list.push(this.renderJSON(layer, name));
 			}
 		});
@@ -169,6 +171,7 @@ export default class MapPane extends React.Component {
 		return layers;
 	}
 
+//onPopupOpen={console.log(this.state.map)}
 	render() {
 		return (
 			<div>
@@ -186,6 +189,7 @@ export default class MapPane extends React.Component {
 						[20.07730658, -50.14678921]
 					]}>
 					<ZoomControl position="topright" />
+					<MinZoom/>
 					<LayersControl position="topright">
 						<LayersControl.BaseLayer name="Outbound" checked={true}>
 							<LayerGroup>{this.renderPath(this.state.out)}</LayerGroup>
@@ -210,6 +214,7 @@ export default class MapPane extends React.Component {
 						attribution="Map tiles by <a href=&quot;http://stamen.com&quot;>Stamen Design</a>"
 						url="https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.png"
 					/>
+
 				</LMap>
 			</div>
 		);

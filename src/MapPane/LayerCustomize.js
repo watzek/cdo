@@ -211,7 +211,6 @@ function trailStyle(feature) {
 		return {
 			color: context.props.activeTrail === 'outbound' ? '#0000ff' : '#ff0000'
 		};
-	console.log(feature);
 }
 
 function biomeStyle(feature) {
@@ -251,8 +250,13 @@ function onEachBiome(feature, layer) {
 }
 
 function onEachPOI(feature, layer) {
-  layer.bindTooltip(feature.properties.Name);
+  //find event that fires when something else is clicked
+  //or pass/look at/fire when state of component is changed
 	layer.on({
+    preclick: () => {
+      layer.unbindTooltip();
+      //layer.bindTooltip(feature.properties.Name, {permanent: false});
+    },
 		click: () => {
 			const latOffset = -1.4;
 			context.props.changePane('info', feature.properties);
@@ -260,9 +264,7 @@ function onEachPOI(feature, layer) {
 				feature.geometry.coordinates[0] + latOffset,
 				feature.geometry.coordinates[1]
 			]);
-
-      console.log(layer.getTooltip().options.permanent);
-
+      /*
       if(!layer.getTooltip().options.permanent){
         layer.unbindTooltip();
         layer.bindTooltip(feature.properties.Name, {permanent: true});
@@ -272,6 +274,8 @@ function onEachPOI(feature, layer) {
         //unbind all
         layer.bindTooltip(feature.properties.Name, {permanent: false});
       }
+      */
+      layer.bindTooltip(feature.properties.Name, {permanent: true});
 		}
 	});
 }
