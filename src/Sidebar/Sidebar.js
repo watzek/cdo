@@ -34,18 +34,13 @@ export default class Sidebar extends React.Component {
 		this.reformatDate = this.reformatDate.bind(this);
 	}
 
-	/*
-	reformatDate(date) {
-		let date2 = date.split('/');
-		return `${months[date2[0] - 1]} ${date2[1]}, ${date2[2]} \n`;
-	}
-	*/
-
+	//makes date look better
 	reformatDate(date) {
 		let date2 = date.split('-');
 		return `${months[date2[1] - 1]} ${date2[2]}, ${date2[0]} \n`;
 	}
 
+	//uses regex to restyle citations on each sidebar (fix to be chicago journal citation style)
 	reformatCitation(parse, type){
 		var result = []
 		var ita = " ";
@@ -151,14 +146,3 @@ export default class Sidebar extends React.Component {
 		return this.props.showSidebar ? this.renderSidebar() : null;
 	}
 }
-/*
-<CardHeader>
-<div >{this.props.paneInfo ? this.props.paneInfo.Name : null} - {this.props.paneInfo ? this.props.paneInfo.Date : null}
-
-  <Button color="danger" className="close" aria-label="Close"
-  onClick={this.props.toggleLayers} id="exit">
-  <span aria-hidden="true">&times;</span>
-  </Button>
-  </div>
-</CardHeader>
-*/
