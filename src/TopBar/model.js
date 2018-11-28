@@ -37,8 +37,8 @@ const openStyle = {
   position: 'absolute',
   top:'2vh',
   left:'0.5rem',
-  fontSize:'1.1rem',
-  height:'3.5vh'
+  fontSize:'1rem',
+  height:'3.6vh'
 }
 
 const closeStyle = {
@@ -101,7 +101,7 @@ class ModalContent extends React.Component {
 
     return ReactDOM.createPortal(
       <div style={coverStyle}>
-        <div style={hoverStyle}>
+        <div style={hoverStyle} id="creditHover">
           <button class = "close btn" style={closeStyle} onClick={this.props.onClose}>
             <span aria-hidden="true">×</span>
           </button>
