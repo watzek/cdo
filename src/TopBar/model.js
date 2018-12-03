@@ -1,26 +1,9 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import {about} from './credits.js'
+import {about} from './credits.js';
+import './model.css'; //some responsive styles here...
 
-/*
-margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-*/
-
-const hoverStyle = {
-  position: 'absolute',
-  left: '50%',
-  top: '50%',
-  transform: 'translate(-50%, -50%)',
-  backgroundColor: '#F0FFF0',
-  zIndex: '1',
-  width: '800px',
-  height: '500px',
-
-}
+//make i responsive???
 
 const coverStyle = {
   position: 'fixed',
@@ -28,17 +11,9 @@ const coverStyle = {
   left: '0',
   width: '100%',
   height: '100%',
-  zIndex: '999',
+  zIndex: '99999',
   transform: 'translateZ(0)',
   backgroundColor: 'rgba(10, 16, 13, 0.45)'
-}
-
-const openStyle = {
-  position: 'absolute',
-  top:'2vh',
-  left:'0.5rem',
-  fontSize:'1rem',
-  height:'3.6vh'
 }
 
 const closeStyle = {
@@ -59,7 +34,7 @@ const tabBar = {
 }
 
 const tabStyle = {
-  width: '33.33%',
+  width: '50%',
   borderTop: '1px solid #0a100d',
   borderLeft: '1px solid #0a100d',
   borderRight: '1px solid #0a100d',
@@ -67,13 +42,13 @@ const tabStyle = {
 }
 
 const closedTabStyle = {
-  width: '33.333%',
+  width: '50%',
   borderBottom: '1px solid #0a100d',
 }
 
 const textBody = {
   width: '100%',
-  height: '440px',
+  height: '520px',
   padding: '0.5rem 0.2rem 0.5rem 0.5rem',
   overflow: 'scroll'
 }
@@ -101,7 +76,7 @@ class ModalContent extends React.Component {
 
     return ReactDOM.createPortal(
       <div style={coverStyle}>
-        <div style={hoverStyle} id="creditHover">
+        <div id="hoverStyle">
           <button class = "close btn" style={closeStyle} onClick={this.props.onClose}>
             <span aria-hidden="true">×</span>
           </button>
@@ -123,8 +98,7 @@ class ModalContent extends React.Component {
   }
 }
 
-
-const ModalTrigger = ({onOpen}) => <button class = "close btn" style={openStyle} onClick={onOpen}>&#9432; info</button>;
+const ModalTrigger = ({onOpen}) => <button class = "close btn" id="openStyle" onClick={onOpen}>&#9432; <span id="iText">info</span></button>;
 
 export default class CreditModal extends React.Component {
   constructor(){

@@ -1,0 +1,59 @@
+#hoverStyle{
+  width:100%;
+  height:auto;
+
+  font-size: 0.9em;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #F0FFF0;
+  z-index: 9999999;
+}
+
+#openStyle{
+    position: absolute;
+    top: 2vh;
+    left: 0.5rem;
+    font-size: 0.8rem;
+    height: 3.6vh;
+    vertical-align: bottom;
+}
+
+#iText{
+  visibility: hidden;
+}
+
+@media only screen and (min-width: 400px) {
+  #hoverStyle{
+    width:100%;
+    height:auto;
+
+    font-size: 0.9em;
+  }
+
+  #openStyle{
+    font-size: 1rem;
+  }
+
+  #iText{
+    visibility: hidden;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  #hoverStyle{
+    width: 800px;
+    height: 500px;
+    font-size: 1em;
+  }
+
+  #openStyle{
+    font-size: 1rem;
+  }
+
+  #iText{
+    visibility: visible;
+  }
+}

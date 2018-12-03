@@ -6,7 +6,7 @@
   color: #0a100d;
   background-color: #D1CCDC;
   text-align: center;
-  line-height: 8.5vh;
+  line-height: 7.5vh;
 }
 
 #title{
@@ -15,6 +15,7 @@
   z-index: 10;
   position: relative;
   background-color: inherit;
+  height: 3.6vh;
 }
 
 #sideText{
@@ -38,11 +39,11 @@
  @media only screen and (min-width: 400px) {
 
    #title{
-     height: 50%;
      margin-left: auto;
      margin-right: auto;
      width : 50%;
-     font-size: 1.8em;
+     font-size: 1.5em;
+     height: 3.6vh;
    }
    #lc, #watzek{
      height:100%;
@@ -61,11 +62,11 @@
      margin-right: 1rem;
    }
    #title{
-     height:100%;
      /* float: right; */
      padding-left: .2rem;
      padding-right: .2rem;
      font-size: 2.5em;
+     height: 3.6vh;
    }
    #lc{
      padding-left: .2rem;
