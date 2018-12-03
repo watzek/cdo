@@ -16,6 +16,7 @@ export default class MainWindow extends React.Component{
     this.changeLayer = this.changeLayer.bind(this)
     this.changePane = this.changePane.bind(this)
     this.switchTrail = this.switchTrail.bind(this)
+    this.closeHandler = this.closeHandler.bind(this)
   }
 
 
@@ -31,6 +32,11 @@ export default class MainWindow extends React.Component{
       default:
         break
     }
+  }
+
+  //this.props.toggleLayers controls the sidebar opening and closing...
+  closeHandler() {
+    this.props.toggleLayers();
   }
 
 
@@ -57,7 +63,7 @@ export default class MainWindow extends React.Component{
         activePane={this.state.activePane} paneInfo={this.state.paneInfo}
         switchTrail={this.switchTrail}
         toggleLayers={this.props.toggleLayers}/>}
-        <MapPane activeLayers={this.state.activeLayers} changePane={this.changePane}
+        <MapPane closeSide={this.closeHandler} activeLayers={this.state.activeLayers} changePane={this.changePane}
         activeTrail={this.state.activeTrail}/>
       </div>
 

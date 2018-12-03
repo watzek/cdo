@@ -291,3 +291,7 @@ function onEachTribe(feature, layer) {
 function onEachTrail(feature, layer) {
 	//layer.on({click: ()=>(console.log(feature.properties))})
 }
+
+export function CloseSidebar(){
+  context.props.changePane(null, null);
+}

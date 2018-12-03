@@ -17,10 +17,15 @@ import {
 } from 'react-leaflet';
 import './MapPane.css';
 import MapLegend from './MapLegend';
-import { LayerStyle, OnEachFeature, PointToLayer} from './LayerCustomize.js';
+import { LayerStyle, OnEachFeature, PointToLayer, CloseSidebar} from './LayerCustomize.js';
 import MinZoom from './MinZoom.js';
 
 export default class MapPane extends React.Component {
+	constructor(props){
+		super(props);
+		this.closeSidebar = this.closeSidebar.bind(this);
+	}
+
 	state = {
 		overlays: new Map(),
 		out: new Map(),
@@ -43,6 +48,7 @@ export default class MapPane extends React.Component {
 
 		//warning: this may cause unintended troubles with popups randomly closing
 		//I tried to make it only close waypoints
+
 		this.refs.map.leafletElement.on('preclick', function(e){
 			var mapCopy = this;
 			this.eachLayer(function(layer) {
@@ -183,6 +189,12 @@ export default class MapPane extends React.Component {
 		return layers;
 	}
 
+	//allows MinZoom to access the closeSide, which in turn toggles the sidebar on and off
+	//the whole chain tunnels through 4 different parent/child functions...
+	closeSidebar(){
+		this.props.closeSide();
+	}
+
 //onPopupOpen={console.log(this.state.map)}
 	render() {
 		return (
@@ -201,7 +213,7 @@ export default class MapPane extends React.Component {
 						[20.07730658, -50.14678921]
 					]}>
 					<ZoomControl position="topright" />
-					<MinZoom/>
+					<MinZoom side={this.closeSidebar}/>
 					<LayersControl position="topright">
 						<LayersControl.BaseLayer name="Outbound" checked={true}>
 							<LayerGroup>{this.renderPath(this.state.out)}</LayerGroup>

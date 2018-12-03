@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import L from 'leaflet';
 import { MapControl } from 'react-leaflet';
@@ -10,12 +11,17 @@ const ctrlStyle = {
   boxSizing: 'border-box'
 };
 
+
 export default class MinZoom extends MapControl {
+  constructor(props) {
+    super(props);
+  }
 
   far = (e) => {
     e.preventDefault();
     const map = this.context.map;
     map.setZoom(4);
+    this.props.side();
   };
 
   componentWillMount() {
