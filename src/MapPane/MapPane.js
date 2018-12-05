@@ -17,7 +17,7 @@ import {
 } from 'react-leaflet';
 import './MapPane.css';
 import MapLegend from './MapLegend';
-import { LayerStyle, OnEachFeature, PointToLayer, CloseSidebar} from './LayerCustomize.js';
+import { LayerStyle, OnEachFeature, PointToLayer, CloseSidebar, goToPOI} from './LayerCustomize.js';
 import MinZoom from './MinZoom.js';
 
 export default class MapPane extends React.Component {
@@ -58,6 +58,19 @@ export default class MapPane extends React.Component {
 			});
 		});
 
+	}
+
+	componentDidUpdate(oldProps){
+		if(this.props.nextPoint !== oldProps.nextPoint){
+			var next = this.props.nextPoint; //get feature with this ID...
+
+			if(next < 49){
+				var feature = this.state.out.get("outpoi").data.features[next];
+				var layerT = this.state.out; //this is not right...
+			
+				goToPOI(feature, layerT, this);
+			}
+ 		}
 	}
 
 	loadAirLayer(query, name, options){

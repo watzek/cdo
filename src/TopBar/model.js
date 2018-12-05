@@ -48,7 +48,7 @@ const closedTabStyle = {
 
 const textBody = {
   width: '100%',
-  height: '520px',
+  height: '88%',
   padding: '0.5rem 0.2rem 0.5rem 0.5rem',
   overflow: 'scroll'
 }

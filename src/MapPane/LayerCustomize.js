@@ -253,30 +253,28 @@ function onEachBiome(feature, layer) {
 }
 
 function onEachPOI(feature, layer) {
-  //find event that fires when something else is clicked
-  //or pass/look at/fire when state of component is changed
 	layer.on({
 		click: () => {
-			const latOffset = -1.4;
 			context.props.changePane('info', feature.properties);
-			const ll = Leaflet.GeoJSON.coordsToLatLng([
-				feature.geometry.coordinates[0] + latOffset,
-				feature.geometry.coordinates[1]
-			]);
-      /*
-      if(!layer.getTooltip().options.permanent){
-        layer.unbindTooltip();
-        layer.bindTooltip(feature.properties.Name, {permanent: true});
-      }
-			else {
-        layer.unbindTooltip();
-        //unbind all
-        layer.bindTooltip(feature.properties.Name, {permanent: false});
-      }
-      */
+
       layer.bindTooltip(feature.properties.Name, {permanent: true});
 		}
 	});
+}
+
+//building block of future tour feature...gets a feature and goes to it and opens the info pane
+export function goToPOI(feature, layer, context){
+  context.props.changePane('info', feature.properties);
+
+  const latOffset = -1.4;
+  const ll = Leaflet.GeoJSON.coordsToLatLng([
+    feature.geometry.coordinates[0] + latOffset,
+    feature.geometry.coordinates[1]
+  ]);
+
+  context.state.map.setView(ll, 7);
+
+  //layer.bindTooltip(feature.properties.Name, {permanent: true}); //having trouble here...
 }
 
 function onEachTribe(feature, layer) {
@@ -290,8 +288,4 @@ function onEachTribe(feature, layer) {
 
 function onEachTrail(feature, layer) {
 	//layer.on({click: ()=>(console.log(feature.properties))})
-}
-
-export function CloseSidebar(){
-  context.props.changePane(null, null);
 }

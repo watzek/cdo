@@ -74,6 +74,15 @@ export default class Sidebar extends React.Component {
 	renderSidebar() {
 		return (
 			<div className="Sidebar position-absolute">
+
+				<Button
+					aria-label="Next"
+					onClick={() => this.props.changeWaypoint(this.props.paneInfo.WaypointID)}
+					id="tour">
+
+					<span aria-hidden="true">next</span>
+				</Button>
+
 				<Button
 					color="danger"
 					className="close"

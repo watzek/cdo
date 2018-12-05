@@ -1,5 +1,5 @@
 #scroll{
-  height: 100%;
+  height: 100%; /* fix hidden scroll bars? */
   padding-bottom: 1vh;
   padding-top: 1vh;
 }
@@ -18,8 +18,9 @@
   flex-direction:column;
 }
 
+/* bug is happening here */
 #contain{
-  height:85%;
+  height:82%;
 }
 
 #txt{
@@ -31,6 +32,7 @@
   padding: 0.5rem 0.2rem 0.5rem 0.5rem;
   margin-top: 1vh;
   margin-bottom: 1vh;
+  height: 100%;
   height: 90.5vh !important;
   z-index: 1020;
   color: #0a100d;
@@ -56,7 +58,6 @@
   text-align: right;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  margin-left: 100%;
 }
 
 #imgBox{
@@ -82,6 +83,15 @@
 
 #sec{
   font-size: 0.8em;
+}
+
+#tour{
+  font-size: 0.8rem; /*make this smaller? or align to top...*/
+  text-align: right;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 a {

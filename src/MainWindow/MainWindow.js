@@ -9,7 +9,8 @@ export default class MainWindow extends React.Component{
     activeLayers: ['trail'],
     activePane: 'layers',
     paneInfo: null,
-    activeTrail: 'outbound'
+    activeTrail: 'outbound',
+    nextPoint: 0
   }
   constructor(){
     super()
@@ -17,6 +18,7 @@ export default class MainWindow extends React.Component{
     this.changePane = this.changePane.bind(this)
     this.switchTrail = this.switchTrail.bind(this)
     this.closeHandler = this.closeHandler.bind(this)
+    this.changeWaypoint = this.changeWaypoint.bind(this)
   }
 
 
@@ -53,6 +55,10 @@ export default class MainWindow extends React.Component{
     //setstate has been called so render() will change mappane's activelayers
   }
 
+  changeWaypoint(goTo){
+    this.setState({nextPoint: goTo});
+  }
+
 //TODO make all pane related stuff a subprop called "pane" e.g. this.state.pane.paneInfo
   render() {
     return (
@@ -62,9 +68,10 @@ export default class MainWindow extends React.Component{
         activeLayers={this.state.activeLayers} changePane={this.changePane}
         activePane={this.state.activePane} paneInfo={this.state.paneInfo}
         switchTrail={this.switchTrail}
+        changeWaypoint={this.changeWaypoint}
         toggleLayers={this.props.toggleLayers}/>}
         <MapPane closeSide={this.closeHandler} activeLayers={this.state.activeLayers} changePane={this.changePane}
-        activeTrail={this.state.activeTrail}/>
+        activeTrail={this.state.activeTrail} nextPoint={this.state.nextPoint}/>
       </div>
 
     );
