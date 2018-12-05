@@ -30,7 +30,7 @@ import React, { Component}  from 'react';
 
 const categories = [
 	'Geographic Feature',
-	'Corps Relations',
+	'Key Events',
 	'Native American Encounter',
 	'Important Campsite',
 	'Natural History',
