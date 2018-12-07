@@ -46,9 +46,10 @@ const closedTabStyle = {
   borderBottom: '1px solid #0a100d',
 }
 
+//make textBody responsive
 const textBody = {
   width: '100%',
-  height: '88%',
+  height: '500px',
   padding: '0.5rem 0.2rem 0.5rem 0.5rem',
   overflow: 'scroll'
 }
