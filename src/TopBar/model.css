@@ -25,6 +25,13 @@
   visibility: hidden;
 }
 
+#textBody{
+  width: 100%;
+  height: 500px;
+  padding: 0.5rem 0.2rem 0.5rem 0.5rem;
+  overflow: scroll;
+}
+
 @media only screen and (min-width: 400px) {
   #hoverStyle{
     width:100%;
@@ -55,5 +62,9 @@
 
   #iText{
     visibility: visible;
+  }
+
+  #textBody{
+    height: 88%;
   }
 }

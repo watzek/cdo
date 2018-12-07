@@ -46,14 +46,6 @@ const closedTabStyle = {
   borderBottom: '1px solid #0a100d',
 }
 
-//make textBody responsive
-const textBody = {
-  width: '100%',
-  height: '500px',
-  padding: '0.5rem 0.2rem 0.5rem 0.5rem',
-  overflow: 'scroll'
-}
-
 class ModalContent extends React.Component {
   constructor(){
     super();
@@ -89,7 +81,7 @@ class ModalContent extends React.Component {
             <span style={closedTabStyle}></span>
           </div>
 
-          <div style={textBody}>
+          <div id="textBody">
             {finalBody}
           </div>
         </div>
