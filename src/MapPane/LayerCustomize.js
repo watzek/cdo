@@ -108,7 +108,7 @@ export function PointToLayer(name, cntxt) {
 
 function styleRiv(feature, layer){
 	var color = '#000000';
-	if (feature.properties.LCNAME == Marias River)
+	if (feature.properties.BANK == 0)
 		color = '#FFA500';
 	return { fillColor: color, fillOpacity: 0.8, stroke: false };	
 }
