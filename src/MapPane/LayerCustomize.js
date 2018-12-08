@@ -112,7 +112,7 @@ function styleRiv(feature, layer){
 }
 
 function onRiv(feature, layer){
-	layer.bindPopup(feature.properties.NAME);
+	layer.bindPopup(feature.properties);
 }
 
 function style1803(feature, layer){
