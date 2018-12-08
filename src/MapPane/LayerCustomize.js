@@ -107,7 +107,7 @@ export function PointToLayer(name, cntxt) {
 }
 
 function styleRiv(feature, layer){
-	var color = '#000000';
+	var color = '#ffa500';
 	if (feature.properties.BANK == 0)
 		color = '#FFA500';
 	return { fillColor: color, fillOpacity: 0.8};	
