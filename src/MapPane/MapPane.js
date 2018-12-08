@@ -31,7 +31,7 @@ export default class MapPane extends React.Component {
 		this.loadJSONLayer('biomes', { alias: 'Biomes' });
 		this.loadJSONLayer('tribes', { alias: 'Tribes' });
 		this.loadJSONLayer('1803', {alais: 'Political Map 1803'});
-		this.loadJSONLayer('Tester', {alais: 'Historical Rivers'});
+		this.loadJSONLayer('marias_river_4', {alais: 'Rivers'});
 		this.loadJSONLayer('rettrail', { alias: 'Return', journey: 'ret' });
 		this.loadJSONLayer('outtrail', { alias: 'Outbound', journey: 'out' });
 		this.loadJSONLayer('outpoi', { alias: 'Outbound', journey: 'out' });
