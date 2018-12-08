@@ -110,11 +110,11 @@ function styleRiv(feature, layer){
 	var color = '#000000';
 	if (feature.properties.BANK == 0)
 		color = '#FFA500';
-	return { fillColor: color, fillOpacity: 0.8, stroke: false };	
+	return { fillColor: color, fillOpacity: 0.8};	
 }
 
 function onRiv(feature, layer){
-	layer.bindPopup(feature.properties);
+	layer.bindPopup(feature.properties.LCNAME);
 }
 
 function style1803(feature, layer){
