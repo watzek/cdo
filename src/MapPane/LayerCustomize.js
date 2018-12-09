@@ -25,7 +25,7 @@ import 'leaflet/dist/leaflet';
 
 const categories = [
 	'Geographic Feature',
-	'Corps Relations',
+	'Key Events',
 	'Native American Encounter',
 	'Important Campsite',
 	'Natural History',
@@ -54,7 +54,7 @@ export function LayerStyle(name, cntxt) {
 			return trailStyle;
 		case '1803':
 			return style1803;
-		case 'Tester':
+		case 'marias_river_4':
 			return styleRiv;
 		default:
 			return null;
@@ -86,7 +86,7 @@ export function OnEachFeature(name, cntxt) {
 			return onEachTribe;
 		case'1803':
 			return onPolitical;
-		case'Tester':
+		case'marias_river_4':
 			return onRiv;
 		default:
 			return null;
@@ -109,12 +109,14 @@ export function PointToLayer(name, cntxt) {
 }
 
 function styleRiv(feature, layer){
-	var color = '#000000';
-	return { fillColor: color, fillOpacity: 0.8, stroke: false };
+	var color = '#ffa500';
+	if (feature.properties.BANK == 0)
+		color = '#FFA500';
+	return { fillColor: color, fillOpacity: 0.8};
 }
 
 function onRiv(feature, layer){
-	layer.bindPopup(feature.properties.NAME);
+	layer.bindPopup(feature.properties.LCNAME);
 }
 
 
