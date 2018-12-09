@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import {about} from './credits.js';
+import {Button } from 'reactstrap';
 import './model.css'; //some responsive styles here...
 
 //make i responsive???

@@ -77,14 +77,24 @@ export default class Sidebar extends React.Component {
 
 				<Button
 					aria-label="Next"
-					onClick={() => this.props.changeWaypoint(this.props.paneInfo.WaypointID)}
+					outline color="secondary"
+					onClick={() => this.props.changeWaypoint(this.props.paneInfo.WaypointID + 1)}
 					id="tour">
 
-					<span aria-hidden="true">next</span>
+					<span aria-hidden="true">&lt; Next</span>
 				</Button>
 
 				<Button
-					color="danger"
+					aria-label="Previous"
+					outline color="secondary"
+					onClick={() => this.props.changeWaypoint(this.props.paneInfo.WaypointID - 1)}
+					id="tour">
+
+					<span aria-hidden="true">Previous &gt;</span>
+				</Button>
+
+				<Button
+					outline color="danger"
 					className="close"
 					aria-label="Close"
 					onClick={this.props.toggleLayers}

@@ -55,6 +55,7 @@ export default class MainWindow extends React.Component{
     //setstate has been called so render() will change mappane's activelayers
   }
 
+  //somewhere nextWaypoint is increasing by 2 instead of 1
   changeWaypoint(goTo){
     this.setState({nextPoint: goTo});
   }

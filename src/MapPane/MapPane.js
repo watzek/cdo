@@ -60,21 +60,39 @@ export default class MapPane extends React.Component {
 
 	}
 
+	//stuff for tour is here, please verify this...
 	componentDidUpdate(oldProps){
 		if(this.props.nextPoint !== oldProps.nextPoint){
+			console.log(this);
 			var next = this.props.nextPoint; //get feature with this ID...
 
-			if(next < 49){
-				var feature = this.state.out.get("outpoi").data.features[next];
-				var layerT = this.state.out; //this is not right...
-			
-				goToPOI(feature, layerT, this);
+			var outMin = this.state.out.get("outpoi").data.features[0].properties.WaypointID;
+			var outMax = this.state.out.get("outpoi").data.features[this.state.out.get("outpoi").data.features.length - 1].properties.WaypointID;
+
+			var retMin = this.state.ret.get("retpoi").data.features[0].properties.WaypointID;
+			var retMax = this.state.ret.get("retpoi").data.features[this.state.ret.get("retpoi").data.features.length - 1].properties.WaypointID;
+
+			if (retMin <= next){ // use return waypoints
+				this.renderPath(this.state.ret);
+				console.log("ret");
+				var layerT = this.state.ret;
+				var feature = this.state.ret.get("retpoi").data.features[next - 48];
+
+				if(retMin <= next && retMax >= next) goToPOI(feature, layerT, this);
+			} else {
+				this.renderPath(this.state.out);
+				console.log("out");
+				var layerT = this.state.out;
+				var feature = this.state.out.get("outpoi").data.features[next - 1];
+
+				if(next >= outMin && next <= outMax) goToPOI(feature, layerT, this);
 			}
+
  		}
 	}
 
 	loadAirLayer(query, name, options){
-		const url = 'https://api.airtable.com/v0/appNr9GTJe3BAOfph/Table%201?view=Grid%20view&' + query;
+		const url = 'https://api.airtable.com/v0/appNr9GTJe3BAOfph/Table%201?view=Grid%20view&' + query + '&sort=';
 		const key = 'keyfN8VFBQ25v07Pv';
 
 		var geo = {};

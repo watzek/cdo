@@ -39,7 +39,6 @@
   background-color: #F0FFF0;
   opacity: 0.95;
   margin-right: 2vh;
-  /* border: 4px dashed blue; */
 }
 
 #prettyDate{
@@ -88,8 +87,7 @@
 #tour{
   font-size: 0.8rem; /*make this smaller? or align to top...*/
   text-align: right;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  margin-right: 0.2rem;
   margin-bottom: 0.5rem;
   text-align: left;
 }
