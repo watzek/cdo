@@ -1,5 +1,4 @@
 /*
-Woof, this one's not something I'm too proud of...
 So basically I made this file because I knew that customizing each of the layers
 within the leaflet map would require a lot of code, I housed it in
 this js file, from which functions are exported allowing them
@@ -14,18 +13,15 @@ things.
 React-leaflet is a very surface level framework with which you can't accomplish
 many things without working under the hood a bit.
 */
-
-//new icons are on branch newicos
-
-import * as React from 'react';
 import Leaflet from 'leaflet';
-import marker from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet/dist/leaflet';
 
+/*
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
+   */
 
 const categories = [
 	'Geographic Feature',
@@ -51,9 +47,6 @@ export function LayerStyle(name, cntxt) {
 	switch (name) {
 		case 'biomes':
 			return biomeStyle;
-		case 'retpoi':
-		case 'outpoi':
-			return POIStyle;
 		case 'retpoi':
 		case 'outpoi':
 			return POIStyle;
@@ -146,9 +139,12 @@ function onPolitical(feature, layer){
 	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
 }
 
+//old version
+/*
 function onPolitical(feature, layer){
 	layer.bindTooltip(feature.properties.NAME, {permanent: true});
 }
+*/
 
 function pointToTribes(feature, latlng) {
 	var color = 'icon_none.svg';
@@ -186,6 +182,8 @@ function pointToPOI(feature, latlng) {
 	return Leaflet.marker(latlng, geojsonMarkerOptions); //.bindTooltip(feature.properties.Name)
 }
 
+//unused for now
+/*
 function pointToCities(feature, latlng) {
 	return new Leaflet.Marker(latlng, {
 		icon: new Leaflet.DivIcon({
@@ -194,6 +192,7 @@ function pointToCities(feature, latlng) {
 		})
 	});
 }
+*/
 
 function POIStyle(feature) {
 	return { opacity: 0 };
@@ -279,7 +278,7 @@ export function goToPOI(feature, layer, context){
 
 function onEachTribe(feature, layer) {
   var tribeName = "" + feature.properties.Tribe;
-  if(feature.properties.major == 1){
+  if(feature.properties.major === 1){
     tribeName = tribeName.toUpperCase();
   }
 

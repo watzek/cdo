@@ -17,7 +17,7 @@ import {
 } from 'react-leaflet';
 import './MapPane.css';
 import MapLegend from './MapLegend';
-import { LayerStyle, OnEachFeature, PointToLayer, CloseSidebar, goToPOI} from './LayerCustomize.js';
+import { LayerStyle, OnEachFeature, PointToLayer, goToPOI} from './LayerCustomize.js';
 import MinZoom from './MinZoom.js';
 
 export default class MapPane extends React.Component {
@@ -60,10 +60,9 @@ export default class MapPane extends React.Component {
 
 	}
 
-	//stuff for tour is here, please verify this...
+	//takes care of handling next and previous buttons
 	componentDidUpdate(oldProps){
 		if(this.props.nextPoint !== oldProps.nextPoint){
-			console.log(this);
 			var next = this.props.nextPoint; //get feature with this ID...
 
 			var outMin = this.state.out.get("outpoi").data.features[0].properties.WaypointID;
@@ -72,18 +71,15 @@ export default class MapPane extends React.Component {
 			var retMin = this.state.ret.get("retpoi").data.features[0].properties.WaypointID;
 			var retMax = this.state.ret.get("retpoi").data.features[this.state.ret.get("retpoi").data.features.length - 1].properties.WaypointID;
 
+			var layerT = this.state.ret;
+			var feature = this.state.ret.get("retpoi").data.features[next - 48];
 			if (retMin <= next){ // use return waypoints
-				this.renderPath(this.state.ret);
-				console.log("ret");
-				var layerT = this.state.ret;
-				var feature = this.state.ret.get("retpoi").data.features[next - 48];
-
+				//console.log("ret");
 				if(retMin <= next && retMax >= next) goToPOI(feature, layerT, this);
 			} else {
-				this.renderPath(this.state.out);
-				console.log("out");
-				var layerT = this.state.out;
-				var feature = this.state.out.get("outpoi").data.features[next - 1];
+				//console.log("out");
+				layerT = this.state.out;
+				feature = this.state.out.get("outpoi").data.features[next - 1];
 
 				if(next >= outMin && next <= outMax) goToPOI(feature, layerT, this);
 			}
@@ -100,6 +96,8 @@ export default class MapPane extends React.Component {
 		geo.crs = {"type" : "name", "properties" : {"name": "urn:ogc:def:crs:OGC:1.3:CRS84" }};
 		geo.features = [];
 
+		//works but causes an eslint error due to unused variable
+		// eslint-disable-next-line
 		const resp = fetch(url, {
 			headers: {
         Authorization: `Bearer ${key}`

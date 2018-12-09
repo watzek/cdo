@@ -41,6 +41,7 @@ export default class Sidebar extends React.Component {
 	}
 
 	//uses regex to restyle citations on each sidebar (fix to be chicago journal citation style)
+	/*
 	reformatCitation(parse, type){
 		var result = []
 		var ita = " ";
@@ -70,6 +71,7 @@ export default class Sidebar extends React.Component {
 			<span dangerouslySetInnerHTML={{ __html: final }}></span>
 		);
 	}
+	*/
 
 	renderSidebar() {
 		return (
@@ -81,7 +83,7 @@ export default class Sidebar extends React.Component {
 					onClick={() => this.props.changeWaypoint(this.props.paneInfo.WaypointID + 1)}
 					id="tour">
 
-					<span aria-hidden="true">&lt; Next</span>
+					<span aria-hidden="true">Foreward</span>
 				</Button>
 
 				<Button
@@ -90,7 +92,7 @@ export default class Sidebar extends React.Component {
 					onClick={() => this.props.changeWaypoint(this.props.paneInfo.WaypointID - 1)}
 					id="tour">
 
-					<span aria-hidden="true">Previous &gt;</span>
+					<span aria-hidden="true">Back</span>
 				</Button>
 
 				<Button
@@ -145,13 +147,13 @@ export default class Sidebar extends React.Component {
 							</div>
 							{this.props.paneInfo.hasOwnProperty("Secondary Source") &&
 								<div id="sec">
-									<div><strong>Further Reading:</strong></div> {this.reformatCitation(this.props.paneInfo['Secondary Source'], "chi")}
+									<div><strong>Further Reading:</strong></div> {this.props.paneInfo['Secondary Source']}
 								</div>
 							}
 
 							{this.props.paneInfo.hasOwnProperty('Image citation') &&
 								<div id="sec">
-									<div><strong>Image source:</strong></div> {this.reformatCitation(this.props.paneInfo['Image citation'], "mla")}
+									<div><strong>Image source:</strong></div> {this.props.paneInfo['Image citation']}
 								</div>
 							}
 						</Scroll>
