@@ -15,12 +15,14 @@
     "react-leaflet": "^1.8.0",
     "react-leaflet-control": "^2.0.0",
     "react-scripts": "1.0.17",
-    "reactstrap": "^5.0.0-alpha.4"
+    "reactstrap": "^5.0.0-alpha.4",
+    "source-map-explorer": "^1.6.0"
   },
   "devDependencies": {
     "flow-bin": "0.63.1"
   },
   "scripts": {
+    "analyze": "source-map-explorer build/static/js/main.*",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

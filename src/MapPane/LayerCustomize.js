@@ -25,11 +25,10 @@ import 'leaflet/dist/leaflet';
 
 const categories = [
 	'Geographic Feature',
-	'Key Events',
+	'Corps Relations',
 	'Native American Encounter',
 	'Important Campsite',
-	'Natural History',
-	''
+	'Natural History'
 ];
 
 const marker_colors = [
