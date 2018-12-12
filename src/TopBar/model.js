@@ -68,15 +68,15 @@ class ModalContent extends React.Component {
 
     return ReactDOM.createPortal(
       <div style={coverStyle}>
-        <div id="hoverStyle">
-          <button class = "close btn" style={closeStyle} onClick={this.props.onClose}>
+        <div role="tabpanel" id="hoverStyle">
+          <button aria-label="Close" class = "close btn" style={closeStyle} onClick={this.props.onClose}>
             <span aria-hidden="true">×</span>
           </button>
 
-          <div style={tabBar}>
+          <div role="tablist" style={tabBar}>
             <span style={closedTabStyle}></span>
-            <span style={tabStyles[0]} onClick={() => this.changeBody(0)}>About this map</span>
-            <span style={tabStyles[1]} onClick={() => this.changeBody(1)}>Works Cited</span>
+            <span role="tab" aria-label="About this map" aria-selected={this.state.selected === 0} style={tabStyles[0]} onClick={() => this.changeBody(0)}>About this map</span>
+            <span role="tab" aria-label="Works Cited" aria-selected={this.state.selected === 1} style={tabStyles[1]} onClick={() => this.changeBody(1)}>Works Cited</span>
             <span style={closedTabStyle}></span>
           </div>
 
@@ -90,7 +90,7 @@ class ModalContent extends React.Component {
   }
 }
 
-const ModalTrigger = ({onOpen}) => <button class = "close btn" id="openStyle" onClick={onOpen}>&#9432; <span id="iText">info</span></button>;
+const ModalTrigger = ({onOpen}) => <button aria-label="Info" class = "close btn" id="openStyle" onClick={onOpen}>&#9432; <span id="iText">info</span></button>;
 
 export default class CreditModal extends React.Component {
   constructor(){
