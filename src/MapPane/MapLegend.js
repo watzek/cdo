@@ -21,22 +21,20 @@ import { MapControl } from 'react-leaflet';
 
 const categories = [
 	'Geographic Feature',
-	'Corps Relations',
+	'Key Events',
 	'Native American Encounter',
 	'Important Campsite',
 	'Natural History'
 ];
 
 const marker_colors = [
-	'icon_lblue.png',
-	'icon_purple.png',
-	'icon_tan.png',
-	'icon_teal.png',
-	'icon_lred.png',
+	'icon_red.png',
+	'icon_green.png',
+	'icon_blue.png',
+	'icon_orange.png',
+	'icon_brown.png',
 	'map-marker-icon.png'
 ];
-
-
 
 export default class MapLegend extends MapControl {
 	renderCategories() {

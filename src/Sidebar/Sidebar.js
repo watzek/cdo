@@ -83,7 +83,7 @@ export default class Sidebar extends React.Component {
 					onClick={() => this.props.changeWaypoint(this.props.paneInfo.WaypointID + 1)}
 					id="tour">
 
-					<span aria-hidden="true">Foreward</span>
+					<span aria-hidden="true">Forward</span>
 				</Button>
 
 				<Button

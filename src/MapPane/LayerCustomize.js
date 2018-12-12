@@ -25,20 +25,20 @@ import 'leaflet/dist/leaflet';
 
 const categories = [
 	'Geographic Feature',
-	'Corps Relations',
+	'Key Events',
 	'Native American Encounter',
 	'Important Campsite',
 	'Natural History'
 ];
 
 const marker_colors = [
-	'icon_lblue.png',
-	'icon_purple.png',
-	'icon_tan.png',
-	'icon_teal.png',
-	'icon_lred.png',
+	'icon_red.png',
+	'icon_green.png',
+	'icon_blue.png',
+	'icon_orange.png',
+	'icon_brown.png',
   'icon_none.svg',
-	'map-marker-icon.png'
+	'map_marker_icon.png'
 ];
 
 export function LayerStyle(name, cntxt) {
