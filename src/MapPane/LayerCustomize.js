@@ -53,7 +53,7 @@ export function LayerStyle(name, cntxt) {
 			return trailStyle;
 		case '1803':
 			return style1803;
-		case 'marias_river_4':
+		case 'selected_rivers':
 			return styleRiv;
 		default:
 			return null;
@@ -85,7 +85,7 @@ export function OnEachFeature(name, cntxt) {
 			return onEachTribe;
 		case'1803':
 			return onPolitical;
-		case'marias_river_4':
+		case'selected_rivers':
 			return onRiv;
 		default:
 			return null;
