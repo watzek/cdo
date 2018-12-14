@@ -72,13 +72,13 @@ export default class MapPane extends React.Component {
 			var key, feature, pointT = null, pointO = null;
 			for(key in this.state.map["_layers"]){
 				if(this.state.map["_layers"][key].hasOwnProperty("feature") && "WaypointID" in this.state.map["_layers"][key].feature.properties){
-					if(this.state.map["_layers"][key].feature.properties.WaypointID == next){
+					if(this.state.map["_layers"][key].feature.properties.WaypointID === next){
 
 
 
 					  pointT = this.state.map["_layers"][key];
 					}
-					if(this.state.map["_layers"][key].feature.properties.WaypointID == last){
+					if(this.state.map["_layers"][key].feature.properties.WaypointID === last){
 					  pointO = this.state.map["_layers"][key];
 					}
 				}
@@ -93,7 +93,7 @@ export default class MapPane extends React.Component {
 			console.log(next + " " + sz);
 			console.log(feature);
 
-			if(pointT != null && feature != undefined){
+			if(pointT !== null && feature !== undefined){
 				goToPOI(feature, pointO, pointT, this);
 			}
 
