@@ -4,13 +4,30 @@
   padding-top: 1vh;
 }
 
+/* must match background color*/
+/*
+#scroll:after {
+  content  : "";
+  position : absolute;
+  z-index  : 1;
+  bottom   : 0;
+  left     : 0;
+  pointer-events   : none;
+  background-image : linear-gradient(to bottom,
+                    rgba(240,255,240, 0),
+                    rgba(240,255,240, 1) 99%);
+  width    : 100%;
+  height   : 3em;
+}
+*/
+
 #img{
   width: 100%;
 }
 
 #header{
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
   line-height: 100%;
   justify-content:center;
@@ -43,12 +60,12 @@
 
 #prettyDate{
   font-style: normal;
-  font-size: 0.7em;
+  font-size: 0.6em;
 }
 
 #coords{
   font-style: normal;
-  font-size: 0.6em;
+  font-size: 0.5em;
   color: gray;
 }
 
@@ -90,6 +107,7 @@
   margin-right: 0.2rem;
   margin-bottom: 0.5rem;
   text-align: left;
+  padding: 0.3rem;
 }
 
 a {
