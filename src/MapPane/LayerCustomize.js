@@ -115,7 +115,7 @@ function styleRiv(feature, layer){
 }
 
 function onRiv(feature, layer){
-	layer.bindPopup(feature.properties.LCNAME);
+	layer.bindPopup(feature.properties.NAME);
 }
 
 
@@ -253,17 +253,22 @@ function onEachBiome(feature, layer) {
 }
 
 function onEachPOI(feature, layer) {
+	//console.log(layer);
 	layer.on({
 		click: () => {
+			//bind active layer here???
 			context.props.changePane('info', feature.properties);
-
       layer.bindTooltip(feature.properties.Name, {permanent: true});
+		},
+		add: () => {
+			//console.log("help");
 		}
 	});
+
 }
 
 //building block of future tour feature...gets a feature and goes to it and opens the info pane
-export function goToPOI(feature, layer, context){
+export function goToPOI(feature, oldLayer, layer, context){
   context.props.changePane('info', feature.properties);
 
   const latOffset = -1.4;
@@ -274,7 +279,8 @@ export function goToPOI(feature, layer, context){
 
   context.state.map.setView(ll, 7);
 
-  //layer.bindTooltip(feature.properties.Name, {permanent: true}); //having trouble here...
+	if(oldLayer != null) oldLayer.unbindTooltip();
+  layer.bindTooltip(feature.properties.Name, {permanent: true}); //having trouble here...
 }
 
 function onEachTribe(feature, layer) {

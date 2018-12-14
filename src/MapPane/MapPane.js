@@ -64,24 +64,37 @@ export default class MapPane extends React.Component {
 	componentDidUpdate(oldProps){
 		if(this.props.nextPoint !== oldProps.nextPoint){
 			var next = this.props.nextPoint; //get feature with this ID...
+			var last = oldProps.nextPoint;
+			var sz = this.state.out.get("outpoi").data.features.length;
+			//var feature = this.state.ret.get("retpoi").data.features[next - 48];
+			//feature is the BIG hangup,,,,,
 
-			var outMin = this.state.out.get("outpoi").data.features[0].properties.WaypointID;
-			var outMax = this.state.out.get("outpoi").data.features[this.state.out.get("outpoi").data.features.length - 1].properties.WaypointID;
+			var key, feature, pointT = null, pointO = null;
+			for(key in this.state.map["_layers"]){
+				if(this.state.map["_layers"][key].hasOwnProperty("feature") && "WaypointID" in this.state.map["_layers"][key].feature.properties){
+					if(this.state.map["_layers"][key].feature.properties.WaypointID == next){
 
-			var retMin = this.state.ret.get("retpoi").data.features[0].properties.WaypointID;
-			var retMax = this.state.ret.get("retpoi").data.features[this.state.ret.get("retpoi").data.features.length - 1].properties.WaypointID;
 
-			var layerT = this.state.ret;
-			var feature = this.state.ret.get("retpoi").data.features[next - 48];
-			if (retMin <= next){ // use return waypoints
-				//console.log("ret");
-				if(retMin <= next && retMax >= next) goToPOI(feature, layerT, this);
-			} else {
-				//console.log("out");
-				layerT = this.state.out;
-				feature = this.state.out.get("outpoi").data.features[next - 1];
 
-				if(next >= outMin && next <= outMax) goToPOI(feature, layerT, this);
+					  pointT = this.state.map["_layers"][key];
+					}
+					if(this.state.map["_layers"][key].feature.properties.WaypointID == last){
+					  pointO = this.state.map["_layers"][key];
+					}
+				}
+			}
+
+
+			//console.log(this.state.out.get("outpoi").data.features[sz - 1]);
+
+			if(next >= sz) feature = this.state.ret.get("retpoi").data.features[next - sz];
+			else feature = this.state.out.get("outpoi").data.features[next - 1];
+
+			console.log(next + " " + sz);
+			console.log(feature);
+
+			if(pointT != null && feature != undefined){
+				goToPOI(feature, pointO, pointT, this);
 			}
 
  		}
