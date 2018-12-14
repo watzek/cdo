@@ -38,8 +38,8 @@ export default class MapPane extends React.Component {
 	componentDidMount() {
 		this.loadJSONLayer('biomes', { alias: 'Biomes' });
 		this.loadJSONLayer('tribes', { alias: 'Tribes' });
-		this.loadJSONLayer('1803', {alais: 'Political Map 1803'});
-		this.loadJSONLayer('selected_rivers', {alais: 'Rivers'});
+		this.loadJSONLayer('1803', {alias: '1803 Political Map'});
+		this.loadJSONLayer('selected_rivers', {alias: 'Rivers'});
 		this.loadJSONLayer('rettrail', { alias: 'Return', journey: 'ret' });
 		this.loadJSONLayer('outtrail', { alias: 'Outbound', journey: 'out' });
 		this.loadAirLayer('filterByFormula=FIND("inbound", {Trip%20Portion})', 'outpoi', { alias: 'Outbound', journey: 'out' });
@@ -256,10 +256,10 @@ export default class MapPane extends React.Component {
 						<LayersControl.BaseLayer name="Return Trail">
 							<LayerGroup>{this.renderClean(this.state.ret)}</LayerGroup>
 						</LayersControl.BaseLayer>
-						{this.renderOverlays()}
 						<LayersControl.Overlay name="USA Rivers, Streams" key="usars">
 							<TileLayer url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}" />
 						</LayersControl.Overlay>
+						{this.renderOverlays()}
 					</LayersControl>
 					<MapLegend />
 
