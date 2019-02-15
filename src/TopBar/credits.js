@@ -14,32 +14,16 @@ export const about = [
     <strong>Introduction to the Corps of Discovery Online Atlas</strong>
   </p>
   <p>
-  The Corps of Discovery Online Atlas is a digital map of the historic route of
-  the Lewis & Clark Expedition. This atlas builds on the considerable past work of
-  mapping the expedition both in digital and analog environments. The resource is
-  intended to harness current web technology to help anyone studying the
-  expedition understand its physical trajectory and identify the locations of
-  major events along the way. It is also intended as an easy to use reference for
-  students learning about the history of the expedition as well as a handy tool
-  for general readers with interest in the topic.
+  The Corps of Discovery Online Atlas is a digital map of the historic route of the Lewis & Clark Expedition. This Atlas builds on the considerable past work of mapping the expedition both in digital and analog environments. The resource is intended to harness current web technology to help anyone studying the expedition understand its physical trajectory and identify the locations of major events along the way. It is designed to function well using a personal computer, tablet or smartphone. It is intended as an easy to use reference for students learning about the history of the expedition as well as a tool for general readers with interest in the topic.
   </p>
   <p>
-  The atlas includes the inbound and outbound routes of the expedition as well as
-  locations and descriptions of major waypoints along the route. Bibliographic
-  references are provided for further reading about each waypoint. Additional map
-  layers provide further context including American Indian Tribal regions, an 1803
-  political map, and a map of biomes,
+  The Atlas includes the inbound and outbound routes of the expedition as well as locations and descriptions of major waypoints along the route. Bibliographic references are provided for further reading about each waypoint. Additional map layers provide further context including American Indian Tribal regions, an 1803 political map, and a map of biomes.
   </p>
   <p>
-  Initiated in the fall of 2017, the project was developed by Lewis & Clark
-  College History and Computer Science majors with guidance from staff at the
-  Aubrey R. Watzek Library. The project builds on Watzek Library's notable
-  collection of literature on the Lewis & Clark Expedition as well as its Digital
-  Initiatives program.
+Initiated in the fall of 2017, the project was developed by <a href='https://www.lclark.edu' target='_blank'>Lewis & Clark College</a> History and Computer Science majors with guidance from staff at the <a href='https://library.lclark.edu/' target='_blank'>Aubrey R. Watzek Library</a>. The project builds on Watzek Library Special Collections’ notable <a href='http://specialcollections.lclark.edu/collections/' target='_blank'>collection of literature</a> on the Lewis & Clark Expedition as well as the digital mapping expertise in its <a href='https://library.lclark.edu/digital-initiatives' target='_blank'>Digital Initiatives</a> program.
   </p>
   <p>
-  Please send corrections and suggestions for improvement of the atlas to Mark
-  Dahl dahl@lclark.edu.
+As of 14 February 2019, we are making the Atlas available to the public in a beta mode so that we may fix content and functionality errors. If you have feedback regarding the content or the functionality of the atlas, please share it with us using this <a href='https://docs.google.com/forms/d/e/1FAIpQLSeQTDwdxE3JNEegM8vMGRwECQNoBVEsGJMUTOhtmm3VUvmJNA/viewform?usp=sf_link' target='_blank'>online form</a> by 1 August 1, 2019.
   </p>
   <p>
   <strong>Current Project Team</strong>
@@ -53,15 +37,9 @@ export const about = [
   <p>
   Mark Dahl, Director of the Aubrey R. Watzek Library
   </p>
-  <p>
-  Maddy Pederson, History '19
-  </p>
-  <p>
-  Patrick Vin,  Computer Science '19
-  </p>
-  <p>
-  Quinn Vinlove, Computer Science '20
-  </p>
+
+
+
   <p>
                 <strong>Past Project Contributors</strong>
   </p>
@@ -83,6 +61,16 @@ export const about = [
   <p>
   William Owen, Chemistry '19
   </p>
+  <p>
+  Maddy Pederson, History '19
+  </p>
+  <p>
+  Patrick Vin,  Computer Science '19
+  </p>
+  <p>
+  Quinn Vinlove, Computer Science '20
+  </p>
+
   <p>
   <strong>Acknowledgements</strong>
   </p>
