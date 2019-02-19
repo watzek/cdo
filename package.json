@@ -12,6 +12,7 @@
     "react-awesome-scroll": "^0.1.4",
     "react-burger-menu": "^2.5.3",
     "react-dom": "^16.2.0",
+    "react-ga": "^2.5.7",
     "react-leaflet": "^1.8.0",
     "react-leaflet-control": "^2.0.0",
     "react-scripts": "1.0.17",

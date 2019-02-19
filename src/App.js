@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react'
+import ReactGA from 'react-ga';
 import TopBar from './TopBar/TopBar'
 import MainWindow from './MainWindow/MainWindow'
 import './App.css'
@@ -12,6 +13,8 @@ export default class App extends Component{
     this.state = {
       showSidebar: false
     }
+    ReactGA.initialize('UA-134725677-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }
 
   toggleLayers(bool){
@@ -27,4 +30,8 @@ export default class App extends Component{
       </div>
     );
   }
+
+
+
+
 }
