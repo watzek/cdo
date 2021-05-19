@@ -9,10 +9,12 @@ export default class MinZoom extends MapControl {
     const map = this.context.map;
     map.setZoom(4);
     this.props.side();
+    this.props.sideTribe();
+    this.props.sideTribeSection();
   };
 
   componentWillMount() {
-    const centerControl = L.control({position: 'topright'});
+    const centerControl = L.control({ position: 'topright' });
     const jsx = (
       // PUT YOUR JSX FOR THE COMPONENT HERE:
       <div className="leaflet-bar">

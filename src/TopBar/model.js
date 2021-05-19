@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import {about} from './credits.js';
+import { about } from './credits.js';
 import './model.css'; //some responsive styles here...
 
 //make i responsive???
@@ -47,16 +47,16 @@ const closedTabStyle = {
 }
 
 class ModalContent extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       selected: 0
     };
     this.state.myBody = "hello";
   }
-//do tab magic here
+  //do tab magic here
   changeBody = (changeTo) => {
-    this.setState({selected: changeTo});
+    this.setState({ selected: changeTo });
   };
 
   //the tab system is kind of a hack, but it makes some amount of sense...
@@ -69,7 +69,7 @@ class ModalContent extends React.Component {
     return ReactDOM.createPortal(
       <div style={coverStyle}>
         <div role="tabpanel" id="hoverStyle">
-          <button aria-label="Close" class = "close btn" style={closeStyle} onClick={this.props.onClose}>
+          <button aria-label="Close" class="close btn" style={closeStyle} onClick={this.props.onClose}>
             <span aria-hidden="true">×</span>
           </button>
 
@@ -90,10 +90,10 @@ class ModalContent extends React.Component {
   }
 }
 
-const ModalTrigger = ({onOpen}) => <button aria-label="Info" class = "close btn" id="openStyle" onClick={onOpen}>&#9432; <span id="iText">info</span></button>;
+const ModalTrigger = ({ onOpen }) => <button aria-label="Info" class="close btn" id="openStyle" onClick={onOpen}>&#9432; <span id="iText">info</span></button>;
 
 export default class CreditModal extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       open: false
@@ -101,19 +101,19 @@ export default class CreditModal extends React.Component {
   }
 
   onOpen = () => {
-    this.setState({open: true});
+    this.setState({ open: true });
   };
 
   onClose = () => {
-    this.setState({open: false});
+    this.setState({ open: false });
   };
 
   render() {
 
     return (
       <React.Fragment>
-        <ModalTrigger onOpen={this.onOpen}/>
-        {this.state.open && <ModalContent onClose={this.onClose}/>}
+        <ModalTrigger onOpen={this.onOpen} />
+        {this.state.open && <ModalContent onClose={this.onClose} />}
       </React.Fragment>
     );
   }

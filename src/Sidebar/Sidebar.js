@@ -9,7 +9,7 @@ The scroll functionality comes from an npm library called 'react-awesome-scroll'
 */
 
 import * as React from 'react';
-import {Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import Scroll from 'react-awesome-scroll';
 import './Sidebar.css';
 
@@ -37,26 +37,27 @@ export default class Sidebar extends React.Component {
 	//makes date look better
 	reformatDate(date) {
 		let date2 = date.split('-');
+		console.log(date2[1]);
 		return `${months[date2[1] - 1]} ${date2[2]}, ${date2[0]} \n`;
 	}
 
 	//uses regex to restyle citations on each sidebar (fix to be chicago journal citation style)
-	/*
-	reformatCitation(parse, type){
+
+	/*reformatCitation(parse, type) {
 		var result = []
 		var ita = " ";
-		if(type === "mla"){ //stil broken
+		if (type === "mla") { //stil broken
 			const reg = /(.*?)\./gm;
 			let m;
 			var i = 0;
 			while (m = reg.exec(parse)) {
-				if(i === 2 && m[1] != null) ita = m[1];
+				if (i === 2 && m[1] != null) ita = m[1];
 				i++;
 			}
 		}
 
-		if(type === "chi"){
-		 	const reg = /,(.*?)\./gm;
+		if (type === "chi") {
+			const reg = /,(.*?)\./gm;
 			result = reg.exec(parse);
 			ita = result[1];
 		}
@@ -70,8 +71,8 @@ export default class Sidebar extends React.Component {
 		return (
 			<span dangerouslySetInnerHTML={{ __html: final }}></span>
 		);
-	}
-	*/
+	}*/
+
 
 	renderSidebar() {
 		return (
@@ -139,7 +140,7 @@ export default class Sidebar extends React.Component {
 									onClick={() =>
 										window.open(this.props.paneInfo['Journal Entries'], '')
 									}
-									>
+								>
 									{this.props.paneInfo['Journal Entries']
 										? 'Journal Entry'
 										: null}

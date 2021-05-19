@@ -1,7 +1,15 @@
 .MapPane {
   height: 92.5vh;
 }
-
+.tribeMarker2 {
+  background: none;
+  background-color: none;
+  color: black;
+  border: none;
+  box-shadow: none;
+  font-weight: bold;
+  font-size: 1em;
+}
 .tribeMarker {
   background: none;
   background-color: none;
@@ -11,7 +19,11 @@
   font-weight: bold;
   font-size: 1em;
 }
+.leaflet-toolTip.tribeMarker:hover {
+  text-decoration:underline;
+  color: red;
+}
+.leaflet-tooltip-left.tribeMarker::before {border-left-color: transparent}
 
-.leaflet-tooltip-left.tribeMarker::before {border-left-color: transparent;}
+.leaflet-tooltip-right.tribeMarker::before {border-right-color: transparent}
 
-.leaflet-tooltip-right.tribeMarker::before {border-right-color: transparent;}

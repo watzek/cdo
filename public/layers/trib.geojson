@@ -1,0 +1,21 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "id": 1, "Tribe": "Nez Perce", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -116.149315959119534, 45.836892527025036 ] } },
+{ "type": "Feature", "properties": { "id": 2, "Tribe": "Blackfoot", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -111.118001419245317, 47.36574554398868 ] } },
+{ "type": "Feature", "properties": { "id": 3, "Tribe": "Upper Chinook", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -121.974030099512404, 45.39020596872173 ] } },
+{ "type": "Feature", "properties": { "id": 4, "Tribe": "Tillamook", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -123.701125571373069, 45.441144991775431 ] } },
+{ "type": "Feature", "properties": { "id": 5, "Tribe": "Lower Chinook", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -123.730152386026191, 46.370224047849462 ] } },
+{ "type": "Feature", "properties": { "id": 6, "Tribe": "Shoshone", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -111.722726724518665, 42.353581135727161 ] } },
+{ "type": "Feature", "properties": { "id": 7, "Tribe": "Crow", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -107.330002107013073, 45.833521911816263 ] } },
+{ "type": "Feature", "properties": { "id": 8, "Tribe": "Arikara", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -100.61513231725786, 45.536108230494861 ] } },
+{ "type": "Feature", "properties": { "id": 9, "Tribe": "Teton", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -101.853609742457678, 45.155294611722816 ] } },
+{ "type": "Feature", "properties": { "id": 10, "Tribe": "Sans Arc Blackfoot", "major": 0 }, "geometry": { "type": "Point", "coordinates": [ -103.034033538351252, 46.15617013846402 ] } },
+{ "type": "Feature", "properties": { "id": 11, "Tribe": "Hidatsa", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -100.88012602327376, 47.166852836905207 ] } },
+{ "type": "Feature", "properties": { "id": 12, "Tribe": "Mandan", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -100.821102595482557, 46.622361139904875 ] } },
+{ "type": "Feature", "properties": { "id": 13, "Tribe": "Nut'achi", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -96.101462638697583, 40.433943878542294 ] } },
+{ "type": "Feature", "properties": { "id": 14, "Tribe": "Nut’achi", "major": 1 }, "geometry": { "type": "Point", "coordinates": [ -93.547102949222989, 39.499609673827528 ] } }
+]
+}

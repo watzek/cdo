@@ -37,7 +37,7 @@ const marker_colors = [
 	'icon_blue.png',
 	'icon_orange.png',
 	'icon_brown.png',
-  'icon_none.svg',
+	'icon_none.svg',
 	'map_marker_icon.png'
 ];
 
@@ -65,13 +65,13 @@ var context = null; // augment scope of context
 export function OnEachFeature(name, cntxt) {
 	context = cntxt;
 
-  /*
-  cntxt.refs.map.on({
-		zoomstart: () => {
-      console.log('yo')
-    }
-  });
-  */
+	/*
+	cntxt.refs.map.on({
+		  zoomstart: () => {
+		console.log('yo')
+	  }
+	});
+	*/
 
 	switch (name) {
 		case 'biomes':
@@ -81,11 +81,13 @@ export function OnEachFeature(name, cntxt) {
 			return onEachPOI;
 		case 'trail':
 			return onEachTrail;
-		case 'tribes':
+		case 'tribe':
 			return onEachTribe;
-		case'1803':
+		case 'tribes':
+			return onEachTribe2;
+		case '1803':
 			return onPolitical;
-		case'selected_rivers':
+		case 'selected_rivers':
 			return onRiv;
 		default:
 			return null;
@@ -100,26 +102,28 @@ export function PointToLayer(name, cntxt) {
 			return pointToPOI;
 		case 'outpoi':
 			return pointToPOI;
+		case 'tribe':
+			return pointToTribes;
 		case 'tribes':
-		  return pointToTribes;
+			return pointToTribes;
 		default:
 			return null;
 	}
 }
 
-function styleRiv(feature, layer){
+function styleRiv(feature, layer) {
 	var color = '#ffa500';
 	if (feature.properties.BANK === 0)
 		color = '#FFA500';
-	return { fillColor: color, fillOpacity: 0.8};
+	return { fillColor: color, fillOpacity: 0.8 };
 }
 
-function onRiv(feature, layer){
+function onRiv(feature, layer) {
 	layer.bindPopup(feature.properties.NAME);
 }
 
 
-function style1803(feature, layer){
+function style1803(feature, layer) {
 	var color = '#000000';
 	if (feature.properties.id === 1)
 		color = '#00008B';
@@ -136,8 +140,8 @@ function style1803(feature, layer){
 	return { fillColor: color, fillOpacity: 0.8, stroke: false };
 }
 
-function onPolitical(feature, layer){
-	layer.bindPopup(feature.properties.NAME, {closeOnClick: false });
+function onPolitical(feature, layer) {
+	layer.bindPopup(feature.properties.NAME, { closeOnClick: false });
 }
 
 //old version
@@ -149,7 +153,7 @@ function onPolitical(feature, layer){
 
 function pointToTribes(feature, latlng) {
 	var color = 'icon_none.svg';
-
+	//var color = 'map-marker-icon.png';
 	const teardrop = Leaflet.icon({
 		iconUrl: color,
 		iconSize: [40, 40],
@@ -172,7 +176,7 @@ function pointToPOI(feature, latlng) {
 		iconUrl: color,
 		iconSize: [26, 39], // size of the icon
 		iconAnchor: [13, 39], // point of the icon which will correspond to marker's location
-    tooltipAnchor: [7, -15]
+		tooltipAnchor: [7, -15]
 	});
 
 	const geojsonMarkerOptions = {
@@ -197,6 +201,7 @@ function pointToCities(feature, latlng) {
 
 function POIStyle(feature) {
 	return { opacity: 0 };
+
 }
 
 function trailStyle(feature) {
@@ -249,7 +254,7 @@ function biomeStyle(feature) {
 
 
 function onEachBiome(feature, layer) {
-	layer.bindPopup(feature.properties.ECO_NAME, {permanent: true});
+	layer.bindPopup(feature.properties.ECO_NAME, { permanent: true });
 }
 
 function onEachPOI(feature, layer) {
@@ -258,7 +263,7 @@ function onEachPOI(feature, layer) {
 		click: () => {
 			//bind active layer here???
 			context.props.changePane('info', feature.properties);
-      layer.bindTooltip(feature.properties.Name, {permanent: true});
+			layer.bindTooltip(feature.properties.Name, { permanent: true });
 		},
 		add: () => {
 			//console.log("help");
@@ -268,28 +273,49 @@ function onEachPOI(feature, layer) {
 }
 
 //building block of future tour feature...gets a feature and goes to it and opens the info pane
-export function goToPOI(feature, oldLayer, layer, context){
-  context.props.changePane('info', feature.properties);
+export function goToPOI(feature, oldLayer, layer, context) {
+	context.props.changePane('info', feature.properties);
 
-  const latOffset = -1.4;
-  const ll = Leaflet.GeoJSON.coordsToLatLng([
-    feature.geometry.coordinates[0] + latOffset,
-    feature.geometry.coordinates[1]
-  ]);
+	const latOffset = -1.4;
+	const ll = Leaflet.GeoJSON.coordsToLatLng([
+		feature.geometry.coordinates[0] + latOffset,
+		feature.geometry.coordinates[1]
+	]);
 
-  context.state.map.setView(ll, 7);
+	context.state.map.setView(ll, 7);
 
-	if(oldLayer != null) oldLayer.unbindTooltip();
-  layer.bindTooltip(feature.properties.Name, {permanent: true}); //having trouble here...
+	if (oldLayer != null) oldLayer.unbindTooltip();
+	layer.bindTooltip(feature.properties.Name, { permanent: true }); //having trouble here...
+}
+function onEachTribe(feature, layer) {
+	var tribeName = "" + feature.properties.Tribe;
+	if (feature.properties.major === 1) {
+		tribeName = tribeName.toUpperCase();
+	}
+
+	layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarker' })
 }
 
-function onEachTribe(feature, layer) {
-  var tribeName = "" + feature.properties.Tribe;
-  if(feature.properties.major === 1){
-    tribeName = tribeName.toUpperCase();
-  }
 
-  layer.bindTooltip(tribeName, {permanent: true, className: 'tribeMarker'})
+function onEachTribe2(feature, layer) {
+	var tribeName = "" + feature.properties.Tribe;
+	if (feature.properties.major === 1) {
+		tribeName = tribeName.toUpperCase();
+	}
+
+	layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarker', interactive: true, })
+
+	//console.log(layer);
+	layer.on({
+		click: () => {
+			//bind active layer here???
+			context.props.changeTribe('tribeInfo', feature.properties);
+			//layer.bindTooltip(feature.properties.Tribe, { permanent: true });
+		},
+		add: () => {
+			//console.log("help");
+		}
+	});
 }
 
 function onEachTrail(feature, layer) {

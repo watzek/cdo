@@ -4,6 +4,7 @@
   padding-top: 1vh;
 }
 
+
 /* must match background color*/
 /*
 #scroll:after {
@@ -24,6 +25,19 @@
 #img{
   width: 100%;
 }
+#Accordion {
+  Padding-top: 7.5px;
+}
+#Accordion a {
+  text-decoration: underline;
+  
+  
+}
+#Accordion a:hover {
+  text-decoration: underline;
+  font-style: normal;
+  color: #f25d2c !important;
+}
 
 #header{
   text-align: center;
@@ -36,7 +50,7 @@
 }
 
 /* bug is happening here */
-#contain{
+#contain{ 
   height:82%;
 }
 
@@ -44,6 +58,9 @@
   padding:.5rem;
 }
 
+.nounderline {
+  text-decoration: none !important
+}
 .Sidebar {
   width: 100%;
   padding: 0.5rem 0.2rem 0.5rem 0.5rem;
@@ -55,6 +72,19 @@
   color: #0a100d;
   background-color: #F0FFF0;
   opacity: 0.95;
+  margin-right: 2vh;
+}
+.SidebarTribe {
+  width: 100%;
+  padding: 0.5rem 0.2rem 0.5rem 0.5rem;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  height: 100%;
+  height: 90.5vh !important;
+  z-index: 1020;
+  color: #0a100d;
+  background-color: #F0FFF0;
+  opacity: 1;
   margin-right: 2vh;
 }
 
@@ -69,13 +99,36 @@
   color: gray;
 }
 
+#t{
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 100%;
+  justify-content:center;
+  align-content:center;
+  flex-direction:column;
+  padding-top: 10px;
+  padding-bottom: 5 px;
+}
+
 #exit{
   font-size: 2rem;
   text-align: right;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+#Section{
+  font-size: 2rem;
+  text-align: left;
+  padding-left: .05rem;
 
+}
+#imgBox1{
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 50px;
+  margin-top: 20px;
+}
 #imgBox{
   border: 1px solid gray;
   border-radius: 4px;
@@ -131,6 +184,21 @@ a:hover{
 
 @media only screen and (min-width: 900px) {
   .Sidebar {
+    width: 30%;
+    height: 90.5vh;
+    z-index: 1020;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .SidebarTribe {
+    width: 50%;
+    height: 90.5vh;
+    z-index: 1020;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .SidebarTribe {
     width: 30%;
     height: 90.5vh;
     z-index: 1020;
