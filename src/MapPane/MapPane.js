@@ -164,7 +164,7 @@ export default class MapPane extends React.Component {
 	}
 	loadTribeLayer(query, name, options) {
 		const url = 'https://api.airtable.com/v0/appNr9GTJe3BAOfph/Table%202?maxRecords=50&view=Grid%20view&' + query + '&sort=';
-		const key = 'keyK0KzLzGkC5JaqV';
+		const key = 'keyfN8VFBQ25v07Pv';
 
 		var geo = {};
 		geo.type = "FeatureCollection";
