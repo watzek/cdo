@@ -1,13 +1,11 @@
 /*
-SidebarTribe.js is a react component that comprises the sidebar for the tribe profiles. 
-It shows information about each tribe when they are clicked on. 
+SidebarTribe.js is a react component that comprises the sidebar for the tribe profiles.
+It shows information about each tribe when they are clicked on.
 */
-import React, { } from "react";
-import { Button } from 'reactstrap';
+import React, { Component } from "react";
+import { Button, Collapse, CardBody, Card, UncontrolledCollapse } from 'reactstrap';
 import Scroll from 'react-awesome-scroll';
 import './Sidebar.css';
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></link>
 
 
 export default class SidebarTribe extends React.Component {
@@ -15,7 +13,14 @@ export default class SidebarTribe extends React.Component {
     constructor(props) {
         super(props);
         this.addParagraph = this.addParagraph.bind(this);
+        this.toggle = this.toggle.bind(this);
+        this.state = { collapse: false };
     }
+
+    toggle() {
+  this.setState({ collapse: !this.state.collapse });
+    }
+
     addParagraph(Passage) {
         let p = Passage.split('<br/>');
         var p2 = []
@@ -76,102 +81,83 @@ export default class SidebarTribe extends React.Component {
                             }
 
                             <div id="Accordion" role="tablist" aria-multiselectable="true" >
-                                <div class="panel panel-default" >
-                                    <div class="panel-heading" role="tab" id="HeadingOne" >
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#Accordion" href="#CollapseOne" aria-expanded="true" aria-controls="CollapseOne" >
-                                                Origin Story
-        					</a>
-                                        </h4>
-                                    </div>
 
-                                    <div id="CollapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="HeadingOne">
-
+                                    <div>
+                                    <h4 id="toggler1" style={{ marginBottom: '1rem' }}><a>Origin Story</a></h4>
+                                    <UncontrolledCollapse toggler="#toggler1">
+                                      <Card>
+                                        <CardBody>
                                         {this.addParagraph(this.props.tribeInfo['Origin Story'])}
+                                        </CardBody>
+                                      </Card>
+                                    </UncontrolledCollapse>
+                                  </div>
 
-                                    </div>
+                                  <div>
+                                  <h4 id="toggler2" style={{ marginBottom: '1rem' }}><a>Early History (Before 1800)</a></h4>
+                                  <UncontrolledCollapse toggler="#toggler2">
+                                    <Card>
+                                      <CardBody>
+                                      {this.addParagraph(this.props.tribeInfo['Before 1804'])}
+                                      </CardBody>
+                                    </Card>
+                                  </UncontrolledCollapse>
                                 </div>
 
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="HeadingTwo">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#Accordion" href="#CollapseTwo" aria-expanded="false" aria-controls="CollapseTwo" >
-                                                Early History (Before 1800)
-        					</a>
-                                        </h4>
-                                    </div>
+                                <div>
+                                <h4 id="toggler3" style={{ marginBottom: '1rem' }}><a>Around the time of Lewis & Clark (1804-1806)</a></h4>
+                                <UncontrolledCollapse toggler="#toggler3">
+                                  <Card>
+                                    <CardBody>
+                                    {this.addParagraph(this.props.tribeInfo['1804-1806'])}
+                                    </CardBody>
+                                  </Card>
+                                </UncontrolledCollapse>
+                              </div>
 
-                                    <div id="CollapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="HeadingTwo">
+                              <div>
+                              <h4 id="toggler4" style={{ marginBottom: '1rem' }}><a>Modern History</a></h4>
+                              <UncontrolledCollapse toggler="#toggler4">
+                                <Card>
+                                  <CardBody>
+                                  {this.addParagraph(this.props.tribeInfo['1806-Present'])}
+                                  </CardBody>
+                                </Card>
+                              </UncontrolledCollapse>
+                            </div>
 
-                                        {this.addParagraph(this.props.tribeInfo['Before 1804'])}
-                                    </div>
-                                </div>
+                            <div>
+                            <h4 id="toggler" style={{ marginBottom: '1rem' }}><a>Present Day</a></h4>
+                            <UncontrolledCollapse toggler="#toggler">
+                              <Card>
+                                <CardBody>
+                                {this.addParagraph(this.props.tribeInfo['Present'])}
+                                </CardBody>
+                              </Card>
+                            </UncontrolledCollapse>
+                          </div>
 
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="HeadingThree">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#Accordion" href="#CollapseThree" aria-expanded="false" aria-controls="CollapseThree" >
-                                                Around the time of Lewis & Clark (1804-1806)
-        					</a>
-                                        </h4>
-                                    </div>
+                          <div>
+                          <h4 id="toggler5" style={{ marginBottom: '1rem' }}><a>Language</a></h4>
+                          <UncontrolledCollapse toggler="#toggler5">
+                            <Card>
+                              <CardBody>
+                              {this.addParagraph(this.props.tribeInfo['Language'])}
+                              </CardBody>
+                            </Card>
+                          </UncontrolledCollapse>
+                        </div>
 
-                                    <div id="CollapseThree" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="HeadingThree">
-                                        {this.addParagraph(this.props.tribeInfo['1804-1806'])}
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="HeadingFour">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#Accordion" href="#CollapseFour" aria-expanded="false" aria-controls="CollapseFour" >
-                                                Modern History
-        					</a>
-                                        </h4>
-                                    </div>
-
-                                    <div id="CollapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="HeadingFour">
-                                        {this.addParagraph(this.props.tribeInfo['1806-Present'])}
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="HeadingFive">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#Accordion" href="#CollapseFive" aria-expanded="false" aria-controls="CollapseFive">
-                                                Present Day
-        					</a>
-                                        </h4>
-                                    </div>
-
-                                    <div id="CollapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="HeadingFive">
-                                        {this.addParagraph(this.props.tribeInfo['Present'])}
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="HeadingSix">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#Accordion" href="#CollapseSix" aria-expanded="false" aria-controls="CollapseSix" >
-                                                Language
-        					</a>
-                                        </h4>
-                                    </div>
-
-                                    <div id="CollapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="HeadingSix">
-                                        {this.addParagraph(this.props.tribeInfo['Language'])}
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="HeadingSeven">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" data-toggle="collapse" data-parent="#Accordion" href="#CollapseSeven" aria-expanded="false" aria-controls="CollapseSeven" >
-                                                Religion & Culture
-        					</a>
-                                        </h4>
-                                    </div>
-
-                                    <div id="CollapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="HeadingSeven">
-                                        {this.addParagraph(this.props.tribeInfo['Religion & Culture'])}
-                                    </div>
-                                </div>
+                        <div>
+                        <h4 id="toggler6" style={{ marginBottom: '1rem' }}><a>Religion & Culture</a></h4>
+                        <UncontrolledCollapse toggler="#toggler6">
+                          <Card>
+                            <CardBody>
+                            {this.addParagraph(this.props.tribeInfo['Religion & Culture'])}
+                            </CardBody>
+                          </Card>
+                        </UncontrolledCollapse>
+                        </div>
                             </div>
                             {this.props.tribeInfo.hasOwnProperty("Works Cited") &&
                                 <div id="sec">
@@ -200,4 +186,3 @@ export default class SidebarTribe extends React.Component {
         )
     }
 }
-

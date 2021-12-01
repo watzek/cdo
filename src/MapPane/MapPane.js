@@ -110,7 +110,7 @@ export default class MapPane extends React.Component {
 
 	loadAirLayer(query, name, options) {
 		const url = 'https://api.airtable.com/v0/appNr9GTJe3BAOfph/Table%201?view=Grid%20view&' + query + '&sort=';
-		const key = 'keyfN8VFBQ25v07Pv';
+		const key = 'keybBOS8YIIJjXE8u';
 
 		var geo = {};
 		geo.type = "FeatureCollection";
@@ -164,7 +164,7 @@ export default class MapPane extends React.Component {
 	}
 	loadTribeLayer(query, name, options) {
 		const url = 'https://api.airtable.com/v0/appNr9GTJe3BAOfph/Table%202?maxRecords=50&view=Grid%20view&' + query + '&sort=';
-		const key = 'keyfN8VFBQ25v07Pv';
+		const key = 'keybBOS8YIIJjXE8u';
 
 		var geo = {};
 		geo.type = "FeatureCollection";
@@ -278,7 +278,7 @@ export default class MapPane extends React.Component {
 	zoomBind() {
 		var u = document.getElementsByClassName("tribeMarker");
 		//var lvl = (this["_zoom"] - 3) * 0.4;
-		var lvl = (this["_zoom"] - 3) * 0.54;
+		var lvl = (this["_zoom"]) * 0.2;
 		lvl += "em";
 
 		for (var i = 0; i < u.length; i++) {

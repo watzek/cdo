@@ -105,7 +105,7 @@ export function PointToLayer(name, cntxt) {
 		case 'tribe':
 			return pointToTribes;
 		case 'tribes':
-			return pointToTribes;
+			return pointToTribes2;
 		default:
 			return null;
 	}
@@ -152,11 +152,14 @@ function onPolitical(feature, layer){
 */
 
 function pointToTribes(feature, latlng) {
-	var color = 'icon_none.svg';
-	//var color = 'map-marker-icon.png';
+//	var color = 'icon_none.svg';
+	var color = 'map-marker-icon-gray.png';
+	if (feature.properties.major === 1) {
+		color = 'map-marker-icon.png';
+	}
 	const teardrop = Leaflet.icon({
 		iconUrl: color,
-		iconSize: [40, 40],
+		iconSize: [20, 20],
 		iconAnchor: [19, 35]
 	});
 
@@ -164,9 +167,33 @@ function pointToTribes(feature, latlng) {
 		icon: teardrop,
 		zIndexOffset: 10000
 
+
 	};
 	return Leaflet.marker(latlng, geojsonMarkerOptions);
 }
+
+
+function pointToTribes2(feature, latlng) {
+//	var color = 'icon_none.svg';
+	var color = 'map-marker-icon.png';
+	//if (feature.properties.major === 1) {
+	//	color = 'map-marker-icon.png';
+	//}
+	const teardrop = Leaflet.icon({
+		iconUrl: color,
+		iconSize: [20, 20],
+		iconAnchor: [19, 35]
+	});
+
+	const geojsonMarkerOptions = {
+		icon: teardrop,
+		zIndexOffset: 10000
+
+
+	};
+	return Leaflet.marker(latlng, geojsonMarkerOptions);
+}
+
 
 function pointToPOI(feature, latlng) {
 	var color = marker_colors[categories.indexOf(feature.properties.Category[0])];
@@ -289,21 +316,21 @@ export function goToPOI(feature, oldLayer, layer, context) {
 }
 function onEachTribe(feature, layer) {
 	var tribeName = "" + feature.properties.Tribe;
-	if (feature.properties.major === 1) {
-		tribeName = tribeName.toUpperCase();
-	}
+	//if (feature.properties.major === 1) {
+	//	tribeName = tribeName.toUpperCase();
+	//}
 
-	layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarker' })
+	layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarker', offset: Leaflet.point(-12,-12), direction:'right' })
 }
 
 
 function onEachTribe2(feature, layer) {
 	var tribeName = "" + feature.properties.Tribe;
-	if (feature.properties.major === 1) {
-		tribeName = tribeName.toUpperCase();
-	}
+	//if (feature.properties.major === 1) {
+	//	tribeName = tribeName.toUpperCase();
+	//}
 
-	layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarker', interactive: true, })
+	layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarker', offset: Leaflet.point(-12,-12), direction:'right' })
 
 	//console.log(layer);
 	layer.on({
