@@ -26,13 +26,16 @@ Initiated in the fall of 2017, the project was developed by <a href='https://www
 As of 14 February 2019, we are making the Atlas available to the public in a beta mode so that we may fix content and functionality errors. If you have feedback regarding the content or the functionality of the atlas, please share it with us using this <a href='https://docs.google.com/forms/d/e/1FAIpQLSeQTDwdxE3JNEegM8vMGRwECQNoBVEsGJMUTOhtmm3VUvmJNA/viewform?usp=sf_link' target='_blank'>online form</a> by 1 August 1, 2019.
   </p>
   <p>
+  In Spring 2021, a team of History students began working on profiles of Native American tribes in the vicinity of the expedition. This work is still in the testing phase and may be seen in the “beta-tribes” layer. A second team will continue developing and editing the content of the tribes layer in Spring 2022.
+  </p>
+  <p>
+  Please contact Mark Dahl (dahl@lclark.edu) with any feedback regarding the Atlas.
+  </p>
+  <p>
   <strong>Current Project Team</strong>
   </p>
   <p>
   EJ Carter, Special Collections Librarian
-  </p>
-  <p>
-  Hannah Crummé, Head of Special Collections and College Archivist
   </p>
   <p>
   Mark Dahl, Director of the Aubrey R. Watzek Library
@@ -70,7 +73,25 @@ As of 14 February 2019, we are making the Atlas available to the public in a bet
   <p>
   Quinn Vinlove, Computer Science '20
   </p>
-
+  <p>
+  Garland Joseph, History ’21
+  </p>
+  <p>
+  Georgia King, History ‘22
+  </p>
+  <p>
+  Ethan Tolpin, History ‘22
+  </p>
+  <p>
+  Lucy Hamill, History ‘21
+  </p>
+  <p>
+  Marian Hampe, History ‘22
+  </p>
+  <p>
+  Jake Peterfeso, Physics ‘22
+  </p>
+  
   <p>
   <strong>Acknowledgements</strong>
   </p>
