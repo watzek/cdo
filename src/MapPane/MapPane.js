@@ -284,6 +284,11 @@ export default class MapPane extends React.Component {
 		for (var i = 0; i < u.length; i++) {
 			u[i].style.fontSize = lvl;
 		}
+		var v = document.getElementsByClassName("tribeMarker2");
+
+		for (var i = 0; i < v.length; i++) {
+			v[i].style.fontSize = lvl;
+		}
 	}
 
 

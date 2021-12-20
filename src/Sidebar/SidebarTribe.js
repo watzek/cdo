@@ -85,77 +85,63 @@ export default class SidebarTribe extends React.Component {
                                     <div>
                                     <h4 id="toggler1" style={{ marginBottom: '1rem' }}><a>Origin Story</a></h4>
                                     <UncontrolledCollapse toggler="#toggler1">
-                                      <Card>
                                         <CardBody>
                                         {this.addParagraph(this.props.tribeInfo['Origin Story'])}
                                         </CardBody>
-                                      </Card>
                                     </UncontrolledCollapse>
                                   </div>
 
                                   <div>
                                   <h4 id="toggler2" style={{ marginBottom: '1rem' }}><a>Early History (Before 1800)</a></h4>
                                   <UncontrolledCollapse toggler="#toggler2">
-                                    <Card>
                                       <CardBody>
                                       {this.addParagraph(this.props.tribeInfo['Before 1804'])}
                                       </CardBody>
-                                    </Card>
                                   </UncontrolledCollapse>
                                 </div>
 
                                 <div>
                                 <h4 id="toggler3" style={{ marginBottom: '1rem' }}><a>Around the time of Lewis & Clark (1804-1806)</a></h4>
                                 <UncontrolledCollapse toggler="#toggler3">
-                                  <Card>
                                     <CardBody>
                                     {this.addParagraph(this.props.tribeInfo['1804-1806'])}
                                     </CardBody>
-                                  </Card>
                                 </UncontrolledCollapse>
                               </div>
 
                               <div>
                               <h4 id="toggler4" style={{ marginBottom: '1rem' }}><a>Modern History</a></h4>
                               <UncontrolledCollapse toggler="#toggler4">
-                                <Card>
                                   <CardBody>
                                   {this.addParagraph(this.props.tribeInfo['1806-Present'])}
                                   </CardBody>
-                                </Card>
                               </UncontrolledCollapse>
                             </div>
 
                             <div>
                             <h4 id="toggler" style={{ marginBottom: '1rem' }}><a>Present Day</a></h4>
                             <UncontrolledCollapse toggler="#toggler">
-                              <Card>
                                 <CardBody>
                                 {this.addParagraph(this.props.tribeInfo['Present'])}
                                 </CardBody>
-                              </Card>
                             </UncontrolledCollapse>
                           </div>
 
                           <div>
                           <h4 id="toggler5" style={{ marginBottom: '1rem' }}><a>Language</a></h4>
                           <UncontrolledCollapse toggler="#toggler5">
-                            <Card>
                               <CardBody>
                               {this.addParagraph(this.props.tribeInfo['Language'])}
                               </CardBody>
-                            </Card>
                           </UncontrolledCollapse>
                         </div>
 
                         <div>
                         <h4 id="toggler6" style={{ marginBottom: '1rem' }}><a>Religion & Culture</a></h4>
                         <UncontrolledCollapse toggler="#toggler6">
-                          <Card>
                             <CardBody>
                             {this.addParagraph(this.props.tribeInfo['Religion & Culture'])}
                             </CardBody>
-                          </Card>
                         </UncontrolledCollapse>
                         </div>
                             </div>

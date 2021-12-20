@@ -4,7 +4,7 @@
 .tribeMarker2 {
   background: none;
   background-color: none;
-  color: black;
+  color: #505050;
   border: none;
   box-shadow: none;
   font-weight: bold;
@@ -26,3 +26,11 @@
 .leaflet-tooltip-left.tribeMarker::before {border-left-color: transparent}
 
 .leaflet-tooltip-right.tribeMarker::before {border-right-color: transparent}
+
+.leaflet-toolTip.tribeMarker2:hover {
+  text-decoration:underline;
+  color: red;
+}
+.leaflet-tooltip-left.tribeMarker2::before {border-left-color: transparent}
+
+.leaflet-tooltip-right.tribeMarker2::before {border-right-color: transparent}

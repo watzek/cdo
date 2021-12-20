@@ -152,11 +152,12 @@ function onPolitical(feature, layer){
 */
 
 function pointToTribes(feature, latlng) {
-//	var color = 'icon_none.svg';
-	var color = 'map-marker-icon-gray.png';
+	var color = 'icon_none.svg';
+/*	var color = 'map-marker-icon-gray.png';
 	if (feature.properties.major === 1) {
 		color = 'map-marker-icon.png';
 	}
+*/
 	const teardrop = Leaflet.icon({
 		iconUrl: color,
 		iconSize: [20, 20],
@@ -174,11 +175,12 @@ function pointToTribes(feature, latlng) {
 
 
 function pointToTribes2(feature, latlng) {
-//	var color = 'icon_none.svg';
-	var color = 'map-marker-icon.png';
+	var color = 'icon_none.svg';
+/*	var color = 'map-marker-icon.png';
 	//if (feature.properties.major === 1) {
 	//	color = 'map-marker-icon.png';
 	//}
+*/
 	const teardrop = Leaflet.icon({
 		iconUrl: color,
 		iconSize: [20, 20],
@@ -316,21 +318,19 @@ export function goToPOI(feature, oldLayer, layer, context) {
 }
 function onEachTribe(feature, layer) {
 	var tribeName = "" + feature.properties.Tribe;
-	//if (feature.properties.major === 1) {
-	//	tribeName = tribeName.toUpperCase();
-	//}
-
-	layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarker', offset: Leaflet.point(-12,-12), direction:'right' })
+	if (feature.properties.major === 1) {
+		layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarker', offset: Leaflet.point(-12,-12), direction:'right',})
+	}
+	else {
+		layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarker2', offset: Leaflet.point(-12,-12), direction:'right',})
+	}
 }
 
 
 function onEachTribe2(feature, layer) {
 	var tribeName = "" + feature.properties.Tribe;
-	//if (feature.properties.major === 1) {
-	//	tribeName = tribeName.toUpperCase();
-	//}
-
-	layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarker', offset: Leaflet.point(-12,-12), direction:'right' })
+	
+	layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarker', offset: Leaflet.point(-12,-12), direction:'right',interactive: true,})
 
 	//console.log(layer);
 	layer.on({
