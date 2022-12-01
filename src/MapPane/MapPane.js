@@ -258,8 +258,10 @@ export default class MapPane extends React.Component {
 	}
 
 	renderPath(path) {
+		console.log(path);
 		let list = [];
 		path.forEach((layer, name) => {
+			console.log(name);
 			list.push(this.renderJSON(layer, name));
 		});
 		return list;
@@ -289,6 +291,11 @@ export default class MapPane extends React.Component {
 		for (var i = 0; i < v.length; i++) {
 			v[i].style.fontSize = lvl;
 		}
+		var w = document.getElementsByClassName("tribeMarkerBeta");
+
+		for (var i = 0; i < w.length; i++) {
+			w[i].style.fontSize = lvl;
+		}
 	}
 
 
@@ -315,6 +322,7 @@ export default class MapPane extends React.Component {
 
 	//onPopupOpen={console.log(this.state.map)}
 	render() {
+		console.log(this.state.out);
 		return (
 			<div>
 				<LMap

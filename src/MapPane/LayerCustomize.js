@@ -213,7 +213,7 @@ function pointToPOI(feature, latlng) {
 		zIndexOffset: 10000
 		//title:feature.properties.Name
 	};
-	return Leaflet.marker(latlng, geojsonMarkerOptions); //.bindTooltip(feature.properties.Name)
+	return Leaflet.marker(latlng, geojsonMarkerOptions).bindTooltip(feature.properties.Name);
 }
 
 //unused for now
@@ -329,8 +329,8 @@ function onEachTribe(feature, layer) {
 
 function onEachTribe2(feature, layer) {
 	var tribeName = "" + feature.properties.Tribe;
-	
-	layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarker', offset: Leaflet.point(-12,-12), direction:'right',interactive: true,})
+
+	layer.bindTooltip(tribeName, { permanent: true, className: 'tribeMarkerBeta', offset: Leaflet.point(-12,-12), direction:'right',interactive: true,})
 
 	//console.log(layer);
 	layer.on({

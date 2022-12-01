@@ -78,22 +78,22 @@ export default class Sidebar extends React.Component {
 		return (
 			<div className="Sidebar position-absolute">
 
+			<Button
+				aria-label="Previous"
+				outline color="secondary"
+				onClick={() => this.props.changeWaypoint(this.props.paneInfo.WaypointID - 1)}
+				id="tour">
+
+				<span aria-hidden="true">Previous</span>
+			</Button>
+
 				<Button
 					aria-label="Next"
 					outline color="secondary"
 					onClick={() => this.props.changeWaypoint(this.props.paneInfo.WaypointID + 1)}
 					id="tour">
 
-					<span aria-hidden="true">Forward</span>
-				</Button>
-
-				<Button
-					aria-label="Previous"
-					outline color="secondary"
-					onClick={() => this.props.changeWaypoint(this.props.paneInfo.WaypointID - 1)}
-					id="tour">
-
-					<span aria-hidden="true">Back</span>
+					<span aria-hidden="true">Next</span>
 				</Button>
 
 				<Button
