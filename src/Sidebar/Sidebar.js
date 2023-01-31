@@ -126,7 +126,7 @@ export default class Sidebar extends React.Component {
 						<Scroll>
 							{this.props.paneInfo.hasOwnProperty("Picture") &&
 								<div id="imgBox">
-									<img id="img" alt={this.props.paneInfo ? this.props.paneInfo.Name : null} src={this.props.paneInfo.Picture[0].thumbnails.large.url} />
+									<img id="img" alt={this.props.paneInfo ? this.props.paneInfo.Name : null} src={this.props.paneInfo.awsImageLink} />
 									{this.props.paneInfo.hasOwnProperty('Image description') &&
 										<div id="infoText">{this.props.paneInfo['Image description']}</div>
 									}

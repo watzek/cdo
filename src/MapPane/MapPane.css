@@ -38,6 +38,11 @@
 
 .leaflet-tooltip-right.tribeMarker::before {border-right-color: transparent}
 
+.leaflet-tooltip-left.tribeMarkerBeta::before {border-left-color: transparent}
+
+.leaflet-tooltip-right.tribeMarkerBeta::before {border-right-color: transparent}
+
+
 .leaflet-toolTip.tribeMarker2:hover {
   text-decoration:underline;
   color: red;

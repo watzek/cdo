@@ -73,7 +73,7 @@ export default class SidebarTribe extends React.Component {
 
                             {this.props.tribeInfo.hasOwnProperty("Image") &&
                                 <div id="imgBox">
-                                    <img id="img" alt={this.props.tribeInfo ? this.props.tribeInfo.Tribe : null} src={this.props.tribeInfo.Image[0].thumbnails.large.url} />
+                                    <img id="img" alt={this.props.tribeInfo ? this.props.tribeInfo.Tribe : null} src={this.props.tribeInfo.awsImageLink} />
                                     {this.props.tribeInfo.hasOwnProperty('Image Description') &&
                                         <div id="infoText">{this.props.tribeInfo['Image Description']}</div>
                                     }
