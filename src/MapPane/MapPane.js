@@ -41,7 +41,7 @@ export default class MapPane extends React.Component {
 
 	componentDidMount() {
 		this.loadJSONLayer('biomes', { alias: 'Biomes' });
-		this.loadJSONLayer('tribe', { alias: 'Tribes' });
+		this.loadJSONLayer('tribe', { alias: 'Indigenous Nations' });
 		this.loadJSONLayer('1803', { alias: '1803 Political Map' });
 		this.loadJSONLayer('selected_rivers', { alias: 'Rivers' });
 		this.loadJSONLayer('rettrail', { alias: 'Return', journey: 'ret' });
@@ -353,7 +353,7 @@ export default class MapPane extends React.Component {
 						<LayersControl.BaseLayer name="Return Trail">
 							<LayerGroup>{this.renderClean(this.state.ret)}</LayerGroup>
 						</LayersControl.BaseLayer>
-						<LayersControl.Overlay name="Beta-Tribes" >
+						<LayersControl.Overlay name="Beta - Indigenous Nations" >
 							<LayerGroup>{this.renderClean(this.state.tribes)}</LayerGroup>
 						</LayersControl.Overlay>
 						<LayersControl.Overlay name="USA Rivers, Streams" key="usars">

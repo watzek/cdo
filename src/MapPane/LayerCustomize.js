@@ -26,7 +26,7 @@ import 'leaflet/dist/leaflet';
 const categories = [
 	'Geographic Feature',
 	'Key Events',
-	'Native American Encounter',
+	'Indigenous Nations Encounter',
 	'Important Campsite',
 	'Natural History'
 ];
