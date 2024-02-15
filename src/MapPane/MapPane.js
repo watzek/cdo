@@ -110,7 +110,7 @@ export default class MapPane extends React.Component {
 
 	loadAirLayer(query, name, options) {
 		const url = 'https://api.airtable.com/v0/appNr9GTJe3BAOfph/Table%201?view=Grid%20view&' + query + '&sort=';
-		const key = 'keybBOS8YIIJjXE8u';
+		const key = 'patGA6zhyNLSwUHLO.8c5e0f83d095ad7952ba0ded75eec106a6540021976b36be8a79be22eace8d6b';
 
 		var geo = {};
 		geo.type = "FeatureCollection";
@@ -164,7 +164,7 @@ export default class MapPane extends React.Component {
 	}
 	loadTribeLayer(query, name, options) {
 		const url = 'https://api.airtable.com/v0/appNr9GTJe3BAOfph/Table%202?maxRecords=50&view=Grid%20view&' + query + '&sort=';
-		const key = 'keybBOS8YIIJjXE8u';
+		const key = 'patGA6zhyNLSwUHLO.8c5e0f83d095ad7952ba0ded75eec106a6540021976b36be8a79be22eace8d6b';
 
 		var geo = {};
 		geo.type = "FeatureCollection";
