@@ -60,7 +60,7 @@ class ModalContent extends React.Component {
   };
 
   //the tab system is kind of a hack, but it makes some amount of sense...
-  render() {
+  /*render() {
     const tabStyles = [closedTabStyle, closedTabStyle];
     tabStyles[this.state.selected] = tabStyle;
 
@@ -87,7 +87,7 @@ class ModalContent extends React.Component {
       </div>,
       document.body
     );
-  }
+  } */
 }
 
 const ModalTrigger = ({ onOpen }) => <button aria-label="Info" class="close btn" id="openStyle" onClick={onOpen}>&#9432; <span id="iText">info</span></button>;
@@ -108,7 +108,7 @@ export default class CreditModal extends React.Component {
     this.setState({ open: false });
   };
 
-  render() {
+ /* render() {
 
     return (
       <React.Fragment>
@@ -116,5 +116,8 @@ export default class CreditModal extends React.Component {
         {this.state.open && <ModalContent onClose={this.onClose} />}
       </React.Fragment>
     );
+  }
+  */
+  render() {return ( <a href="https://t.ly/GW6TN" target="_blank"> <button aria-label="Info" class="close btn" id="openStyle">&#9432; <span id="iText">info</span></button> </a> )
   }
 }
