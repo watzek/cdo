@@ -26,6 +26,7 @@ Happy coding!
 * deploy contents of build folder to S3 bucket (lcatlas.lclark.edu)
 * properties -> Static Web site hosting - enable it.
 * permissions -> bucket policy - use something like this:
+* add info about images bucket (tbd)
 ```
 {
     "Version": "2012-10-17",
