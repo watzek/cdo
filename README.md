@@ -23,7 +23,7 @@ Happy coding!
 * clone repo
 * npm install
 * npm run build
-* deploy contents of build folder to S3 bucket (lc-atlas)
+* deploy contents of build folder to S3 bucket (lc.lclark.edu)
 * properties -> Static Web site hosting - enable it.
 * permissions -> bucket policy - use something like this:
 ```
