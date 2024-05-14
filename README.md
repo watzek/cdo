@@ -27,6 +27,7 @@ Happy coding!
 * properties -> Static Web site hosting - enable it.
 * permissions -> bucket policy - use something like this:
 * add info about images bucket (tbd)
+* add info about testing locally before deploying
 ```
 {
     "Version": "2012-10-17",
